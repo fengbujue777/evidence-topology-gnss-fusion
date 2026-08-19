@@ -1,0 +1,15 @@
+{
+  "bag": "LOCSP/CR2/locsp_08_04_2024_anneau_cite_scientifique_2024-04-08-12-14-51.bag",
+  "topic": "/hesai/pandar",
+  "selected_scans": 257,
+  "scan_stride": 12,
+  "points_per_scan_cap": 2400,
+  "source_map_points": 616800,
+  "naive_map_points": 616800,
+  "maximum_source_naive_xy_separation_m": 0.931130708822736,
+  "detail_selection": "post-evaluation epoch with largest naive-minus-source horizontal error",
+  "detail_source_xy_error_m": 1.2213984289173752,
+  "detail_naive_xy_error_m": 2.1507033276048033,
+  "detail_horizontal_error_reduction_m": 0.9293048986874282,
+  "map_construction": "Identical Hesai scans and KISS-ICP orientations; method-specific antenna-reference translations only."
+}

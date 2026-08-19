@@ -1,0 +1,41 @@
+{
+  "repeats": 5,
+  "route": "UrbanNav HK Medium",
+  "state_epochs": 587,
+  "common_gnss_epochs": 177,
+  "hardware": {
+    "cpu": "13th Gen Intel Core i9-13980HX",
+    "logical_processors": 32,
+    "ram_gb": 15.7,
+    "environment": "WSL2 Ubuntu on Windows 11",
+    "gpu_used": false
+  },
+  "method_total_excluding_file_io_s": {
+    "all_receiver_cauchy": {
+      "mean": 0.47124113799999884,
+      "sample_sd": 0.02507370865087159
+    },
+    "switch_irls": {
+      "mean": 0.6149670528000009,
+      "sample_sd": 0.029554854587710656
+    },
+    "dcs_irls": {
+      "mean": 0.6089282889999996,
+      "sample_sd": 0.030722020954874207
+    },
+    "proposed": {
+      "mean": 0.48412632560000085,
+      "sample_sd": 0.023988847504298277
+    }
+  },
+  "topology_decision_s": {
+    "mean": 0.00865724400000083,
+    "sample_sd": 0.00038773027480978574,
+    "mean_ms_per_common_gnss_epoch": 0.04891098305085215
+  },
+  "proposed_graph_optimization_s": {
+    "mean": 0.051358991200000405,
+    "sample_sd": 0.001544377507090465
+  },
+  "timing_scope": "CPU process time; common preprocessing plus graph computation; file I/O and KISS-ICP point-cloud registration excluded."
+}

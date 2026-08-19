@@ -1,0 +1,3315 @@
+{
+  "evidentiary_status": "MOTION_MARGIN_SUBSET_CANDIDATE",
+  "epoch_policy": "all_sources",
+  "ablation": "none",
+  "truth_access_policy": "All grouping, alignment, branch adjudication, receiver selection, and trajectory optimization completed before hidden truth was read.",
+  "physical_receiver_groups": [
+    "novatel",
+    "ublox_f9p",
+    "ublox_m8t"
+  ],
+  "common_epoch_count": 725,
+  "state_epoch_count": 1535,
+  "evaluation_start_index": 61,
+  "evaluation_epoch_count": 1474,
+  "decision": {
+    "alignment_prefix_epoch_count": 120,
+    "initial_prefix_policy": "fixed_count",
+    "window_epochs": 30,
+    "decision_stride_epochs": 0,
+    "contamination_threshold": 0.1,
+    "receiver_dispersion_threshold": 2.0,
+    "persistent_shift_ratio_threshold": 1.35,
+    "persistent_shift_difference_threshold_m": 12.0,
+    "selected_receiver_isolation_ratio_threshold": 0.8,
+    "pairwise_median_limit_m": 19.8731952603613,
+    "pairwise_p95_limit_m": 32.952580039725554,
+    "sudden_pair_shift_ratio_threshold": 2.0,
+    "sudden_pair_shift_difference_threshold_m": 8.0,
+    "sudden_pair_tail_ratio_ceiling": 3.0,
+    "quorum_pair_tail_ratio_threshold": 1.4,
+    "initial_adjudication": {
+      "prefix_epoch_count": 60,
+      "selected_branch": "isolated_receiver_gaussian",
+      "selected_receiver": "novatel",
+      "selected_family": "direct",
+      "consensus_relative_mismatch": {
+        "median": 0.9516530546788464,
+        "mad": 0.4556206204152687,
+        "robust_sigma": 0.6755031318276773,
+        "p95": 2.9533892657511567,
+        "contamination_fraction": 0.05084745762711865
+      },
+      "receiver_relative_mismatch": {
+        "novatel": {
+          "median": 0.5139177435733577,
+          "mad": 0.2278418700910413,
+          "robust_sigma": 0.33779835659697777,
+          "p95": 1.6437664075242429,
+          "contamination_fraction": 0.0847457627118644
+        },
+        "ublox_f9p": {
+          "median": 0.8223123491393407,
+          "mad": 0.39673252798636005,
+          "robust_sigma": 0.5881956459925773,
+          "p95": 3.552728887388615,
+          "contamination_fraction": 0.1016949152542373
+        },
+        "ublox_m8t": {
+          "median": 2.834005101725541,
+          "mad": 1.6575988732638534,
+          "robust_sigma": 2.4575560895009887,
+          "p95": 16.15582417384985,
+          "contamination_fraction": 0.11864406779661017
+        }
+      },
+      "receiver_absolute_residual": {
+        "novatel": {
+          "median": 1.7939856080968237,
+          "mad": 0.8396036897365753,
+          "robust_sigma": 1.2447964304034465,
+          "p95": 7.14984036479472,
+          "contamination_fraction": 0.21666666666666667
+        },
+        "ublox_f9p": {
+          "median": 2.045512901310742,
+          "mad": 0.6700018191340277,
+          "robust_sigma": 0.9933446970481093,
+          "p95": 8.447230175105531,
+          "contamination_fraction": 0.23333333333333334
+        },
+        "ublox_m8t": {
+          "median": 4.097491611903209,
+          "mad": 2.141193426802854,
+          "robust_sigma": 3.1745333745779107,
+          "p95": 17.73793623670383,
+          "contamination_fraction": 0.1
+        }
+      },
+      "receiver_motion_p95_dispersion_ratio": 9.82854017450261,
+      "receiver_absolute_median_dispersion_ratio": 2.284015876944572,
+      "maximum_pairwise_receiver_separation": {
+        "median": 4.714293072009596,
+        "mad": 1.7040899083087937,
+        "robust_sigma": 2.5264836980586174,
+        "p95": 12.952580039725552,
+        "contamination_fraction": 0.08333333333333333
+      },
+      "receiver_pair_separation": {
+        "novatel__ublox_f9p": {
+          "median": 1.9950874766789783,
+          "mad": 0.5243028332149176,
+          "robust_sigma": 0.7773313805244367,
+          "p95": 3.591082929575892,
+          "contamination_fraction": 0.016666666666666666
+        },
+        "novatel__ublox_m8t": {
+          "median": 3.9569932742225347,
+          "mad": 1.8271052206139216,
+          "robust_sigma": 2.7088662000822,
+          "p95": 12.694539789982274,
+          "contamination_fraction": 0.06666666666666667
+        },
+        "ublox_f9p__ublox_m8t": {
+          "median": 3.909179170781548,
+          "mad": 1.9549090272125096,
+          "robust_sigma": 2.8983481237452664,
+          "p95": 12.952580039725552,
+          "contamination_fraction": 0.06666666666666667
+        }
+      },
+      "pairwise_mahalanobis_d2": {
+        "median": 0.26018645861837125,
+        "p95": 1.2902658956900972,
+        "chi2_3_95_threshold": 7.814727903251179,
+        "fraction_within_chi2_3_95": 1.0,
+        "prefix_receivers_statistically_consistent": true
+      }
+    },
+    "ablation": "none",
+    "change_action": "topology_adaptive",
+    "provisional_action": "quorum_aware",
+    "branch_counts": {
+      "anchored_receiver_cauchy": 3,
+      "anchored_receiver_nominal": 8,
+      "provisional_quorum_consensus_cauchy": 2,
+      "change_guard_distributed_consensus_cauchy": 11
+    },
+    "receiver_counts": {
+      "novatel": 11,
+      "all_physical_receivers": 13
+    },
+    "windows": [
+      {
+        "start_epoch": 0,
+        "stop_epoch": 30,
+        "start_common_epoch": 0,
+        "stop_common_epoch": 30,
+        "consensus_relative_mismatch": {
+          "median": 0.5988817216983259,
+          "mad": 0.3010834667908158,
+          "robust_sigma": 0.4463863478640635,
+          "p95": 2.210829515094069,
+          "contamination_fraction": 0.06896551724137931
+        },
+        "receiver_relative_mismatch": {
+          "novatel": {
+            "median": 0.4106514880988003,
+            "mad": 0.14645706908764428,
+            "robust_sigma": 0.2171372506293414,
+            "p95": 1.708942458740963,
+            "contamination_fraction": 0.20689655172413793
+          },
+          "ublox_f9p": {
+            "median": 0.5793636355448282,
+            "mad": 0.29141986210205717,
+            "robust_sigma": 0.43205908755250994,
+            "p95": 1.6461069830443065,
+            "contamination_fraction": 0.034482758620689655
+          },
+          "ublox_m8t": {
+            "median": 3.0153485444798793,
+            "mad": 2.29711338032563,
+            "robust_sigma": 3.405700297670779,
+            "p95": 13.89717882486193,
+            "contamination_fraction": 0.06896551724137931
+          }
+        },
+        "receiver_absolute_residual": {
+          "novatel": {
+            "median": 1.2087942927385784,
+            "mad": 0.29148775510681857,
+            "robust_sigma": 0.43215974572136917,
+            "p95": 1.9933934343960316,
+            "contamination_fraction": 0.03333333333333333
+          },
+          "ublox_f9p": {
+            "median": 1.8836250860339085,
+            "mad": 0.4243546211996977,
+            "robust_sigma": 0.6291481613906718,
+            "p95": 2.712501863792449,
+            "contamination_fraction": 0.0
+          },
+          "ublox_m8t": {
+            "median": 4.097491611903209,
+            "mad": 1.9781921224409453,
+            "robust_sigma": 2.9328676407309455,
+            "p95": 12.599690386162772,
+            "contamination_fraction": 0.03333333333333333
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 4.558613932874617,
+          "mad": 1.4155527805899328,
+          "robust_sigma": 2.0986985525026345,
+          "p95": 12.244535212111474,
+          "contamination_fraction": 0.1
+        },
+        "receiver_pair_separation": {
+          "novatel__ublox_f9p": {
+            "median": 1.6827737292708576,
+            "mad": 0.39185081299866,
+            "robust_sigma": 0.5809580153518132,
+            "p95": 2.7873982332900518,
+            "contamination_fraction": 0.0
+          },
+          "novatel__ublox_m8t": {
+            "median": 3.9569932742225347,
+            "mad": 1.7633303339969837,
+            "robust_sigma": 2.6143135531839277,
+            "p95": 12.244535212111474,
+            "contamination_fraction": 0.06666666666666667
+          },
+          "ublox_f9p__ublox_m8t": {
+            "median": 4.033515606345041,
+            "mad": 1.3730656201511997,
+            "robust_sigma": 2.0357070884361685,
+            "p95": 10.640783109912986,
+            "contamination_fraction": 0.13333333333333333
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 8.442451777441901,
+        "receiver_absolute_median_dispersion_ratio": 3.389734412643656,
+        "receiver_scores": {
+          "novatel": 2.0381721700617836,
+          "ublox_f9p": 2.5582676865279286,
+          "ublox_m8t": 11.832186190085558
+        },
+        "selected_branch": "anchored_receiver_cauchy",
+        "selected_receiver": "novatel",
+        "selected_family": "cauchy",
+        "unanchored_selected_branch": "isolated_receiver_gaussian",
+        "unanchored_selected_receiver": "novatel",
+        "unanchored_selected_family": "direct",
+        "change_guard_reason": "selected_receiver_heavy_tail",
+        "selected_pair_key": "novatel__ublox_f9p",
+        "selected_pair_tail_ratio": 1.65643079922446,
+        "sudden_selected_pair_shift": false,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": false,
+        "receiver_divergence": false
+      },
+      {
+        "start_epoch": 30,
+        "stop_epoch": 60,
+        "start_common_epoch": 30,
+        "stop_common_epoch": 60,
+        "consensus_relative_mismatch": {
+          "median": 1.1633281063407677,
+          "mad": 0.4680347586886491,
+          "robust_sigma": 0.6939083332317911,
+          "p95": 3.610789215645308,
+          "contamination_fraction": 0.06896551724137931
+        },
+        "receiver_relative_mismatch": {
+          "novatel": {
+            "median": 0.7274340827906012,
+            "mad": 0.3020104276874196,
+            "robust_sigma": 0.44776066008936827,
+            "p95": 1.4972634369272129,
+            "contamination_fraction": 0.034482758620689655
+          },
+          "ublox_f9p": {
+            "median": 1.190189078616598,
+            "mad": 0.5265965188066648,
+            "robust_sigma": 0.7807319987827612,
+            "p95": 4.763167178735174,
+            "contamination_fraction": 0.10344827586206896
+          },
+          "ublox_m8t": {
+            "median": 2.3135135066330466,
+            "mad": 1.8224458061587812,
+            "robust_sigma": 2.701958152211009,
+            "p95": 15.334962773269401,
+            "contamination_fraction": 0.13793103448275862
+          }
+        },
+        "receiver_absolute_residual": {
+          "novatel": {
+            "median": 3.39243048574438,
+            "mad": 2.263247389797228,
+            "robust_sigma": 3.3554905801133703,
+            "p95": 7.3768710562639885,
+            "contamination_fraction": 0.0
+          },
+          "ublox_f9p": {
+            "median": 3.5132600704209107,
+            "mad": 2.779094689777798,
+            "robust_sigma": 4.120285787064564,
+            "p95": 9.138058948033716,
+            "contamination_fraction": 0.0
+          },
+          "ublox_m8t": {
+            "median": 4.1619645616418035,
+            "mad": 2.3580986041981173,
+            "robust_sigma": 3.4961169905841287,
+            "p95": 19.409902250899183,
+            "contamination_fraction": 0.13333333333333333
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 4.714293072009596,
+          "mad": 1.758461855406354,
+          "robust_sigma": 2.60709554682546,
+          "p95": 14.52275416701148,
+          "contamination_fraction": 0.1
+        },
+        "receiver_pair_separation": {
+          "novatel__ublox_f9p": {
+            "median": 2.2357997073201425,
+            "mad": 0.6329741393862545,
+            "robust_sigma": 0.9384474590540608,
+            "p95": 3.6266497729645253,
+            "contamination_fraction": 0.0
+          },
+          "novatel__ublox_m8t": {
+            "median": 4.190001696559785,
+            "mad": 2.2559791007546073,
+            "robust_sigma": 3.3447146147787805,
+            "p95": 12.302755784512879,
+            "contamination_fraction": 0.03333333333333333
+          },
+          "ublox_f9p__ublox_m8t": {
+            "median": 3.6581842820862107,
+            "mad": 2.2311374110425124,
+            "robust_sigma": 3.307884325611629,
+            "p95": 14.52275416701148,
+            "contamination_fraction": 0.06666666666666667
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 10.241993756783955,
+        "receiver_absolute_median_dispersion_ratio": 1.2268385687285703,
+        "receiver_scores": {
+          "novatel": 2.0,
+          "ublox_f9p": 4.216865986577226,
+          "ublox_m8t": 11.468832325512526
+        },
+        "selected_branch": "anchored_receiver_nominal",
+        "selected_receiver": "novatel",
+        "selected_family": "direct",
+        "unanchored_selected_branch": "isolated_receiver_gaussian",
+        "unanchored_selected_receiver": "novatel",
+        "unanchored_selected_family": "direct",
+        "change_guard_reason": "no_change",
+        "selected_pair_key": "novatel__ublox_f9p",
+        "selected_pair_tail_ratio": 1.6220816923316772,
+        "sudden_selected_pair_shift": false,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": false,
+        "receiver_divergence": false
+      },
+      {
+        "start_epoch": 60,
+        "stop_epoch": 90,
+        "start_common_epoch": 60,
+        "stop_common_epoch": 90,
+        "consensus_relative_mismatch": {
+          "median": 0.7490690062784818,
+          "mad": 0.6398051616826311,
+          "robust_sigma": 0.9485751327106688,
+          "p95": 3.881776040054473,
+          "contamination_fraction": 0.10344827586206896
+        },
+        "receiver_relative_mismatch": {
+          "novatel": {
+            "median": 0.26342170851794344,
+            "mad": 0.2022817756013328,
+            "robust_sigma": 0.29990296050653603,
+            "p95": 1.270599278200533,
+            "contamination_fraction": 0.10344827586206896
+          },
+          "ublox_f9p": {
+            "median": 0.8399073776210634,
+            "mad": 0.6768418380695814,
+            "robust_sigma": 1.0034857091219613,
+            "p95": 17.445747624460907,
+            "contamination_fraction": 0.13793103448275862
+          },
+          "ublox_m8t": {
+            "median": 3.187318269696544,
+            "mad": 1.7126019370755212,
+            "robust_sigma": 2.5391036319081675,
+            "p95": 10.610701231726013,
+            "contamination_fraction": 0.06896551724137931
+          }
+        },
+        "receiver_absolute_residual": {
+          "novatel": {
+            "median": 7.1048774798573575,
+            "mad": 0.44043341465824914,
+            "robust_sigma": 0.6529865805723202,
+            "p95": 8.858761464793341,
+            "contamination_fraction": 0.0
+          },
+          "ublox_f9p": {
+            "median": 9.807201408945556,
+            "mad": 2.1769430419669535,
+            "robust_sigma": 3.227535754020205,
+            "p95": 13.425108833828235,
+            "contamination_fraction": 0.0
+          },
+          "ublox_m8t": {
+            "median": 9.879146188149019,
+            "mad": 4.4576035105936604,
+            "robust_sigma": 6.60884296480616,
+            "p95": 16.626494933304183,
+            "contamination_fraction": 0.0
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 16.92836868567388,
+          "mad": 5.924079205941756,
+          "robust_sigma": 8.783039830729248,
+          "p95": 26.215519077735575,
+          "contamination_fraction": 0.0
+        },
+        "receiver_pair_separation": {
+          "novatel__ublox_f9p": {
+            "median": 12.355165562148425,
+            "mad": 6.992612733650187,
+            "robust_sigma": 10.367247638909767,
+            "p95": 20.38887037873109,
+            "contamination_fraction": 0.0
+          },
+          "novatel__ublox_m8t": {
+            "median": 6.789708299428897,
+            "mad": 2.071429295575446,
+            "robust_sigma": 3.0711010736201563,
+            "p95": 11.239169095877614,
+            "contamination_fraction": 0.0
+          },
+          "ublox_f9p__ublox_m8t": {
+            "median": 14.574543010354006,
+            "mad": 4.572738474546408,
+            "robust_sigma": 6.779542062362504,
+            "p95": 26.215519077735575,
+            "contamination_fraction": 0.0
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 13.730330186530706,
+        "receiver_absolute_median_dispersion_ratio": 1.3904738281774507,
+        "receiver_scores": {
+          "novatel": 2.0,
+          "ublox_f9p": 15.110677903539115,
+          "ublox_m8t": 9.741416106968336
+        },
+        "selected_branch": "provisional_quorum_consensus_cauchy",
+        "selected_receiver": null,
+        "selected_family": "cauchy",
+        "unanchored_selected_branch": "isolated_receiver_cauchy",
+        "unanchored_selected_receiver": "novatel",
+        "unanchored_selected_family": "cauchy",
+        "factor_topology": "hierarchical_consensus",
+        "change_guard_reason": "provisional_selected_receiver_change",
+        "selected_pair_key": "novatel__ublox_f9p",
+        "selected_pair_tail_ratio": 1.6502304462187793,
+        "sudden_selected_pair_shift": true,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": false,
+        "receiver_divergence": false
+      },
+      {
+        "start_epoch": 90,
+        "stop_epoch": 120,
+        "start_common_epoch": 90,
+        "stop_common_epoch": 120,
+        "consensus_relative_mismatch": {
+          "median": 3.7462927744562675,
+          "mad": 1.633791358635027,
+          "robust_sigma": 2.422259068312291,
+          "p95": 9.656471724217369,
+          "contamination_fraction": 0.034482758620689655
+        },
+        "receiver_relative_mismatch": {
+          "novatel": {
+            "median": 1.7742609358963382,
+            "mad": 0.9715839455363815,
+            "robust_sigma": 1.440470357652239,
+            "p95": 4.4981842966912975,
+            "contamination_fraction": 0.0
+          },
+          "ublox_f9p": {
+            "median": 3.3285533925020867,
+            "mad": 1.9172774432025792,
+            "robust_sigma": 2.8425555372921436,
+            "p95": 14.098884027532963,
+            "contamination_fraction": 0.10344827586206896
+          },
+          "ublox_m8t": {
+            "median": 9.18342611636813,
+            "mad": 6.269699120677265,
+            "robust_sigma": 9.295455916316111,
+            "p95": 39.16269218323264,
+            "contamination_fraction": 0.06896551724137931
+          }
+        },
+        "receiver_absolute_residual": {
+          "novatel": {
+            "median": 10.47988411141555,
+            "mad": 2.333797180715311,
+            "robust_sigma": 3.4600877001285197,
+            "p95": 19.859266952620757,
+            "contamination_fraction": 0.0
+          },
+          "ublox_f9p": {
+            "median": 10.80096285027615,
+            "mad": 4.066616065515628,
+            "robust_sigma": 6.02916497873347,
+            "p95": 17.79477324797158,
+            "contamination_fraction": 0.0
+          },
+          "ublox_m8t": {
+            "median": 15.921289901148583,
+            "mad": 5.491221291192748,
+            "robust_sigma": 8.141284686322367,
+            "p95": 30.078873314207442,
+            "contamination_fraction": 0.03333333333333333
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 21.56813601833082,
+          "mad": 8.416008114480057,
+          "robust_sigma": 12.477573630528132,
+          "p95": 35.33025505627687,
+          "contamination_fraction": 0.03333333333333333
+        },
+        "receiver_pair_separation": {
+          "novatel__ublox_f9p": {
+            "median": 9.702107664932054,
+            "mad": 6.180597214834285,
+            "robust_sigma": 9.163353430713311,
+            "p95": 24.810587417974496,
+            "contamination_fraction": 0.0
+          },
+          "novatel__ublox_m8t": {
+            "median": 12.065860655560808,
+            "mad": 5.641263188626555,
+            "robust_sigma": 8.36373680345773,
+            "p95": 34.50895240641713,
+            "contamination_fraction": 0.03333333333333333
+          },
+          "ublox_f9p__ublox_m8t": {
+            "median": 16.39784686483818,
+            "mad": 7.550622867124461,
+            "robust_sigma": 11.194553462798725,
+            "p95": 34.412282698996734,
+            "contamination_fraction": 0.03333333333333333
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 8.706333400354296,
+        "receiver_absolute_median_dispersion_ratio": 1.5192238513215814,
+        "receiver_scores": {
+          "novatel": 2.0,
+          "ublox_f9p": 4.164987640197603,
+          "ublox_m8t": 10.225557251675877
+        },
+        "selected_branch": "anchored_receiver_nominal",
+        "selected_receiver": "novatel",
+        "selected_family": "direct",
+        "unanchored_selected_branch": "isolated_receiver_gaussian",
+        "unanchored_selected_receiver": "novatel",
+        "unanchored_selected_family": "direct",
+        "change_guard_reason": "no_change",
+        "selected_pair_key": "novatel__ublox_f9p",
+        "selected_pair_tail_ratio": 2.5572368679901936,
+        "sudden_selected_pair_shift": false,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": false,
+        "receiver_divergence": true
+      },
+      {
+        "start_epoch": 120,
+        "stop_epoch": 150,
+        "start_common_epoch": 120,
+        "stop_common_epoch": 150,
+        "consensus_relative_mismatch": {
+          "median": 1.092367077641701,
+          "mad": 0.4208357634417734,
+          "robust_sigma": 0.6239311028787733,
+          "p95": 2.814518810419039,
+          "contamination_fraction": 0.06896551724137931
+        },
+        "receiver_relative_mismatch": {
+          "novatel": {
+            "median": 0.6392268186121064,
+            "mad": 0.4091547733182159,
+            "robust_sigma": 0.6066128669215869,
+            "p95": 2.0432142956187813,
+            "contamination_fraction": 0.0
+          },
+          "ublox_f9p": {
+            "median": 1.771423052625383,
+            "mad": 1.0586298726623475,
+            "robust_sigma": 1.5695246492091963,
+            "p95": 9.08926033114454,
+            "contamination_fraction": 0.13793103448275862
+          },
+          "ublox_m8t": {
+            "median": 2.8059906653590785,
+            "mad": 1.3289855521843732,
+            "robust_sigma": 1.9703539796685516,
+            "p95": 8.379510552085527,
+            "contamination_fraction": 0.034482758620689655
+          }
+        },
+        "receiver_absolute_residual": {
+          "novatel": {
+            "median": 7.106424259025896,
+            "mad": 0.48336822328362006,
+            "robust_sigma": 0.716641727840295,
+            "p95": 9.280143424818672,
+            "contamination_fraction": 0.06666666666666667
+          },
+          "ublox_f9p": {
+            "median": 6.696448619923093,
+            "mad": 1.4044543336172182,
+            "robust_sigma": 2.0822439950208875,
+            "p95": 11.104824079525624,
+            "contamination_fraction": 0.03333333333333333
+          },
+          "ublox_m8t": {
+            "median": 10.59562460569423,
+            "mad": 1.8800812183210853,
+            "robust_sigma": 2.787408414282841,
+            "p95": 17.5070984096485,
+            "contamination_fraction": 0.03333333333333333
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 9.438693739713278,
+          "mad": 3.0973414927577867,
+          "robust_sigma": 4.592118497162694,
+          "p95": 19.989276469384496,
+          "contamination_fraction": 0.03333333333333333
+        },
+        "receiver_pair_separation": {
+          "novatel__ublox_f9p": {
+            "median": 3.8578071780008427,
+            "mad": 1.9414019462092111,
+            "robust_sigma": 2.8783225254497764,
+            "p95": 13.565872988670382,
+            "contamination_fraction": 0.06666666666666667
+          },
+          "novatel__ublox_m8t": {
+            "median": 5.237705650689756,
+            "mad": 1.92001892579009,
+            "robust_sigma": 2.846620059376387,
+            "p95": 14.156541574767079,
+            "contamination_fraction": 0.06666666666666667
+          },
+          "ublox_f9p__ublox_m8t": {
+            "median": 9.160529070789504,
+            "mad": 2.9166265341378623,
+            "robust_sigma": 4.324190499512794,
+            "p95": 19.989276469384496,
+            "contamination_fraction": 0.03333333333333333
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 4.448510540785877,
+        "receiver_absolute_median_dispersion_ratio": 1.5822752039297987,
+        "receiver_scores": {
+          "novatel": 2.061222845477087,
+          "ublox_f9p": 5.448510540785877,
+          "ublox_m8t": 5.683416513509281
+        },
+        "selected_branch": "anchored_receiver_nominal",
+        "selected_receiver": "novatel",
+        "selected_family": "direct",
+        "unanchored_selected_branch": "isolated_receiver_gaussian",
+        "unanchored_selected_receiver": "novatel",
+        "unanchored_selected_family": "direct",
+        "change_guard_reason": "no_change",
+        "selected_pair_key": "novatel__ublox_f9p",
+        "selected_pair_tail_ratio": 3.5164725354936905,
+        "sudden_selected_pair_shift": false,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": false,
+        "receiver_divergence": false
+      },
+      {
+        "start_epoch": 150,
+        "stop_epoch": 180,
+        "start_common_epoch": 150,
+        "stop_common_epoch": 180,
+        "consensus_relative_mismatch": {
+          "median": 2.7054570373720317,
+          "mad": 1.0254647997873232,
+          "robust_sigma": 1.5203541121646853,
+          "p95": 7.0684817061872325,
+          "contamination_fraction": 0.06896551724137931
+        },
+        "receiver_relative_mismatch": {
+          "novatel": {
+            "median": 3.0213715749006926,
+            "mad": 1.5168586155369441,
+            "robust_sigma": 2.248894583395073,
+            "p95": 9.216557227282873,
+            "contamination_fraction": 0.06896551724137931
+          },
+          "ublox_f9p": {
+            "median": 2.514614758874885,
+            "mad": 1.4644987186888374,
+            "robust_sigma": 2.17126580032807,
+            "p95": 9.607488568574661,
+            "contamination_fraction": 0.06896551724137931
+          },
+          "ublox_m8t": {
+            "median": 4.456080397154153,
+            "mad": 1.6002889300440262,
+            "robust_sigma": 2.372588367683273,
+            "p95": 10.2080840760556,
+            "contamination_fraction": 0.034482758620689655
+          }
+        },
+        "receiver_absolute_residual": {
+          "novatel": {
+            "median": 22.586922648025848,
+            "mad": 12.980564488829156,
+            "robust_sigma": 19.244984911138104,
+            "p95": 69.42240131386833,
+            "contamination_fraction": 0.0
+          },
+          "ublox_f9p": {
+            "median": 18.934023934992563,
+            "mad": 7.523821764358296,
+            "robust_sigma": 11.154818147837608,
+            "p95": 67.51726836649402,
+            "contamination_fraction": 0.3
+          },
+          "ublox_m8t": {
+            "median": 22.24703956139931,
+            "mad": 6.916097782471361,
+            "robust_sigma": 10.25380657229204,
+            "p95": 67.69742127355472,
+            "contamination_fraction": 0.3
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 7.771992411017418,
+          "mad": 2.0491097793639987,
+          "robust_sigma": 3.0380101588850645,
+          "p95": 13.532111950714183,
+          "contamination_fraction": 0.0
+        },
+        "receiver_pair_separation": {
+          "novatel__ublox_f9p": {
+            "median": 4.816914154591387,
+            "mad": 1.749207974656502,
+            "robust_sigma": 2.5933757432257294,
+            "p95": 8.511760602315448,
+            "contamination_fraction": 0.03333333333333333
+          },
+          "novatel__ublox_m8t": {
+            "median": 6.335722454381712,
+            "mad": 2.5800892472864665,
+            "robust_sigma": 3.825240318026915,
+            "p95": 12.833115041883174,
+            "contamination_fraction": 0.0
+          },
+          "ublox_f9p__ublox_m8t": {
+            "median": 4.85618751117385,
+            "mad": 2.1022714140884773,
+            "robust_sigma": 3.116827598527576,
+            "p95": 10.50787284034436,
+            "contamination_fraction": 0.0
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 1.107581044019084,
+        "receiver_absolute_median_dispersion_ratio": 1.1929277540566665,
+        "receiver_scores": {
+          "novatel": 2.1929277540566665,
+          "ublox_f9p": 2.0424162007191313,
+          "ublox_m8t": 2.2825578813665777
+        },
+        "selected_branch": "anchored_receiver_nominal",
+        "selected_receiver": "novatel",
+        "selected_family": "direct",
+        "unanchored_selected_branch": "receiver_resolved_gaussian",
+        "unanchored_selected_receiver": null,
+        "unanchored_selected_family": "direct",
+        "change_guard_reason": "no_change",
+        "selected_pair_key": "novatel__ublox_f9p",
+        "selected_pair_tail_ratio": 1.7670567357323996,
+        "sudden_selected_pair_shift": false,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": false,
+        "receiver_divergence": false
+      },
+      {
+        "start_epoch": 180,
+        "stop_epoch": 210,
+        "start_common_epoch": 180,
+        "stop_common_epoch": 210,
+        "consensus_relative_mismatch": {
+          "median": 2.355721635790888,
+          "mad": 1.4480195365130872,
+          "robust_sigma": 2.146833764834303,
+          "p95": 5.659456262015809,
+          "contamination_fraction": 0.034482758620689655
+        },
+        "receiver_relative_mismatch": {
+          "novatel": {
+            "median": 1.3840484804523412,
+            "mad": 0.7155460796972734,
+            "robust_sigma": 1.0608686177591775,
+            "p95": 3.2232468580722404,
+            "contamination_fraction": 0.034482758620689655
+          },
+          "ublox_f9p": {
+            "median": 2.8811394024080896,
+            "mad": 1.873142433291792,
+            "robust_sigma": 2.7771209715984106,
+            "p95": 9.993624340606052,
+            "contamination_fraction": 0.034482758620689655
+          },
+          "ublox_m8t": {
+            "median": 5.315594421800381,
+            "mad": 2.591654157464705,
+            "robust_sigma": 3.8423864538571713,
+            "p95": 41.49585244891455,
+            "contamination_fraction": 0.10344827586206896
+          }
+        },
+        "receiver_absolute_residual": {
+          "novatel": {
+            "median": 73.70254423712385,
+            "mad": 3.651777394232468,
+            "robust_sigma": 5.4141251646890565,
+            "p95": 97.97410157987585,
+            "contamination_fraction": 0.23333333333333334
+          },
+          "ublox_f9p": {
+            "median": 73.04209523791778,
+            "mad": 4.8513649051415015,
+            "robust_sigma": 7.19263360836279,
+            "p95": 87.83779094207729,
+            "contamination_fraction": 0.03333333333333333
+          },
+          "ublox_m8t": {
+            "median": 69.66231781554245,
+            "mad": 4.4331687002004045,
+            "robust_sigma": 6.57261591491712,
+            "p95": 89.05681025835707,
+            "contamination_fraction": 0.06666666666666667
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 8.921447128432941,
+          "mad": 3.3906700147153535,
+          "robust_sigma": 5.027007363816983,
+          "p95": 50.62939748914137,
+          "contamination_fraction": 0.1
+        },
+        "receiver_pair_separation": {
+          "novatel__ublox_f9p": {
+            "median": 4.300848801809334,
+            "mad": 1.9378619125526906,
+            "robust_sigma": 2.873074071550619,
+            "p95": 15.563327354103642,
+            "contamination_fraction": 0.13333333333333333
+          },
+          "novatel__ublox_m8t": {
+            "median": 6.722861282482731,
+            "mad": 2.5497253771522184,
+            "robust_sigma": 3.7802228441658787,
+            "p95": 37.215613479861176,
+            "contamination_fraction": 0.13333333333333333
+          },
+          "ublox_f9p__ublox_m8t": {
+            "median": 6.878947936834953,
+            "mad": 3.244405123636514,
+            "robust_sigma": 4.810155036303495,
+            "p95": 41.644858246586686,
+            "contamination_fraction": 0.1
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 12.873929387379404,
+        "receiver_absolute_median_dispersion_ratio": 1.0579973010987007,
+        "receiver_scores": {
+          "novatel": 2.057997301098701,
+          "ublox_f9p": 4.149000278884667,
+          "ublox_m8t": 13.873929387379404
+        },
+        "selected_branch": "anchored_receiver_nominal",
+        "selected_receiver": "novatel",
+        "selected_family": "direct",
+        "unanchored_selected_branch": "isolated_receiver_gaussian",
+        "unanchored_selected_receiver": "novatel",
+        "unanchored_selected_family": "direct",
+        "change_guard_reason": "no_change",
+        "selected_pair_key": "novatel__ublox_f9p",
+        "selected_pair_tail_ratio": 3.618664145448747,
+        "sudden_selected_pair_shift": false,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": false,
+        "receiver_divergence": true
+      },
+      {
+        "start_epoch": 210,
+        "stop_epoch": 240,
+        "start_common_epoch": 210,
+        "stop_common_epoch": 240,
+        "consensus_relative_mismatch": {
+          "median": 9.312419794822247,
+          "mad": 5.893264397743883,
+          "robust_sigma": 8.73735379609508,
+          "p95": 24.3844264105285,
+          "contamination_fraction": 0.0
+        },
+        "receiver_relative_mismatch": {
+          "novatel": {
+            "median": 1.3471734282722707,
+            "mad": 0.9985526597816258,
+            "robust_sigma": 1.4804541733922383,
+            "p95": 6.284122133521478,
+            "contamination_fraction": 0.13793103448275862
+          },
+          "ublox_f9p": {
+            "median": 4.5444147829003265,
+            "mad": 3.439089499041555,
+            "robust_sigma": 5.098794091279009,
+            "p95": 14.288135546282797,
+            "contamination_fraction": 0.034482758620689655
+          },
+          "ublox_m8t": {
+            "median": 25.70662654356902,
+            "mad": 18.21902214469501,
+            "robust_sigma": 27.011522231724822,
+            "p95": 152.8472216137659,
+            "contamination_fraction": 0.10344827586206896
+          }
+        },
+        "receiver_absolute_residual": {
+          "novatel": {
+            "median": 177.50270983674352,
+            "mad": 4.2065181557239555,
+            "robust_sigma": 6.236583817676336,
+            "p95": 181.72051429776536,
+            "contamination_fraction": 0.0
+          },
+          "ublox_f9p": {
+            "median": 149.59544937738784,
+            "mad": 15.609952598796184,
+            "robust_sigma": 23.14331572297522,
+            "p95": 172.4093632170022,
+            "contamination_fraction": 0.0
+          },
+          "ublox_m8t": {
+            "median": 164.72893706597387,
+            "mad": 12.73378834561666,
+            "robust_sigma": 18.87911460121126,
+            "p95": 230.71014641902852,
+            "contamination_fraction": 0.1
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 36.631511713732564,
+          "mad": 17.24903785958638,
+          "robust_sigma": 25.573423530622765,
+          "p95": 109.56882203346004,
+          "contamination_fraction": 0.06666666666666667
+        },
+        "receiver_pair_separation": {
+          "novatel__ublox_f9p": {
+            "median": 21.10994729748669,
+            "mad": 5.002948352531938,
+            "robust_sigma": 7.417371227463851,
+            "p95": 36.98173950374788,
+            "contamination_fraction": 0.0
+          },
+          "novatel__ublox_m8t": {
+            "median": 28.51632531190136,
+            "mad": 16.302055529415693,
+            "robust_sigma": 24.169427527911704,
+            "p95": 106.19581931782274,
+            "contamination_fraction": 0.06666666666666667
+          },
+          "ublox_f9p__ublox_m8t": {
+            "median": 35.9508183632138,
+            "mad": 23.227954362970507,
+            "robust_sigma": 34.43776513854007,
+            "p95": 99.5001381178605,
+            "contamination_fraction": 0.0
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 24.322764320322623,
+        "receiver_absolute_median_dispersion_ratio": 1.1865515333220693,
+        "receiver_scores": {
+          "novatel": 2.1865515333220693,
+          "ublox_f9p": 3.27368839158383,
+          "ublox_m8t": 25.423927074614756
+        },
+        "selected_branch": "provisional_quorum_consensus_cauchy",
+        "selected_receiver": null,
+        "selected_family": "cauchy",
+        "unanchored_selected_branch": "isolated_receiver_gaussian",
+        "unanchored_selected_receiver": "novatel",
+        "unanchored_selected_family": "direct",
+        "factor_topology": "hierarchical_consensus",
+        "change_guard_reason": "provisional_selected_receiver_change",
+        "selected_pair_key": "novatel__ublox_f9p",
+        "selected_pair_tail_ratio": 1.7518631848100754,
+        "sudden_selected_pair_shift": true,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": false,
+        "receiver_divergence": true
+      },
+      {
+        "start_epoch": 240,
+        "stop_epoch": 270,
+        "start_common_epoch": 240,
+        "stop_common_epoch": 270,
+        "consensus_relative_mismatch": {
+          "median": 4.108802934789086,
+          "mad": 2.5235180970974964,
+          "robust_sigma": 3.741367930756748,
+          "p95": 11.7919158397222,
+          "contamination_fraction": 0.034482758620689655
+        },
+        "receiver_relative_mismatch": {
+          "novatel": {
+            "median": 3.745286263183925,
+            "mad": 2.5978422962571766,
+            "robust_sigma": 3.8515609884308897,
+            "p95": 15.734297493520053,
+            "contamination_fraction": 0.06896551724137931
+          },
+          "ublox_f9p": {
+            "median": 2.6846025715441817,
+            "mad": 1.6537856142018192,
+            "robust_sigma": 2.451902551615617,
+            "p95": 12.983411115706755,
+            "contamination_fraction": 0.10344827586206896
+          },
+          "ublox_m8t": {
+            "median": 3.929278384171473,
+            "mad": 1.4187696463796966,
+            "robust_sigma": 2.103467877722538,
+            "p95": 13.6786669672446,
+            "contamination_fraction": 0.13793103448275862
+          }
+        },
+        "receiver_absolute_residual": {
+          "novatel": {
+            "median": 205.94941652685247,
+            "mad": 3.60127347942111,
+            "robust_sigma": 5.339248060589737,
+            "p95": 213.07086348501088,
+            "contamination_fraction": 0.03333333333333333
+          },
+          "ublox_f9p": {
+            "median": 199.66615513110918,
+            "mad": 5.151177645488417,
+            "robust_sigma": 7.637135977201127,
+            "p95": 209.47068192424146,
+            "contamination_fraction": 0.0
+          },
+          "ublox_m8t": {
+            "median": 198.3265720831157,
+            "mad": 6.700647793139012,
+            "robust_sigma": 9.9343804181079,
+            "p95": 208.3115659507245,
+            "contamination_fraction": 0.0
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 12.74875871706579,
+          "mad": 5.326922175854323,
+          "robust_sigma": 7.897694817921619,
+          "p95": 23.63814054313866,
+          "contamination_fraction": 0.0
+        },
+        "receiver_pair_separation": {
+          "novatel__ublox_f9p": {
+            "median": 10.235854272805604,
+            "mad": 6.041039815380907,
+            "robust_sigma": 8.956445630283733,
+            "p95": 21.363724023348116,
+            "contamination_fraction": 0.0
+          },
+          "novatel__ublox_m8t": {
+            "median": 8.688595275290652,
+            "mad": 4.042504067674885,
+            "robust_sigma": 5.993416530734785,
+            "p95": 21.779165692245154,
+            "contamination_fraction": 0.03333333333333333
+          },
+          "ublox_f9p__ublox_m8t": {
+            "median": 7.794972144630835,
+            "mad": 2.975980331031463,
+            "robust_sigma": 4.412188438787247,
+            "p95": 15.997758662128094,
+            "contamination_fraction": 0.03333333333333333
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 1.211877013929367,
+        "receiver_absolute_median_dispersion_ratio": 1.038435820090422,
+        "receiver_scores": {
+          "novatel": 2.2503128340197893,
+          "ublox_f9p": 2.006754430502798,
+          "ublox_m8t": 2.0535495522202756
+        },
+        "selected_branch": "anchored_receiver_nominal",
+        "selected_receiver": "novatel",
+        "selected_family": "direct",
+        "unanchored_selected_branch": "receiver_resolved_gaussian",
+        "unanchored_selected_receiver": null,
+        "unanchored_selected_family": "direct",
+        "change_guard_reason": "no_change",
+        "selected_pair_key": "novatel__ublox_f9p",
+        "selected_pair_tail_ratio": 2.0871461681617327,
+        "sudden_selected_pair_shift": false,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": false,
+        "receiver_divergence": false
+      },
+      {
+        "start_epoch": 270,
+        "stop_epoch": 300,
+        "start_common_epoch": 270,
+        "stop_common_epoch": 300,
+        "consensus_relative_mismatch": {
+          "median": 1.9566123859057383,
+          "mad": 1.4423576212105804,
+          "robust_sigma": 2.138439409206806,
+          "p95": 10.008746576287997,
+          "contamination_fraction": 0.10344827586206896
+        },
+        "receiver_relative_mismatch": {
+          "novatel": {
+            "median": 1.9566123859057383,
+            "mad": 1.1415389757410963,
+            "robust_sigma": 1.6924456854337493,
+            "p95": 6.857789835756251,
+            "contamination_fraction": 0.06896551724137931
+          },
+          "ublox_f9p": {
+            "median": 1.4510183665514955,
+            "mad": 1.070354285594992,
+            "robust_sigma": 1.586907263823135,
+            "p95": 16.442973140920202,
+            "contamination_fraction": 0.27586206896551724
+          },
+          "ublox_m8t": {
+            "median": 5.0925674249760595,
+            "mad": 2.7067938833850977,
+            "robust_sigma": 4.013092611506746,
+            "p95": 20.4719648330417,
+            "contamination_fraction": 0.10344827586206896
+          }
+        },
+        "receiver_absolute_residual": {
+          "novatel": {
+            "median": 207.08329783896042,
+            "mad": 3.6584081863043423,
+            "robust_sigma": 5.423955977014818,
+            "p95": 216.3494999885886,
+            "contamination_fraction": 0.0
+          },
+          "ublox_f9p": {
+            "median": 221.53116246289161,
+            "mad": 2.6771390052152952,
+            "robust_sigma": 3.9691262891321966,
+            "p95": 226.97760608225784,
+            "contamination_fraction": 0.0
+          },
+          "ublox_m8t": {
+            "median": 190.31545021884295,
+            "mad": 3.5025576471852276,
+            "robust_sigma": 5.192891967716818,
+            "p95": 203.05618768860762,
+            "contamination_fraction": 0.03333333333333333
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 35.93158478060757,
+          "mad": 5.4800437315002135,
+          "robust_sigma": 8.124712836322216,
+          "p95": 48.43127980542453,
+          "contamination_fraction": 0.0
+        },
+        "receiver_pair_separation": {
+          "novatel__ublox_f9p": {
+            "median": 14.196211474274776,
+            "mad": 4.83071422069597,
+            "robust_sigma": 7.1620169036038455,
+            "p95": 23.885184021530076,
+            "contamination_fraction": 0.0
+          },
+          "novatel__ublox_m8t": {
+            "median": 20.07819324811741,
+            "mad": 7.053401569814525,
+            "robust_sigma": 10.457373167407015,
+            "p95": 33.32044118769576,
+            "contamination_fraction": 0.0
+          },
+          "ublox_f9p__ublox_m8t": {
+            "median": 35.93158478060757,
+            "mad": 5.4800437315002135,
+            "robust_sigma": 8.124712836322216,
+            "p95": 48.43127980542453,
+            "contamination_fraction": 0.0
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 2.9852132134906886,
+        "receiver_absolute_median_dispersion_ratio": 1.1640209042836713,
+        "receiver_scores": {
+          "novatel": 2.088105551077625,
+          "ublox_f9p": 3.56172826113313,
+          "ublox_m8t": 3.9852132134906886
+        },
+        "selected_branch": "anchored_receiver_nominal",
+        "selected_receiver": "novatel",
+        "selected_family": "direct",
+        "unanchored_selected_branch": "isolated_receiver_cauchy",
+        "unanchored_selected_receiver": "novatel",
+        "unanchored_selected_family": "cauchy",
+        "change_guard_reason": "no_change",
+        "selected_pair_key": "novatel__ublox_f9p",
+        "selected_pair_tail_ratio": 1.682504100816818,
+        "sudden_selected_pair_shift": false,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": false,
+        "receiver_divergence": true
+      },
+      {
+        "start_epoch": 300,
+        "stop_epoch": 330,
+        "start_common_epoch": 300,
+        "stop_common_epoch": 330,
+        "consensus_relative_mismatch": {
+          "median": 5.101764962338573,
+          "mad": 3.235187295680431,
+          "robust_sigma": 4.796488684575807,
+          "p95": 20.797235841099834,
+          "contamination_fraction": 0.13793103448275862
+        },
+        "receiver_relative_mismatch": {
+          "novatel": {
+            "median": 5.910521915777312,
+            "mad": 3.6465651208516254,
+            "robust_sigma": 5.406397448174619,
+            "p95": 21.22478674921548,
+            "contamination_fraction": 0.06896551724137931
+          },
+          "ublox_f9p": {
+            "median": 5.074824431377998,
+            "mad": 3.475790878005758,
+            "robust_sigma": 5.153207555731337,
+            "p95": 29.049471198990243,
+            "contamination_fraction": 0.10344827586206896
+          },
+          "ublox_m8t": {
+            "median": 9.37417732464641,
+            "mad": 4.384590879027932,
+            "robust_sigma": 6.5005944372468125,
+            "p95": 44.68505292499443,
+            "contamination_fraction": 0.06896551724137931
+          }
+        },
+        "receiver_absolute_residual": {
+          "novatel": {
+            "median": 233.09269096235624,
+            "mad": 10.140280306817445,
+            "robust_sigma": 15.033979582887543,
+            "p95": 248.8303916998038,
+            "contamination_fraction": 0.0
+          },
+          "ublox_f9p": {
+            "median": 221.4942893148184,
+            "mad": 16.194241294216738,
+            "robust_sigma": 24.009582142805733,
+            "p95": 251.92471490011923,
+            "contamination_fraction": 0.0
+          },
+          "ublox_m8t": {
+            "median": 220.67306811441455,
+            "mad": 13.583686345618275,
+            "robust_sigma": 20.139173376013655,
+            "p95": 240.08236102879385,
+            "contamination_fraction": 0.0
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 25.41534758832561,
+          "mad": 10.40854695521097,
+          "robust_sigma": 15.431711715795782,
+          "p95": 49.08721329152954,
+          "contamination_fraction": 0.0
+        },
+        "receiver_pair_separation": {
+          "novatel__ublox_f9p": {
+            "median": 17.385421067734384,
+            "mad": 7.575898135848005,
+            "robust_sigma": 11.232026576208252,
+            "p95": 38.77722520775736,
+            "contamination_fraction": 0.03333333333333333
+          },
+          "novatel__ublox_m8t": {
+            "median": 14.164913259684923,
+            "mad": 8.89811862215345,
+            "robust_sigma": 13.192350669204705,
+            "p95": 32.335781062066935,
+            "contamination_fraction": 0.0
+          },
+          "ublox_f9p__ublox_m8t": {
+            "median": 17.692970583392032,
+            "mad": 7.500201493830553,
+            "robust_sigma": 11.119798734753177,
+            "p95": 35.46230521133802,
+            "contamination_fraction": 0.03333333333333333
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 2.105323999386995,
+        "receiver_absolute_median_dispersion_ratio": 1.056280646089093,
+        "receiver_scores": {
+          "novatel": 2.056280646089093,
+          "ublox_f9p": 2.3723792976957068,
+          "ublox_m8t": 3.105323999386995
+        },
+        "selected_branch": "anchored_receiver_nominal",
+        "selected_receiver": "novatel",
+        "selected_family": "direct",
+        "unanchored_selected_branch": "isolated_receiver_cauchy",
+        "unanchored_selected_receiver": "novatel",
+        "unanchored_selected_family": "cauchy",
+        "change_guard_reason": "no_change",
+        "selected_pair_key": "novatel__ublox_f9p",
+        "selected_pair_tail_ratio": 2.2304449835686775,
+        "sudden_selected_pair_shift": false,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": false,
+        "receiver_divergence": true
+      },
+      {
+        "start_epoch": 330,
+        "stop_epoch": 360,
+        "start_common_epoch": 330,
+        "stop_common_epoch": 360,
+        "consensus_relative_mismatch": {
+          "median": 8.232580731104203,
+          "mad": 2.9144841869042013,
+          "robust_sigma": 4.321014255504169,
+          "p95": 22.572012737114623,
+          "contamination_fraction": 0.10344827586206896
+        },
+        "receiver_relative_mismatch": {
+          "novatel": {
+            "median": 4.095055052968611,
+            "mad": 0.8857352401672944,
+            "robust_sigma": 1.3131910670720306,
+            "p95": 16.71578851241903,
+            "contamination_fraction": 0.1724137931034483
+          },
+          "ublox_f9p": {
+            "median": 9.887555360740322,
+            "mad": 7.363095195360474,
+            "robust_sigma": 10.916524936641439,
+            "p95": 39.915019053828175,
+            "contamination_fraction": 0.034482758620689655
+          },
+          "ublox_m8t": {
+            "median": 18.11401895874604,
+            "mad": 7.91295090638172,
+            "robust_sigma": 11.731741013801537,
+            "p95": 48.88758111673537,
+            "contamination_fraction": 0.06896551724137931
+          }
+        },
+        "receiver_absolute_residual": {
+          "novatel": {
+            "median": 141.99656465405627,
+            "mad": 16.03853529793895,
+            "robust_sigma": 23.778732432724286,
+            "p95": 199.62213537943896,
+            "contamination_fraction": 0.03333333333333333
+          },
+          "ublox_f9p": {
+            "median": 131.57629115037383,
+            "mad": 19.600587362086493,
+            "robust_sigma": 29.059830823029433,
+            "p95": 171.3762933004968,
+            "contamination_fraction": 0.0
+          },
+          "ublox_m8t": {
+            "median": 124.8320600922271,
+            "mad": 26.706484652675805,
+            "robust_sigma": 39.595034146057145,
+            "p95": 179.77617551964187,
+            "contamination_fraction": 0.0
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 38.260267568635385,
+          "mad": 13.62061778770391,
+          "robust_sigma": 20.193927932049817,
+          "p95": 77.49095243511611,
+          "contamination_fraction": 0.0
+        },
+        "receiver_pair_separation": {
+          "novatel__ublox_f9p": {
+            "median": 15.130650888109782,
+            "mad": 4.640933763050829,
+            "robust_sigma": 6.880648397099159,
+            "p95": 48.647610199473675,
+            "contamination_fraction": 0.2
+          },
+          "novatel__ublox_m8t": {
+            "median": 30.712314451122218,
+            "mad": 13.839766760843101,
+            "robust_sigma": 20.518838199625982,
+            "p95": 77.49095243511611,
+            "contamination_fraction": 0.0
+          },
+          "ublox_f9p__ublox_m8t": {
+            "median": 23.621702725132707,
+            "mad": 12.261731870622729,
+            "robust_sigma": 18.179243671385258,
+            "p95": 62.47128213914311,
+            "contamination_fraction": 0.0
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 2.924635058670085,
+        "receiver_absolute_median_dispersion_ratio": 1.1375007714296141,
+        "receiver_scores": {
+          "novatel": 2.137500771429614,
+          "ublox_f9p": 3.44188980188759,
+          "ublox_m8t": 3.924635058670085
+        },
+        "selected_branch": "anchored_receiver_cauchy",
+        "selected_receiver": "novatel",
+        "selected_family": "cauchy",
+        "unanchored_selected_branch": "isolated_receiver_cauchy",
+        "unanchored_selected_receiver": "novatel",
+        "unanchored_selected_family": "cauchy",
+        "change_guard_reason": "selected_receiver_heavy_tail",
+        "selected_pair_key": "novatel__ublox_f9p",
+        "selected_pair_tail_ratio": 3.21516969489414,
+        "sudden_selected_pair_shift": false,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": false,
+        "receiver_divergence": true
+      },
+      {
+        "start_epoch": 360,
+        "stop_epoch": 390,
+        "start_common_epoch": 360,
+        "stop_common_epoch": 390,
+        "consensus_relative_mismatch": {
+          "median": 7.305789033835341,
+          "mad": 4.830642661394478,
+          "robust_sigma": 7.1619108097834525,
+          "p95": 32.16339743780504,
+          "contamination_fraction": 0.13793103448275862
+        },
+        "receiver_relative_mismatch": {
+          "novatel": {
+            "median": 2.699187252915636,
+            "mad": 2.1154964160098064,
+            "robust_sigma": 3.136434986376139,
+            "p95": 27.427775736175327,
+            "contamination_fraction": 0.10344827586206896
+          },
+          "ublox_f9p": {
+            "median": 5.080760333177531,
+            "mad": 3.148041660635286,
+            "robust_sigma": 4.667286566057875,
+            "p95": 32.867442382753964,
+            "contamination_fraction": 0.20689655172413793
+          },
+          "ublox_m8t": {
+            "median": 13.360794116710014,
+            "mad": 8.945129000716555,
+            "robust_sigma": 13.262048256462364,
+            "p95": 128.7015738801249,
+            "contamination_fraction": 0.1724137931034483
+          }
+        },
+        "receiver_absolute_residual": {
+          "novatel": {
+            "median": 66.7781920356592,
+            "mad": 2.211082172955308,
+            "robust_sigma": 3.2781504296235395,
+            "p95": 100.58816481059546,
+            "contamination_fraction": 0.3333333333333333
+          },
+          "ublox_f9p": {
+            "median": 57.135558890171986,
+            "mad": 7.748543062705693,
+            "robust_sigma": 11.48798994476746,
+            "p95": 97.29796726076701,
+            "contamination_fraction": 0.1
+          },
+          "ublox_m8t": {
+            "median": 67.08105520995234,
+            "mad": 6.939793528412629,
+            "robust_sigma": 10.288937885224563,
+            "p95": 118.39686152629717,
+            "contamination_fraction": 0.13333333333333333
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 28.47784113348764,
+          "mad": 8.571916302404873,
+          "robust_sigma": 12.708723109945463,
+          "p95": 100.58231678298849,
+          "contamination_fraction": 0.06666666666666667
+        },
+        "receiver_pair_separation": {
+          "novatel__ublox_f9p": {
+            "median": 14.659005457470197,
+            "mad": 6.0503316459930865,
+            "robust_sigma": 8.97022169834935,
+            "p95": 55.55214504151852,
+            "contamination_fraction": 0.16666666666666666
+          },
+          "novatel__ublox_m8t": {
+            "median": 21.523333230018537,
+            "mad": 5.821543940137692,
+            "robust_sigma": 8.631021045648142,
+            "p95": 70.70866428644105,
+            "contamination_fraction": 0.16666666666666666
+          },
+          "ublox_f9p__ublox_m8t": {
+            "median": 26.397029973161473,
+            "mad": 7.235246621075996,
+            "robust_sigma": 10.72697664040727,
+            "p95": 98.6323243455422,
+            "contamination_fraction": 0.13333333333333333
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 4.692381005229545,
+        "receiver_absolute_median_dispersion_ratio": 1.1740684175138278,
+        "receiver_scores": {
+          "novatel": 2.1687676349508127,
+          "ublox_f9p": 2.1983269332118716,
+          "ublox_m8t": 5.866449422743373
+        },
+        "selected_branch": "anchored_receiver_cauchy",
+        "selected_receiver": "novatel",
+        "selected_family": "cauchy",
+        "unanchored_selected_branch": "isolated_receiver_cauchy",
+        "unanchored_selected_receiver": "novatel",
+        "unanchored_selected_family": "cauchy",
+        "change_guard_reason": "selected_receiver_heavy_tail",
+        "selected_pair_key": "novatel__ublox_f9p",
+        "selected_pair_tail_ratio": 3.789625783460587,
+        "sudden_selected_pair_shift": false,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": false,
+        "receiver_divergence": true
+      },
+      {
+        "start_epoch": 390,
+        "stop_epoch": 420,
+        "start_common_epoch": 390,
+        "stop_common_epoch": 420,
+        "consensus_relative_mismatch": {
+          "median": 3.4555533233088176,
+          "mad": 1.7176127499626799,
+          "robust_sigma": 2.546532663094669,
+          "p95": 11.63998347544197,
+          "contamination_fraction": 0.10344827586206896
+        },
+        "receiver_relative_mismatch": {
+          "novatel": {
+            "median": 1.679050934510088,
+            "mad": 0.5538821798355882,
+            "robust_sigma": 0.821185719824243,
+            "p95": 3.844039167702738,
+            "contamination_fraction": 0.034482758620689655
+          },
+          "ublox_f9p": {
+            "median": 3.465520446372785,
+            "mad": 1.9161866941207064,
+            "robust_sigma": 2.840938392703359,
+            "p95": 13.04260930833596,
+            "contamination_fraction": 0.06896551724137931
+          },
+          "ublox_m8t": {
+            "median": 5.032166564831043,
+            "mad": 3.0570436414264446,
+            "robust_sigma": 4.532372902778847,
+            "p95": 56.48373616289201,
+            "contamination_fraction": 0.27586206896551724
+          }
+        },
+        "receiver_absolute_residual": {
+          "novatel": {
+            "median": 59.29930792172933,
+            "mad": 5.216882793624137,
+            "robust_sigma": 7.734550429827145,
+            "p95": 66.66554393037399,
+            "contamination_fraction": 0.0
+          },
+          "ublox_f9p": {
+            "median": 55.67441650612676,
+            "mad": 5.8706478153989785,
+            "robust_sigma": 8.703822451110526,
+            "p95": 64.37401215335967,
+            "contamination_fraction": 0.0
+          },
+          "ublox_m8t": {
+            "median": 43.66746899225738,
+            "mad": 10.534941882882476,
+            "robust_sigma": 15.619104835561558,
+            "p95": 66.3621854631382,
+            "contamination_fraction": 0.03333333333333333
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 28.9299801118089,
+          "mad": 5.81220005536661,
+          "robust_sigma": 8.617167802086534,
+          "p95": 54.27741976378594,
+          "contamination_fraction": 0.06666666666666667
+        },
+        "receiver_pair_separation": {
+          "novatel__ublox_f9p": {
+            "median": 12.872193913553975,
+            "mad": 4.387142386188577,
+            "robust_sigma": 6.504377301763184,
+            "p95": 19.495750328686167,
+            "contamination_fraction": 0.0
+          },
+          "novatel__ublox_m8t": {
+            "median": 28.9299801118089,
+            "mad": 5.3286113650472515,
+            "robust_sigma": 7.900199209819054,
+            "p95": 54.27741976378594,
+            "contamination_fraction": 0.06666666666666667
+          },
+          "ublox_f9p__ublox_m8t": {
+            "median": 21.40739337200923,
+            "mad": 8.883237467050288,
+            "robust_sigma": 13.170287868648757,
+            "p95": 47.346501550965485,
+            "contamination_fraction": 0.0
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 14.693850322198365,
+        "receiver_absolute_median_dispersion_ratio": 1.3579744668106046,
+        "receiver_scores": {
+          "novatel": 2.357974466810605,
+          "ublox_f9p": 4.667907127906157,
+          "ublox_m8t": 15.693850322198365
+        },
+        "selected_branch": "change_guard_distributed_consensus_cauchy",
+        "selected_receiver": null,
+        "selected_family": "cauchy",
+        "unanchored_selected_branch": "isolated_receiver_cauchy",
+        "unanchored_selected_receiver": "novatel",
+        "unanchored_selected_family": "cauchy",
+        "selected_receiver_isolation_ratio": 1.0242239247662384,
+        "selected_receiver_isolation_threshold": 0.8,
+        "change_guard_topology_decision": "distributed_receiver_disagreement",
+        "topology_decision_latched_from_first_confirmation": true,
+        "factor_topology": "hierarchical_consensus",
+        "change_guard_reason": "latched_selected_receiver_change",
+        "selected_pair_key": "novatel__ublox_f9p",
+        "selected_pair_tail_ratio": 1.5145631319427078,
+        "sudden_selected_pair_shift": false,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": true,
+        "receiver_divergence": true
+      },
+      {
+        "start_epoch": 420,
+        "stop_epoch": 450,
+        "start_common_epoch": 420,
+        "stop_common_epoch": 450,
+        "consensus_relative_mismatch": {
+          "median": 4.656444127744335,
+          "mad": 2.459618612470236,
+          "robust_sigma": 3.6466305548483717,
+          "p95": 56.45866511957306,
+          "contamination_fraction": 0.1724137931034483
+        },
+        "receiver_relative_mismatch": {
+          "novatel": {
+            "median": 4.643399531610803,
+            "mad": 2.5127105463081287,
+            "robust_sigma": 3.7253446559564316,
+            "p95": 129.1950711990371,
+            "contamination_fraction": 0.1724137931034483
+          },
+          "ublox_f9p": {
+            "median": 6.840186444882951,
+            "mad": 3.066491170606057,
+            "robust_sigma": 4.546379809540539,
+            "p95": 47.475286895541544,
+            "contamination_fraction": 0.2413793103448276
+          },
+          "ublox_m8t": {
+            "median": 13.175898409122716,
+            "mad": 5.709532527277215,
+            "robust_sigma": 8.4649529249412,
+            "p95": 70.86794688182154,
+            "contamination_fraction": 0.20689655172413793
+          }
+        },
+        "receiver_absolute_residual": {
+          "novatel": {
+            "median": 35.940816823921004,
+            "mad": 3.13558140270257,
+            "robust_sigma": 4.6488129876468305,
+            "p95": 55.33912363026413,
+            "contamination_fraction": 0.1
+          },
+          "ublox_f9p": {
+            "median": 39.10502895949446,
+            "mad": 4.329842117482002,
+            "robust_sigma": 6.419423923378816,
+            "p95": 59.90122340148546,
+            "contamination_fraction": 0.06666666666666667
+          },
+          "ublox_m8t": {
+            "median": 39.915716170041485,
+            "mad": 7.773885691344869,
+            "robust_sigma": 11.525562925987902,
+            "p95": 82.04362383422333,
+            "contamination_fraction": 0.1
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 20.44911227444971,
+          "mad": 8.413875484633683,
+          "robust_sigma": 12.474411793517898,
+          "p95": 89.61922024886766,
+          "contamination_fraction": 0.16666666666666666
+        },
+        "receiver_pair_separation": {
+          "novatel__ublox_f9p": {
+            "median": 8.96524906513096,
+            "mad": 6.312603561798646,
+            "robust_sigma": 9.359066040722672,
+            "p95": 45.93895348676651,
+            "contamination_fraction": 0.06666666666666667
+          },
+          "novatel__ublox_m8t": {
+            "median": 17.117108236903945,
+            "mad": 8.676185625740775,
+            "robust_sigma": 12.863312808723272,
+            "p95": 75.04738574425043,
+            "contamination_fraction": 0.1
+          },
+          "ublox_f9p__ublox_m8t": {
+            "median": 17.418090491967703,
+            "mad": 8.034371061169594,
+            "robust_sigma": 11.911758535290039,
+            "p95": 72.57584064404385,
+            "contamination_fraction": 0.16666666666666666
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 2.7213120688096346,
+        "receiver_absolute_median_dispersion_ratio": 1.1105956875046568,
+        "receiver_scores": {
+          "novatel": 3.7213120688096346,
+          "ublox_f9p": 2.0880395164938896,
+          "ublox_m8t": 2.6033290971573497
+        },
+        "selected_branch": "change_guard_distributed_consensus_cauchy",
+        "selected_receiver": null,
+        "selected_family": "cauchy",
+        "unanchored_selected_branch": "isolated_receiver_cauchy",
+        "unanchored_selected_receiver": "ublox_f9p",
+        "unanchored_selected_family": "cauchy",
+        "selected_receiver_isolation_ratio": 1.3356224125193445,
+        "selected_receiver_isolation_threshold": 0.8,
+        "change_guard_topology_decision": "distributed_receiver_disagreement",
+        "topology_decision_latched_from_first_confirmation": true,
+        "factor_topology": "hierarchical_consensus",
+        "change_guard_reason": "latched_selected_receiver_change",
+        "selected_pair_key": "novatel__ublox_f9p",
+        "selected_pair_tail_ratio": 5.124113468909573,
+        "sudden_selected_pair_shift": false,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": true,
+        "receiver_divergence": true
+      },
+      {
+        "start_epoch": 450,
+        "stop_epoch": 480,
+        "start_common_epoch": 450,
+        "stop_common_epoch": 480,
+        "consensus_relative_mismatch": {
+          "median": 5.180029892838686,
+          "mad": 2.2979242858707263,
+          "robust_sigma": 3.4069025462319384,
+          "p95": 21.149913429440872,
+          "contamination_fraction": 0.20689655172413793
+        },
+        "receiver_relative_mismatch": {
+          "novatel": {
+            "median": 3.403601925938492,
+            "mad": 1.2373344706894756,
+            "robust_sigma": 1.8344720862442163,
+            "p95": 468.64514504042734,
+            "contamination_fraction": 0.10344827586206896
+          },
+          "ublox_f9p": {
+            "median": 5.180268579221689,
+            "mad": 2.980080258656809,
+            "robust_sigma": 4.418266991484584,
+            "p95": 28.092126618358403,
+            "contamination_fraction": 0.13793103448275862
+          },
+          "ublox_m8t": {
+            "median": 11.219572598569302,
+            "mad": 6.15907744883962,
+            "robust_sigma": 9.131448225649619,
+            "p95": 46.72717634329042,
+            "contamination_fraction": 0.10344827586206896
+          }
+        },
+        "receiver_absolute_residual": {
+          "novatel": {
+            "median": 85.49332121224782,
+            "mad": 8.023043974474973,
+            "robust_sigma": 11.894964996556594,
+            "p95": 95.68549165117695,
+            "contamination_fraction": 0.03333333333333333
+          },
+          "ublox_f9p": {
+            "median": 100.92565211685219,
+            "mad": 13.012090369310918,
+            "robust_sigma": 19.291725181540368,
+            "p95": 131.4387418337323,
+            "contamination_fraction": 0.0
+          },
+          "ublox_m8t": {
+            "median": 100.07638152044942,
+            "mad": 25.396032968315325,
+            "robust_sigma": 37.6521584788243,
+            "p95": 140.6050925051543,
+            "contamination_fraction": 0.0
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 27.375171410121208,
+          "mad": 15.97558665203812,
+          "robust_sigma": 23.685404770311713,
+          "p95": 78.66910085804876,
+          "contamination_fraction": 0.03333333333333333
+        },
+        "receiver_pair_separation": {
+          "novatel__ublox_f9p": {
+            "median": 15.979079528967453,
+            "mad": 10.761875934181186,
+            "robust_sigma": 15.955557260017025,
+            "p95": 54.40409732425202,
+            "contamination_fraction": 0.03333333333333333
+          },
+          "novatel__ublox_m8t": {
+            "median": 13.65041850122514,
+            "mad": 8.07009267649685,
+            "robust_sigma": 11.96471940217423,
+            "p95": 78.66910085804876,
+            "contamination_fraction": 0.13333333333333333
+          },
+          "ublox_f9p__ublox_m8t": {
+            "median": 11.674455834936067,
+            "mad": 5.156379121762913,
+            "robust_sigma": 7.644847685925694,
+            "p95": 39.276371102724205,
+            "contamination_fraction": 0.1
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 16.68243744616203,
+        "receiver_absolute_median_dispersion_ratio": 1.1805091986810488,
+        "receiver_scores": {
+          "novatel": 17.68243744616203,
+          "ublox_f9p": 2.1805091986810488,
+          "ublox_m8t": 2.833930329050447
+        },
+        "selected_branch": "change_guard_distributed_consensus_cauchy",
+        "selected_receiver": null,
+        "selected_family": "cauchy",
+        "unanchored_selected_branch": "isolated_receiver_cauchy",
+        "unanchored_selected_receiver": "ublox_f9p",
+        "unanchored_selected_family": "cauchy",
+        "selected_receiver_isolation_ratio": 0.7880292688752096,
+        "selected_receiver_isolation_threshold": 0.8,
+        "change_guard_topology_decision": "distributed_receiver_disagreement",
+        "topology_decision_latched_from_first_confirmation": true,
+        "factor_topology": "hierarchical_consensus",
+        "change_guard_reason": "latched_selected_receiver_change",
+        "selected_pair_key": "novatel__ublox_f9p",
+        "selected_pair_tail_ratio": 3.4047078384975995,
+        "sudden_selected_pair_shift": false,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": true,
+        "receiver_divergence": true
+      },
+      {
+        "start_epoch": 480,
+        "stop_epoch": 510,
+        "start_common_epoch": 480,
+        "stop_common_epoch": 510,
+        "consensus_relative_mismatch": {
+          "median": 5.3122671469632285,
+          "mad": 4.5919504190832185,
+          "robust_sigma": 6.808025691332779,
+          "p95": 19.5202737472903,
+          "contamination_fraction": 0.034482758620689655
+        },
+        "receiver_relative_mismatch": {
+          "novatel": {
+            "median": 1.551916292306535,
+            "mad": 0.9578366220016316,
+            "robust_sigma": 1.420088575779619,
+            "p95": 39.39468970896845,
+            "contamination_fraction": 0.1724137931034483
+          },
+          "ublox_f9p": {
+            "median": 3.1539608016083847,
+            "mad": 2.491098497749179,
+            "robust_sigma": 3.6933026327629324,
+            "p95": 17.147158327298353,
+            "contamination_fraction": 0.13793103448275862
+          },
+          "ublox_m8t": {
+            "median": 9.374568950211666,
+            "mad": 5.6772294541787325,
+            "robust_sigma": 8.417060388765389,
+            "p95": 24.252845322422814,
+            "contamination_fraction": 0.034482758620689655
+          }
+        },
+        "receiver_absolute_residual": {
+          "novatel": {
+            "median": 83.71479348503269,
+            "mad": 3.6250761146189205,
+            "robust_sigma": 5.374537847534011,
+            "p95": 132.67616269994008,
+            "contamination_fraction": 0.23333333333333334
+          },
+          "ublox_f9p": {
+            "median": 123.32589806091433,
+            "mad": 8.744965287428428,
+            "robust_sigma": 12.965285535141387,
+            "p95": 132.4839123652077,
+            "contamination_fraction": 0.0
+          },
+          "ublox_m8t": {
+            "median": 115.80897597215164,
+            "mad": 10.443392841690915,
+            "robust_sigma": 15.48337422709095,
+            "p95": 137.14502040393623,
+            "contamination_fraction": 0.0
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 35.10154072518668,
+          "mad": 14.259576233302383,
+          "robust_sigma": 21.14124772349411,
+          "p95": 59.32945736690642,
+          "contamination_fraction": 0.0
+        },
+        "receiver_pair_separation": {
+          "novatel__ublox_f9p": {
+            "median": 29.091778006021862,
+            "mad": 19.668999880610357,
+            "robust_sigma": 29.161259222992914,
+            "p95": 54.2876433642181,
+            "contamination_fraction": 0.0
+          },
+          "novatel__ublox_m8t": {
+            "median": 29.931802141550843,
+            "mad": 12.491802321035278,
+            "robust_sigma": 18.520346121166902,
+            "p95": 58.262077267511856,
+            "contamination_fraction": 0.0
+          },
+          "ublox_f9p__ublox_m8t": {
+            "median": 16.103610504775993,
+            "mad": 4.8661289813685995,
+            "robust_sigma": 7.214522827777086,
+            "p95": 25.117698364600095,
+            "contamination_fraction": 0.0
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 2.297447131298247,
+        "receiver_absolute_median_dispersion_ratio": 1.4731673211732128,
+        "receiver_scores": {
+          "novatel": 3.297447131298247,
+          "ublox_f9p": 2.4731673211732126,
+          "ublox_m8t": 2.7977697166105058
+        },
+        "selected_branch": "change_guard_distributed_consensus_cauchy",
+        "selected_receiver": null,
+        "selected_family": "cauchy",
+        "unanchored_selected_branch": "isolated_receiver_gaussian",
+        "unanchored_selected_receiver": "ublox_f9p",
+        "unanchored_selected_family": "direct",
+        "selected_receiver_isolation_ratio": 0.5456670186563816,
+        "selected_receiver_isolation_threshold": 0.8,
+        "change_guard_topology_decision": "distributed_receiver_disagreement",
+        "topology_decision_latched_from_first_confirmation": true,
+        "factor_topology": "hierarchical_consensus",
+        "change_guard_reason": "latched_selected_receiver_change",
+        "selected_pair_key": "novatel__ublox_f9p",
+        "selected_pair_tail_ratio": 1.8660820027218965,
+        "sudden_selected_pair_shift": false,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": true,
+        "receiver_divergence": true
+      },
+      {
+        "start_epoch": 510,
+        "stop_epoch": 540,
+        "start_common_epoch": 510,
+        "stop_common_epoch": 540,
+        "consensus_relative_mismatch": {
+          "median": 6.418668424494581,
+          "mad": 2.837619960045406,
+          "robust_sigma": 4.2070553527633185,
+          "p95": 13.77405155715537,
+          "contamination_fraction": 0.034482758620689655
+        },
+        "receiver_relative_mismatch": {
+          "novatel": {
+            "median": 2.088639055981753,
+            "mad": 0.8140400740995055,
+            "robust_sigma": 1.2068958138599268,
+            "p95": 13.380886019117437,
+            "contamination_fraction": 0.10344827586206896
+          },
+          "ublox_f9p": {
+            "median": 3.6610010029363376,
+            "mad": 1.6496107596058218,
+            "robust_sigma": 2.4457129121915915,
+            "p95": 9.449825791678157,
+            "contamination_fraction": 0.034482758620689655
+          },
+          "ublox_m8t": {
+            "median": 9.808594232489542,
+            "mad": 5.75093360184514,
+            "robust_sigma": 8.526334158095604,
+            "p95": 26.39580126473347,
+            "contamination_fraction": 0.034482758620689655
+          }
+        },
+        "receiver_absolute_residual": {
+          "novatel": {
+            "median": 53.18055215375037,
+            "mad": 4.6215051990092135,
+            "robust_sigma": 6.85184360805106,
+            "p95": 64.9247475668403,
+            "contamination_fraction": 0.0
+          },
+          "ublox_f9p": {
+            "median": 50.846713897228945,
+            "mad": 6.16590131994894,
+            "robust_sigma": 9.141565296956298,
+            "p95": 61.90293395475342,
+            "contamination_fraction": 0.0
+          },
+          "ublox_m8t": {
+            "median": 55.365805770428835,
+            "mad": 6.144251640020606,
+            "robust_sigma": 9.10946748149455,
+            "p95": 65.2818913287285,
+            "contamination_fraction": 0.0
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 15.420871240223953,
+          "mad": 3.741371939877655,
+          "robust_sigma": 5.546958038062611,
+          "p95": 28.554420907068334,
+          "contamination_fraction": 0.03333333333333333
+        },
+        "receiver_pair_separation": {
+          "novatel__ublox_f9p": {
+            "median": 9.547485316385036,
+            "mad": 3.9382354121610703,
+            "robust_sigma": 5.8388278220700025,
+            "p95": 18.05137842654262,
+            "contamination_fraction": 0.0
+          },
+          "novatel__ublox_m8t": {
+            "median": 8.248769211868883,
+            "mad": 3.513849352380805,
+            "robust_sigma": 5.209633049839781,
+            "p95": 22.772575736810648,
+            "contamination_fraction": 0.06666666666666667
+          },
+          "ublox_f9p__ublox_m8t": {
+            "median": 9.904462888357351,
+            "mad": 4.619103982363559,
+            "robust_sigma": 6.848283564252212,
+            "p95": 26.68521713383378,
+            "contamination_fraction": 0.06666666666666667
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 2.7932579760336456,
+        "receiver_absolute_median_dispersion_ratio": 1.0888767734790856,
+        "receiver_scores": {
+          "novatel": 2.46189236837709,
+          "ublox_f9p": 2.0,
+          "ublox_m8t": 3.882134749512731
+        },
+        "selected_branch": "change_guard_distributed_consensus_cauchy",
+        "selected_receiver": null,
+        "selected_family": "cauchy",
+        "unanchored_selected_branch": "isolated_receiver_gaussian",
+        "unanchored_selected_receiver": "ublox_f9p",
+        "unanchored_selected_family": "direct",
+        "selected_receiver_isolation_ratio": 1.1130952159211591,
+        "selected_receiver_isolation_threshold": 0.8,
+        "change_guard_topology_decision": "distributed_receiver_disagreement",
+        "topology_decision_latched_from_first_confirmation": true,
+        "factor_topology": "hierarchical_consensus",
+        "change_guard_reason": "latched_selected_receiver_change",
+        "selected_pair_key": "novatel__ublox_f9p",
+        "selected_pair_tail_ratio": 1.8906945471352046,
+        "sudden_selected_pair_shift": false,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": true,
+        "receiver_divergence": false
+      },
+      {
+        "start_epoch": 540,
+        "stop_epoch": 570,
+        "start_common_epoch": 540,
+        "stop_common_epoch": 570,
+        "consensus_relative_mismatch": {
+          "median": 6.693945217117396,
+          "mad": 2.0717503047710135,
+          "robust_sigma": 3.0715770018535045,
+          "p95": 40.56442079928361,
+          "contamination_fraction": 0.20689655172413793
+        },
+        "receiver_relative_mismatch": {
+          "novatel": {
+            "median": 3.7154005720589365,
+            "mad": 1.555858772206692,
+            "robust_sigma": 2.3067162156736414,
+            "p95": 38.68840721198158,
+            "contamination_fraction": 0.20689655172413793
+          },
+          "ublox_f9p": {
+            "median": 6.850972054642779,
+            "mad": 3.25969120089896,
+            "robust_sigma": 4.832818174452798,
+            "p95": 45.75231824700418,
+            "contamination_fraction": 0.27586206896551724
+          },
+          "ublox_m8t": {
+            "median": 13.154112140535757,
+            "mad": 4.75182045601793,
+            "robust_sigma": 7.045049008092182,
+            "p95": 39.55515686543992,
+            "contamination_fraction": 0.13793103448275862
+          }
+        },
+        "receiver_absolute_residual": {
+          "novatel": {
+            "median": 102.87659980365997,
+            "mad": 50.90940346120348,
+            "robust_sigma": 75.47828157158028,
+            "p95": 156.395420466254,
+            "contamination_fraction": 0.0
+          },
+          "ublox_f9p": {
+            "median": 107.36954668267893,
+            "mad": 45.794159597273094,
+            "robust_sigma": 67.89442101891709,
+            "p95": 161.04740314618746,
+            "contamination_fraction": 0.0
+          },
+          "ublox_m8t": {
+            "median": 119.18848418956375,
+            "mad": 44.22762556689398,
+            "robust_sigma": 65.571877665477,
+            "p95": 174.5774096637261,
+            "contamination_fraction": 0.0
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 17.020784833016165,
+          "mad": 4.591594744524352,
+          "robust_sigma": 6.807498368231804,
+          "p95": 35.6052173322461,
+          "contamination_fraction": 0.03333333333333333
+        },
+        "receiver_pair_separation": {
+          "novatel__ublox_f9p": {
+            "median": 11.971101066505572,
+            "mad": 4.400644851889361,
+            "robust_sigma": 6.524396057411166,
+            "p95": 35.6052173322461,
+            "contamination_fraction": 0.13333333333333333
+          },
+          "novatel__ublox_m8t": {
+            "median": 11.760707926977958,
+            "mad": 4.485650140434419,
+            "robust_sigma": 6.65042489820807,
+            "p95": 28.239166143843658,
+            "contamination_fraction": 0.03333333333333333
+          },
+          "ublox_f9p__ublox_m8t": {
+            "median": 14.171489043387597,
+            "mad": 5.677392745835657,
+            "robust_sigma": 8.417302484975943,
+            "p95": 30.60768354795438,
+            "contamination_fraction": 0.0
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 1.1825846951082275,
+        "receiver_absolute_median_dispersion_ratio": 1.1585577713205435,
+        "receiver_scores": {
+          "novatel": 2.0,
+          "ublox_f9p": 2.2262578616747133,
+          "ublox_m8t": 2.180961114231748
+        },
+        "selected_branch": "change_guard_distributed_consensus_cauchy",
+        "selected_receiver": null,
+        "selected_family": "cauchy",
+        "unanchored_selected_branch": "isolated_receiver_cauchy",
+        "unanchored_selected_receiver": "novatel",
+        "unanchored_selected_family": "cauchy",
+        "selected_receiver_isolation_ratio": 1.19430331225731,
+        "selected_receiver_isolation_threshold": 0.8,
+        "change_guard_topology_decision": "distributed_receiver_disagreement",
+        "topology_decision_latched_from_first_confirmation": true,
+        "factor_topology": "hierarchical_consensus",
+        "change_guard_reason": "latched_selected_receiver_change",
+        "selected_pair_key": "novatel__ublox_f9p",
+        "selected_pair_tail_ratio": 2.974264199628836,
+        "sudden_selected_pair_shift": false,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": true,
+        "receiver_divergence": true
+      },
+      {
+        "start_epoch": 570,
+        "stop_epoch": 600,
+        "start_common_epoch": 570,
+        "stop_common_epoch": 600,
+        "consensus_relative_mismatch": {
+          "median": 8.525556915138997,
+          "mad": 2.5344047138655803,
+          "robust_sigma": 3.757508428777109,
+          "p95": 18.633338072359166,
+          "contamination_fraction": 0.06896551724137931
+        },
+        "receiver_relative_mismatch": {
+          "novatel": {
+            "median": 7.90254824200785,
+            "mad": 1.896108617263927,
+            "robust_sigma": 2.811170635955498,
+            "p95": 13.883051175050092,
+            "contamination_fraction": 0.034482758620689655
+          },
+          "ublox_f9p": {
+            "median": 8.655752036119777,
+            "mad": 1.8287625259564297,
+            "robust_sigma": 2.7113233209830025,
+            "p95": 18.64190239565927,
+            "contamination_fraction": 0.10344827586206896
+          },
+          "ublox_m8t": {
+            "median": 10.837021348300125,
+            "mad": 4.139011747854374,
+            "robust_sigma": 6.136498817368895,
+            "p95": 31.81145486733292,
+            "contamination_fraction": 0.06896551724137931
+          }
+        },
+        "receiver_absolute_residual": {
+          "novatel": {
+            "median": 235.53501710163619,
+            "mad": 26.932277808592133,
+            "robust_sigma": 39.929795079018696,
+            "p95": 290.3775336207948,
+            "contamination_fraction": 0.0
+          },
+          "ublox_f9p": {
+            "median": 240.46435105042025,
+            "mad": 27.06679507760842,
+            "robust_sigma": 40.12923038206224,
+            "p95": 295.427814905501,
+            "contamination_fraction": 0.0
+          },
+          "ublox_m8t": {
+            "median": 240.37697387941236,
+            "mad": 29.840123122428196,
+            "robust_sigma": 44.24096654131204,
+            "p95": 298.9026068340891,
+            "contamination_fraction": 0.0
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 12.565591231210936,
+          "mad": 6.14169316788662,
+          "robust_sigma": 9.105674290708702,
+          "p95": 36.59016067307807,
+          "contamination_fraction": 0.03333333333333333
+        },
+        "receiver_pair_separation": {
+          "novatel__ublox_f9p": {
+            "median": 7.325920298035371,
+            "mad": 3.0534647177115404,
+            "robust_sigma": 4.52706679047913,
+            "p95": 16.962308619719213,
+            "contamination_fraction": 0.03333333333333333
+          },
+          "novatel__ublox_m8t": {
+            "median": 8.851131242459932,
+            "mad": 4.37668017871725,
+            "robust_sigma": 6.488866032966195,
+            "p95": 31.109853726653512,
+            "contamination_fraction": 0.1
+          },
+          "ublox_f9p__ublox_m8t": {
+            "median": 8.351205739964186,
+            "mad": 3.9498055420943152,
+            "robust_sigma": 5.855981696709032,
+            "p95": 32.187711331983664,
+            "contamination_fraction": 0.1
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 2.291387856042974,
+        "receiver_absolute_median_dispersion_ratio": 1.020928242472995,
+        "receiver_scores": {
+          "novatel": 2.0,
+          "ublox_f9p": 2.3637096066418124,
+          "ublox_m8t": 3.3119451253499275
+        },
+        "selected_branch": "change_guard_distributed_consensus_cauchy",
+        "selected_receiver": null,
+        "selected_family": "cauchy",
+        "unanchored_selected_branch": "isolated_receiver_gaussian",
+        "unanchored_selected_receiver": "novatel",
+        "unanchored_selected_family": "direct",
+        "selected_receiver_isolation_ratio": 1.03247562994517,
+        "selected_receiver_isolation_threshold": 0.8,
+        "change_guard_topology_decision": "distributed_receiver_disagreement",
+        "topology_decision_latched_from_first_confirmation": true,
+        "factor_topology": "hierarchical_consensus",
+        "change_guard_reason": "latched_selected_receiver_change",
+        "selected_pair_key": "novatel__ublox_f9p",
+        "selected_pair_tail_ratio": 2.315382631758645,
+        "sudden_selected_pair_shift": false,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": true,
+        "receiver_divergence": true
+      },
+      {
+        "start_epoch": 600,
+        "stop_epoch": 630,
+        "start_common_epoch": 600,
+        "stop_common_epoch": 630,
+        "consensus_relative_mismatch": {
+          "median": 4.070909935530679,
+          "mad": 2.7844706795999437,
+          "robust_sigma": 4.128256229574876,
+          "p95": 20.211261885114457,
+          "contamination_fraction": 0.10344827586206896
+        },
+        "receiver_relative_mismatch": {
+          "novatel": {
+            "median": 4.072692697718954,
+            "mad": 2.7670750679913123,
+            "robust_sigma": 4.102465495803919,
+            "p95": 23.098546031178827,
+            "contamination_fraction": 0.06896551724137931
+          },
+          "ublox_f9p": {
+            "median": 5.486172324278025,
+            "mad": 3.8035528329149146,
+            "robust_sigma": 5.639147430079652,
+            "p95": 21.51138774080545,
+            "contamination_fraction": 0.06896551724137931
+          },
+          "ublox_m8t": {
+            "median": 5.91063590018193,
+            "mad": 2.362851431840277,
+            "robust_sigma": 3.5031635328463944,
+            "p95": 20.983341633544477,
+            "contamination_fraction": 0.13793103448275862
+          }
+        },
+        "receiver_absolute_residual": {
+          "novatel": {
+            "median": 107.77637044072901,
+            "mad": 3.156517230906694,
+            "robust_sigma": 4.679852446542264,
+            "p95": 134.9934851277246,
+            "contamination_fraction": 0.06666666666666667
+          },
+          "ublox_f9p": {
+            "median": 115.6269126135129,
+            "mad": 3.260789234364637,
+            "robust_sigma": 4.83444611886901,
+            "p95": 141.03035606244745,
+            "contamination_fraction": 0.06666666666666667
+          },
+          "ublox_m8t": {
+            "median": 110.17443909315894,
+            "mad": 3.4553672471714094,
+            "robust_sigma": 5.122927480656331,
+            "p95": 140.0044791523515,
+            "contamination_fraction": 0.06666666666666667
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 10.89762228708106,
+          "mad": 1.8809082213971635,
+          "robust_sigma": 2.7886345290434345,
+          "p95": 18.723450077378274,
+          "contamination_fraction": 0.0
+        },
+        "receiver_pair_separation": {
+          "novatel__ublox_f9p": {
+            "median": 9.911859983187835,
+            "mad": 2.3243293745658935,
+            "robust_sigma": 3.4460507307313937,
+            "p95": 17.754528970547895,
+            "contamination_fraction": 0.0
+          },
+          "novatel__ublox_m8t": {
+            "median": 6.341857108064889,
+            "mad": 1.9718215393956262,
+            "robust_sigma": 2.923422614307955,
+            "p95": 13.285413985638092,
+            "contamination_fraction": 0.03333333333333333
+          },
+          "ublox_f9p__ublox_m8t": {
+            "median": 8.442663258107931,
+            "mad": 2.1090768789685246,
+            "robust_sigma": 3.1269173807587345,
+            "p95": 12.275291852359537,
+            "contamination_fraction": 0.0
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 1.1008039822528999,
+        "receiver_absolute_median_dispersion_ratio": 1.0728410331567182,
+        "receiver_scores": {
+          "novatel": 2.1008039822529,
+          "ublox_f9p": 2.0980060481711442,
+          "ublox_m8t": 2.0222504120580744
+        },
+        "selected_branch": "change_guard_distributed_consensus_cauchy",
+        "selected_receiver": null,
+        "selected_family": "cauchy",
+        "unanchored_selected_branch": "isolated_receiver_cauchy",
+        "unanchored_selected_receiver": "ublox_m8t",
+        "unanchored_selected_family": "cauchy",
+        "selected_receiver_isolation_ratio": 1.03885938345162,
+        "selected_receiver_isolation_threshold": 0.8,
+        "change_guard_topology_decision": "distributed_receiver_disagreement",
+        "topology_decision_latched_from_first_confirmation": true,
+        "factor_topology": "hierarchical_consensus",
+        "change_guard_reason": "latched_selected_receiver_change",
+        "selected_pair_key": "novatel__ublox_f9p",
+        "selected_pair_tail_ratio": 1.7912408973353673,
+        "sudden_selected_pair_shift": false,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": true,
+        "receiver_divergence": false
+      },
+      {
+        "start_epoch": 630,
+        "stop_epoch": 660,
+        "start_common_epoch": 630,
+        "stop_common_epoch": 660,
+        "consensus_relative_mismatch": {
+          "median": 6.920905525137979,
+          "mad": 3.1890155840111545,
+          "robust_sigma": 4.7280345048549375,
+          "p95": 17.145244321153726,
+          "contamination_fraction": 0.034482758620689655
+        },
+        "receiver_relative_mismatch": {
+          "novatel": {
+            "median": 9.805029410304208,
+            "mad": 6.513685373935619,
+            "robust_sigma": 9.657189935396948,
+            "p95": 67.19461930592044,
+            "contamination_fraction": 0.13793103448275862
+          },
+          "ublox_f9p": {
+            "median": 7.234284682390555,
+            "mad": 4.432671647342398,
+            "robust_sigma": 6.57187898434984,
+            "p95": 24.12038381387229,
+            "contamination_fraction": 0.034482758620689655
+          },
+          "ublox_m8t": {
+            "median": 10.128075505450186,
+            "mad": 4.1407639184963205,
+            "robust_sigma": 6.139096585562644,
+            "p95": 32.209990655760556,
+            "contamination_fraction": 0.10344827586206896
+          }
+        },
+        "receiver_absolute_residual": {
+          "novatel": {
+            "median": 138.36133987310672,
+            "mad": 23.26484931304718,
+            "robust_sigma": 34.49246559152375,
+            "p95": 169.6160670714712,
+            "contamination_fraction": 0.0
+          },
+          "ublox_f9p": {
+            "median": 129.8469950904488,
+            "mad": 15.497069225322178,
+            "robust_sigma": 22.975954833462662,
+            "p95": 166.270183583745,
+            "contamination_fraction": 0.0
+          },
+          "ublox_m8t": {
+            "median": 131.18598632354764,
+            "mad": 19.760023316690003,
+            "robust_sigma": 29.296210569324597,
+            "p95": 173.88232653127346,
+            "contamination_fraction": 0.0
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 19.092648985680096,
+          "mad": 10.187655110734347,
+          "robust_sigma": 15.104217467174742,
+          "p95": 51.639730140285224,
+          "contamination_fraction": 0.03333333333333333
+        },
+        "receiver_pair_separation": {
+          "novatel__ublox_f9p": {
+            "median": 7.341509462291226,
+            "mad": 4.157066531369168,
+            "robust_sigma": 6.163266839407927,
+            "p95": 51.55371393119041,
+            "contamination_fraction": 0.36666666666666664
+          },
+          "novatel__ublox_m8t": {
+            "median": 19.092648985680096,
+            "mad": 7.791716138352637,
+            "robust_sigma": 11.55199834672162,
+            "p95": 51.11775339515445,
+            "contamination_fraction": 0.03333333333333333
+          },
+          "ublox_f9p__ublox_m8t": {
+            "median": 11.716792548782493,
+            "mad": 2.8117986738367433,
+            "robust_sigma": 4.168772713830355,
+            "p95": 23.313108145202456,
+            "contamination_fraction": 0.03333333333333333
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 2.785802241972409,
+        "receiver_absolute_median_dispersion_ratio": 1.065572135702694,
+        "receiver_scores": {
+          "novatel": 3.851374377675103,
+          "ublox_f9p": 2.0,
+          "ublox_m8t": 2.345696734331651
+        },
+        "selected_branch": "change_guard_distributed_consensus_cauchy",
+        "selected_receiver": null,
+        "selected_family": "cauchy",
+        "unanchored_selected_branch": "isolated_receiver_gaussian",
+        "unanchored_selected_receiver": "ublox_f9p",
+        "unanchored_selected_family": "direct",
+        "selected_receiver_isolation_ratio": 0.8864887885002213,
+        "selected_receiver_isolation_threshold": 0.8,
+        "change_guard_topology_decision": "distributed_receiver_disagreement",
+        "topology_decision_latched_from_first_confirmation": true,
+        "factor_topology": "hierarchical_consensus",
+        "change_guard_reason": "latched_selected_receiver_change",
+        "selected_pair_key": "novatel__ublox_f9p",
+        "selected_pair_tail_ratio": 7.022222636365153,
+        "sudden_selected_pair_shift": false,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": true,
+        "receiver_divergence": true
+      },
+      {
+        "start_epoch": 660,
+        "stop_epoch": 690,
+        "start_common_epoch": 660,
+        "stop_common_epoch": 690,
+        "consensus_relative_mismatch": {
+          "median": 1.6548428226480212,
+          "mad": 1.1747557443799785,
+          "robust_sigma": 1.741692866617756,
+          "p95": 4.134513662219579,
+          "contamination_fraction": 0.0
+        },
+        "receiver_relative_mismatch": {
+          "novatel": {
+            "median": 1.4783065282081345,
+            "mad": 1.013618432406632,
+            "robust_sigma": 1.5027906878860724,
+            "p95": 5.061397570994285,
+            "contamination_fraction": 0.0
+          },
+          "ublox_f9p": {
+            "median": 1.9058772960469494,
+            "mad": 1.5377483898846753,
+            "robust_sigma": 2.2798657628430194,
+            "p95": 6.3568429866464,
+            "contamination_fraction": 0.0
+          },
+          "ublox_m8t": {
+            "median": 4.332591953948842,
+            "mad": 1.2350285620567396,
+            "robust_sigma": 1.831053346105322,
+            "p95": 10.429251674916985,
+            "contamination_fraction": 0.06896551724137931
+          }
+        },
+        "receiver_absolute_residual": {
+          "novatel": {
+            "median": 170.14767485618881,
+            "mad": 1.105411568435926,
+            "robust_sigma": 1.638883191363104,
+            "p95": 173.12297159801366,
+            "contamination_fraction": 0.03333333333333333
+          },
+          "ublox_f9p": {
+            "median": 169.32558834913576,
+            "mad": 1.2134530403233441,
+            "robust_sigma": 1.7990654775833899,
+            "p95": 175.46530808741434,
+            "contamination_fraction": 0.1
+          },
+          "ublox_m8t": {
+            "median": 170.12139717239137,
+            "mad": 4.933415390771003,
+            "robust_sigma": 7.314281658357089,
+            "p95": 176.73173696591238,
+            "contamination_fraction": 0.0
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 6.508802978479311,
+          "mad": 2.2282218222983774,
+          "robust_sigma": 3.303561673739574,
+          "p95": 22.092837367323902,
+          "contamination_fraction": 0.13333333333333333
+        },
+        "receiver_pair_separation": {
+          "novatel__ublox_f9p": {
+            "median": 1.8195465335751395,
+            "mad": 0.8203642152253956,
+            "robust_sigma": 1.2162719854931714,
+            "p95": 5.847019411422135,
+            "contamination_fraction": 0.06666666666666667
+          },
+          "novatel__ublox_m8t": {
+            "median": 4.758044815222737,
+            "mad": 2.940237870164065,
+            "robust_sigma": 4.359196666305243,
+            "p95": 22.092837367323902,
+            "contamination_fraction": 0.1
+          },
+          "ublox_f9p__ublox_m8t": {
+            "median": 5.778772935294906,
+            "mad": 2.6445289139299346,
+            "robust_sigma": 3.920778567792521,
+            "p95": 19.97030384383385,
+            "contamination_fraction": 0.1
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 2.060547808906506,
+        "receiver_absolute_median_dispersion_ratio": 1.0048550636384501,
+        "receiver_scores": {
+          "novatel": 2.00485506363845,
+          "ublox_f9p": 2.255946188277328,
+          "ublox_m8t": 3.0652476822748165
+        },
+        "selected_branch": "change_guard_distributed_consensus_cauchy",
+        "selected_receiver": null,
+        "selected_family": "cauchy",
+        "unanchored_selected_branch": "isolated_receiver_gaussian",
+        "unanchored_selected_receiver": "novatel",
+        "unanchored_selected_family": "direct",
+        "selected_receiver_isolation_ratio": 1.7571091388494475,
+        "selected_receiver_isolation_threshold": 0.8,
+        "change_guard_topology_decision": "distributed_receiver_disagreement",
+        "topology_decision_latched_from_first_confirmation": true,
+        "factor_topology": "hierarchical_consensus",
+        "change_guard_reason": "latched_selected_receiver_change",
+        "selected_pair_key": "novatel__ublox_f9p",
+        "selected_pair_tail_ratio": 3.213448682696566,
+        "sudden_selected_pair_shift": false,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": true,
+        "receiver_divergence": false
+      },
+      {
+        "start_epoch": 690,
+        "stop_epoch": 725,
+        "start_common_epoch": 690,
+        "stop_common_epoch": 725,
+        "consensus_relative_mismatch": {
+          "median": 5.794173349910643,
+          "mad": 2.8537281072910776,
+          "robust_sigma": 4.230937291869751,
+          "p95": 9.071233026172598,
+          "contamination_fraction": 0.0
+        },
+        "receiver_relative_mismatch": {
+          "novatel": {
+            "median": 6.017377136515817,
+            "mad": 2.7076083950242094,
+            "robust_sigma": 4.0143002064628925,
+            "p95": 8.811572648829227,
+            "contamination_fraction": 0.0
+          },
+          "ublox_f9p": {
+            "median": 6.291371527001729,
+            "mad": 2.8131098212077497,
+            "robust_sigma": 4.170716620922609,
+            "p95": 9.327206214590765,
+            "contamination_fraction": 0.0
+          },
+          "ublox_m8t": {
+            "median": 7.02628091989363,
+            "mad": 3.1003896414993397,
+            "robust_sigma": 4.596637682486921,
+            "p95": 21.132414609302764,
+            "contamination_fraction": 0.058823529411764705
+          }
+        },
+        "receiver_absolute_residual": {
+          "novatel": {
+            "median": 295.1746636709078,
+            "mad": 16.596948101441285,
+            "robust_sigma": 24.60663525519685,
+            "p95": 312.0029050623551,
+            "contamination_fraction": 0.0
+          },
+          "ublox_f9p": {
+            "median": 296.40173393058933,
+            "mad": 16.272349419809018,
+            "robust_sigma": 24.125385249808847,
+            "p95": 312.68030609830896,
+            "contamination_fraction": 0.0
+          },
+          "ublox_m8t": {
+            "median": 286.79544689326576,
+            "mad": 19.833331735648187,
+            "robust_sigma": 29.404897631272,
+            "p95": 307.5108143122238,
+            "contamination_fraction": 0.0
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 9.357595393309008,
+          "mad": 2.330971334275251,
+          "robust_sigma": 3.455898100196487,
+          "p95": 22.096224848612653,
+          "contamination_fraction": 0.08571428571428572
+        },
+        "receiver_pair_separation": {
+          "novatel__ublox_f9p": {
+            "median": 2.1075403240204125,
+            "mad": 1.2595166491625562,
+            "robust_sigma": 1.8673593840484057,
+            "p95": 9.472681787284007,
+            "contamination_fraction": 0.2
+          },
+          "novatel__ublox_m8t": {
+            "median": 7.961076602716826,
+            "mad": 2.001337685645888,
+            "robust_sigma": 2.9671832527385935,
+            "p95": 19.189494873226007,
+            "contamination_fraction": 0.08571428571428572
+          },
+          "ublox_f9p__ublox_m8t": {
+            "median": 8.88554882998501,
+            "mad": 2.7199160012809056,
+            "robust_sigma": 4.03254746349907,
+            "p95": 22.096224848612653,
+            "contamination_fraction": 0.08571428571428572
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 2.3982568664528436,
+        "receiver_absolute_median_dispersion_ratio": 1.0334952564323612,
+        "receiver_scores": {
+          "novatel": 2.02921670085216,
+          "ublox_f9p": 2.0920130246346185,
+          "ublox_m8t": 3.3982568664528436
+        },
+        "selected_branch": "change_guard_distributed_consensus_cauchy",
+        "selected_receiver": null,
+        "selected_family": "cauchy",
+        "unanchored_selected_branch": "isolated_receiver_gaussian",
+        "unanchored_selected_receiver": "novatel",
+        "unanchored_selected_family": "direct",
+        "selected_receiver_isolation_ratio": 1.7649988860713157,
+        "selected_receiver_isolation_threshold": 0.8,
+        "change_guard_topology_decision": "distributed_receiver_disagreement",
+        "topology_decision_latched_from_first_confirmation": true,
+        "factor_topology": "hierarchical_consensus",
+        "change_guard_reason": "latched_selected_receiver_change",
+        "selected_pair_key": "novatel__ublox_f9p",
+        "selected_pair_tail_ratio": 4.4946621800401,
+        "sudden_selected_pair_shift": false,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": true,
+        "receiver_divergence": false
+      }
+    ]
+  },
+  "proposed_runtime_breakdown_s": {
+    "factor_construction": 1.3282090559999915,
+    "truth_free_alignment": 0.09689739100001304,
+    "topology_decision": 0.02900657399999318,
+    "final_graph_optimization": 0.17446038399998542,
+    "sum_excluding_file_io": 1.6285734049999832
+  },
+  "metrics": {
+    "aligned_kiss_icp": {
+      "rmse_3d_m": 130.14663041892268,
+      "rmse_xy_m": 48.848821448650476,
+      "median_3d_m": 79.4701704356012,
+      "p95_3d_m": 247.80780244629312,
+      "maximum_3d_m": 310.470521386447,
+      "runtime_s": 0.0
+    },
+    "grouped_physical_receivers__direct": {
+      "rmse_3d_m": 13.964775086873535,
+      "rmse_xy_m": 5.581638890948066,
+      "median_3d_m": 9.929791584384844,
+      "p95_3d_m": 25.713495698217198,
+      "maximum_3d_m": 33.46964143548268,
+      "runtime_s": 0.2016388370000044
+    },
+    "hierarchical_consensus__direct": {
+      "rmse_3d_m": 10.335830182315629,
+      "rmse_xy_m": 3.905135045099364,
+      "median_3d_m": 5.974457515263275,
+      "p95_3d_m": 18.98562049315041,
+      "maximum_3d_m": 32.649197666047435,
+      "runtime_s": 0.11001010300000758
+    },
+    "flat_information_mean__direct": {
+      "rmse_3d_m": 10.84094094296685,
+      "rmse_xy_m": 3.8969897194536833,
+      "median_3d_m": 7.601459803819115,
+      "p95_3d_m": 22.378759450053778,
+      "maximum_3d_m": 28.82288726379143,
+      "runtime_s": 0.11856962500000634
+    },
+    "grouped_physical_receivers__huber": {
+      "rmse_3d_m": 11.54136398030297,
+      "rmse_xy_m": 4.599918588005269,
+      "median_3d_m": 7.059960807763812,
+      "p95_3d_m": 25.486045901225317,
+      "maximum_3d_m": 29.932151054561093,
+      "runtime_s": 0.14783502699999929
+    },
+    "hierarchical_consensus__huber": {
+      "rmse_3d_m": 10.159425515624788,
+      "rmse_xy_m": 3.9336563927961845,
+      "median_3d_m": 5.842441536426085,
+      "p95_3d_m": 18.61482937325064,
+      "maximum_3d_m": 36.15434327559599,
+      "runtime_s": 0.12689612600000544
+    },
+    "flat_information_mean__huber": {
+      "rmse_3d_m": 10.766580698953456,
+      "rmse_xy_m": 3.7770344364695516,
+      "median_3d_m": 7.499600558822197,
+      "p95_3d_m": 18.460848402445084,
+      "maximum_3d_m": 36.984069589388746,
+      "runtime_s": 0.12958812299999067
+    },
+    "grouped_physical_receivers__cauchy": {
+      "rmse_3d_m": 11.161616032718104,
+      "rmse_xy_m": 4.429138046110521,
+      "median_3d_m": 6.8899874528440295,
+      "p95_3d_m": 24.105280178212166,
+      "maximum_3d_m": 30.855654903450517,
+      "runtime_s": 0.15667255600000374
+    },
+    "hierarchical_consensus__cauchy": {
+      "rmse_3d_m": 10.193970546887838,
+      "rmse_xy_m": 3.9135829754276887,
+      "median_3d_m": 5.699627613065795,
+      "p95_3d_m": 18.950554725994945,
+      "maximum_3d_m": 37.75391316999336,
+      "runtime_s": 0.12779910500000824
+    },
+    "flat_information_mean__cauchy": {
+      "rmse_3d_m": 10.768723367421478,
+      "rmse_xy_m": 3.725453260150716,
+      "median_3d_m": 7.377403494864863,
+      "p95_3d_m": 17.87539413648482,
+      "maximum_3d_m": 40.22726616572359,
+      "runtime_s": 0.14244803899998715
+    },
+    "grouped_physical_receivers__switch_irls": {
+      "rmse_3d_m": 9.788259636531915,
+      "rmse_xy_m": 3.915860543681614,
+      "median_3d_m": 5.781120872390874,
+      "p95_3d_m": 17.678017548728864,
+      "maximum_3d_m": 43.06171995205633,
+      "runtime_s": 0.7000302170000055
+    },
+    "grouped_physical_receivers__dcs_irls": {
+      "rmse_3d_m": 10.418334327971259,
+      "rmse_xy_m": 4.16507787026223,
+      "median_3d_m": 6.834229939655605,
+      "p95_3d_m": 21.665631843830358,
+      "maximum_3d_m": 29.681667916810785,
+      "runtime_s": 0.6990073879999841
+    },
+    "fixed_pair_consensus__novatel__ublox_f9p__cauchy": {
+      "rmse_3d_m": 10.779810175691548,
+      "rmse_xy_m": 3.6716698438023845,
+      "median_3d_m": 5.621309069625141,
+      "p95_3d_m": 23.798605476628232,
+      "maximum_3d_m": 38.958647506096405,
+      "runtime_s": 0.12904189899998642
+    },
+    "fixed_pair_consensus__novatel__ublox_m8t__cauchy": {
+      "rmse_3d_m": 12.294985651015905,
+      "rmse_xy_m": 3.6341893688487783,
+      "median_3d_m": 6.853086716025436,
+      "p95_3d_m": 27.56674770859538,
+      "maximum_3d_m": 45.39134433919427,
+      "runtime_s": 0.118417337000011
+    },
+    "fixed_pair_consensus__ublox_f9p__ublox_m8t__cauchy": {
+      "rmse_3d_m": 14.0155122969302,
+      "rmse_xy_m": 4.621312690918655,
+      "median_3d_m": 9.60974072705568,
+      "p95_3d_m": 25.567377141548427,
+      "maximum_3d_m": 45.18545930347196,
+      "runtime_s": 0.13196993899998688
+    },
+    "single_physical_receiver__novatel__direct": {
+      "rmse_3d_m": 9.932486020761432,
+      "rmse_xy_m": 3.485617980018198,
+      "median_3d_m": 3.960263723795529,
+      "p95_3d_m": 22.072556102213657,
+      "maximum_3d_m": 39.74272516540661,
+      "runtime_s": 0.09952996999999186
+    },
+    "single_physical_receiver__novatel__huber": {
+      "rmse_3d_m": 9.306766073200793,
+      "rmse_xy_m": 3.2526245354831103,
+      "median_3d_m": 3.956332899363776,
+      "p95_3d_m": 21.469484410701952,
+      "maximum_3d_m": 37.43316025688369,
+      "runtime_s": 0.12086661799997955
+    },
+    "single_physical_receiver__novatel__cauchy": {
+      "rmse_3d_m": 9.334763356918089,
+      "rmse_xy_m": 3.237390720686856,
+      "median_3d_m": 3.999174590010729,
+      "p95_3d_m": 21.565026249259564,
+      "maximum_3d_m": 37.272401768520744,
+      "runtime_s": 0.125269344000003
+    },
+    "single_physical_receiver__ublox_f9p__direct": {
+      "rmse_3d_m": 16.057596798111547,
+      "rmse_xy_m": 5.933380346798174,
+      "median_3d_m": 12.292932742877401,
+      "p95_3d_m": 29.036893567105096,
+      "maximum_3d_m": 34.979785778207926,
+      "runtime_s": 0.1647439239999926
+    },
+    "single_physical_receiver__ublox_f9p__huber": {
+      "rmse_3d_m": 14.546075983051775,
+      "rmse_xy_m": 5.141983016316443,
+      "median_3d_m": 10.540105180837447,
+      "p95_3d_m": 28.8566283967756,
+      "maximum_3d_m": 36.792997407224924,
+      "runtime_s": 0.1426178380000067
+    },
+    "single_physical_receiver__ublox_f9p__cauchy": {
+      "rmse_3d_m": 14.137823008730852,
+      "rmse_xy_m": 4.953114664186729,
+      "median_3d_m": 10.266778497396523,
+      "p95_3d_m": 26.216038737382462,
+      "maximum_3d_m": 39.249403884801694,
+      "runtime_s": 0.17280768500000931
+    },
+    "single_physical_receiver__ublox_m8t__direct": {
+      "rmse_3d_m": 18.3224133502435,
+      "rmse_xy_m": 6.448974938028413,
+      "median_3d_m": 14.04728542246604,
+      "p95_3d_m": 39.821270669576556,
+      "maximum_3d_m": 42.321191179156465,
+      "runtime_s": 0.13091676499999494
+    },
+    "single_physical_receiver__ublox_m8t__huber": {
+      "rmse_3d_m": 15.904109088517737,
+      "rmse_xy_m": 5.806403672186325,
+      "median_3d_m": 12.930982665032538,
+      "p95_3d_m": 27.014772540848384,
+      "maximum_3d_m": 45.89392221075621,
+      "runtime_s": 0.13166062999999895
+    },
+    "single_physical_receiver__ublox_m8t__cauchy": {
+      "rmse_3d_m": 15.81197698816232,
+      "rmse_xy_m": 5.728122169651859,
+      "median_3d_m": 13.465425578671635,
+      "p95_3d_m": 26.744516338047692,
+      "maximum_3d_m": 46.9863473889483,
+      "runtime_s": 0.14387417500000765
+    },
+    "motion_margin_subset": {
+      "rmse_3d_m": 9.95532733927351,
+      "rmse_xy_m": 3.3361365065599573,
+      "median_3d_m": 4.686626947052497,
+      "p95_3d_m": 22.912309136527057,
+      "maximum_3d_m": 38.91003204349405,
+      "runtime_s": 0.17446038399998542
+    }
+  },
+  "best_single_physical_receiver": {
+    "name": "single_physical_receiver__novatel__huber",
+    "rmse_3d_m": 9.306766073200793
+  },
+  "best_fixed_topology": {
+    "name": "hierarchical_consensus__cauchy",
+    "rmse_3d_m": 10.193970546887838
+  },
+  "method_metadata": {
+    "method_name": "motion_margin_subset_topology",
+    "subset_policy": "full",
+    "pair_factor_mode": "consensus",
+    "loewner_floor_m": 1.0,
+    "motion_margin": 2.0,
+    "separation_margin": 2.0,
+    "loss_family": "cauchy_fixed",
+    "multi_receiver_factor": "single conservative Loewner-envelope subset consensus",
+    "decision_semantics": "same-window fixed-lag batch"
+  },
+  "candidate_subset_windows": [
+    {
+      "start_epoch": 0,
+      "stop_epoch": 30,
+      "selected_receivers": [
+        "novatel",
+        "ublox_f9p"
+      ],
+      "reason": "separation_triangle_coherent_pair",
+      "motion_margin_ratio": 1.4108402193478395,
+      "separation_margin_ratio": 2.351470792176612
+    },
+    {
+      "start_epoch": 30,
+      "stop_epoch": 60,
+      "selected_receivers": [
+        "novatel",
+        "ublox_f9p"
+      ],
+      "reason": "kiss_motion_ambiguous_pair",
+      "motion_margin_ratio": 1.6361469812505407,
+      "separation_margin_ratio": 1.6361860456950126
+    },
+    {
+      "start_epoch": 60,
+      "stop_epoch": 90,
+      "selected_receivers": [
+        "novatel"
+      ],
+      "reason": "kiss_motion_clear_single",
+      "motion_margin_ratio": 3.1884516365280944,
+      "separation_margin_ratio": 1.8196901865707038
+    },
+    {
+      "start_epoch": 90,
+      "stop_epoch": 120,
+      "selected_receivers": [
+        "novatel",
+        "ublox_f9p"
+      ],
+      "reason": "kiss_motion_ambiguous_pair",
+      "motion_margin_ratio": 1.8760224751386616,
+      "separation_margin_ratio": 1.2436329375288693
+    },
+    {
+      "start_epoch": 120,
+      "stop_epoch": 150,
+      "selected_receivers": [
+        "novatel"
+      ],
+      "reason": "kiss_motion_clear_single",
+      "motion_margin_ratio": 2.771196390776452,
+      "separation_margin_ratio": 1.3576898504823645
+    },
+    {
+      "start_epoch": 150,
+      "stop_epoch": 180,
+      "selected_receivers": [
+        "novatel",
+        "ublox_f9p"
+      ],
+      "reason": "kiss_motion_ambiguous_pair",
+      "motion_margin_ratio": 1.2015246328437783,
+      "separation_margin_ratio": 1.0081532191195537
+    },
+    {
+      "start_epoch": 180,
+      "stop_epoch": 210,
+      "selected_receivers": [
+        "novatel"
+      ],
+      "reason": "kiss_motion_clear_single",
+      "motion_margin_ratio": 2.0816752036507147,
+      "separation_margin_ratio": 1.5631475534909471
+    },
+    {
+      "start_epoch": 210,
+      "stop_epoch": 240,
+      "selected_receivers": [
+        "novatel"
+      ],
+      "reason": "kiss_motion_clear_single",
+      "motion_margin_ratio": 3.3732960341479337,
+      "separation_margin_ratio": 1.3508477738026594
+    },
+    {
+      "start_epoch": 240,
+      "stop_epoch": 270,
+      "selected_receivers": [
+        "novatel",
+        "ublox_f9p"
+      ],
+      "reason": "kiss_motion_ambiguous_pair",
+      "motion_margin_ratio": 1.3950989628344275,
+      "separation_margin_ratio": 1.114640965237489
+    },
+    {
+      "start_epoch": 270,
+      "stop_epoch": 300,
+      "selected_receivers": [
+        "novatel",
+        "ublox_f9p"
+      ],
+      "reason": "kiss_motion_ambiguous_pair",
+      "motion_margin_ratio": 1.3484408130241952,
+      "separation_margin_ratio": 1.4143346120548772
+    },
+    {
+      "start_epoch": 300,
+      "stop_epoch": 330,
+      "selected_receivers": [
+        "novatel",
+        "ublox_f9p"
+      ],
+      "reason": "kiss_motion_ambiguous_pair",
+      "motion_margin_ratio": 1.1646751519583884,
+      "separation_margin_ratio": 1.2273581030118568
+    },
+    {
+      "start_epoch": 330,
+      "stop_epoch": 360,
+      "selected_receivers": [
+        "novatel"
+      ],
+      "reason": "kiss_motion_clear_single",
+      "motion_margin_ratio": 2.414510973075338,
+      "separation_margin_ratio": 1.5611821923467617
+    },
+    {
+      "start_epoch": 360,
+      "stop_epoch": 390,
+      "selected_receivers": [
+        "novatel",
+        "ublox_f9p"
+      ],
+      "reason": "kiss_motion_ambiguous_pair",
+      "motion_margin_ratio": 1.882329700427172,
+      "separation_margin_ratio": 1.468266949791624
+    },
+    {
+      "start_epoch": 390,
+      "stop_epoch": 420,
+      "selected_receivers": [
+        "novatel"
+      ],
+      "reason": "kiss_motion_clear_single",
+      "motion_margin_ratio": 2.063975770564668,
+      "separation_margin_ratio": 1.6630726289376347
+    },
+    {
+      "start_epoch": 420,
+      "stop_epoch": 450,
+      "selected_receivers": [
+        "novatel",
+        "ublox_f9p"
+      ],
+      "reason": "kiss_motion_ambiguous_pair",
+      "motion_margin_ratio": 1.4730988359535109,
+      "separation_margin_ratio": 1.909273028841827
+    },
+    {
+      "start_epoch": 450,
+      "stop_epoch": 480,
+      "selected_receivers": [
+        "novatel",
+        "ublox_f9p"
+      ],
+      "reason": "kiss_motion_ambiguous_pair",
+      "motion_margin_ratio": 1.5219960183191246,
+      "separation_margin_ratio": 1.1692552264728229
+    },
+    {
+      "start_epoch": 480,
+      "stop_epoch": 510,
+      "selected_receivers": [
+        "novatel"
+      ],
+      "reason": "kiss_motion_clear_single",
+      "motion_margin_ratio": 2.03230085104707,
+      "separation_margin_ratio": 1.8065376082831766
+    },
+    {
+      "start_epoch": 510,
+      "stop_epoch": 540,
+      "selected_receivers": [
+        "novatel",
+        "ublox_f9p"
+      ],
+      "reason": "kiss_motion_ambiguous_pair",
+      "motion_margin_ratio": 1.7528165014684667,
+      "separation_margin_ratio": 1.1574436223342839
+    },
+    {
+      "start_epoch": 540,
+      "stop_epoch": 570,
+      "selected_receivers": [
+        "novatel",
+        "ublox_f9p"
+      ],
+      "reason": "kiss_motion_ambiguous_pair",
+      "motion_margin_ratio": 1.8439390105509472,
+      "separation_margin_ratio": 1.0178894961794767
+    },
+    {
+      "start_epoch": 570,
+      "stop_epoch": 600,
+      "selected_receivers": [
+        "novatel",
+        "ublox_f9p"
+      ],
+      "reason": "kiss_motion_ambiguous_pair",
+      "motion_margin_ratio": 1.0953115085217824,
+      "separation_margin_ratio": 1.1399531253709887
+    },
+    {
+      "start_epoch": 600,
+      "stop_epoch": 630,
+      "selected_receivers": [
+        "novatel",
+        "ublox_f9p"
+      ],
+      "reason": "kiss_motion_ambiguous_pair",
+      "motion_margin_ratio": 1.3470626760891478,
+      "separation_margin_ratio": 1.331260404365066
+    },
+    {
+      "start_epoch": 630,
+      "stop_epoch": 660,
+      "selected_receivers": [
+        "novatel",
+        "ublox_f9p"
+      ],
+      "reason": "kiss_motion_ambiguous_pair",
+      "motion_margin_ratio": 1.3553557595226062,
+      "separation_margin_ratio": 1.5959650544570403
+    },
+    {
+      "start_epoch": 660,
+      "stop_epoch": 690,
+      "selected_receivers": [
+        "novatel",
+        "ublox_f9p"
+      ],
+      "reason": "separation_triangle_coherent_pair",
+      "motion_margin_ratio": 1.2892301154599355,
+      "separation_margin_ratio": 2.614961875074381
+    },
+    {
+      "start_epoch": 690,
+      "stop_epoch": 725,
+      "selected_receivers": [
+        "novatel",
+        "ublox_f9p"
+      ],
+      "reason": "separation_triangle_coherent_pair",
+      "motion_margin_ratio": 1.0455338570725783,
+      "separation_margin_ratio": 3.777425519209055
+    }
+  ],
+  "candidate_branch_counts": {
+    "separation_triangle_coherent_pair": 3,
+    "kiss_motion_ambiguous_pair": 14,
+    "kiss_motion_clear_single": 7
+  },
+  "candidate_subset_counts": {
+    "novatel,ublox_f9p": 17,
+    "novatel": 7
+  },
+  "candidate_source_trajectory": "trajectory__dda_fc"
+}

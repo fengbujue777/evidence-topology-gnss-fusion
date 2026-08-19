@@ -1,0 +1,3 @@
+route,evaluation_states,quotient_rmse_3d_m,naive_rmse_3d_m,quotient_rmse_xy_m,naive_rmse_xy_m,quotient_rmse_z_m,naive_rmse_z_m,quotient_p95_3d_m,naive_p95_3d_m,rmse_reduction_percent,paired_delta_rmse_m,ci95_low_m,ci95_high_m,replay_max_difference_m,replay_pass
+CR1,764,8.018547,11.657482,7.014074,5.764753,3.885854,10.132350,10.790212,18.103692,31.215443,-3.638935,-5.429702,-1.722789,7.414540e-13,true
+CR2,781,6.053833,7.713293,2.393785,2.656908,5.560458,7.241252,15.827314,19.298761,21.514286,-1.659460,-2.213466,-0.979204,2.532046e-11,true

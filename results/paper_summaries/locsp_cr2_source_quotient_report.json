@@ -1,0 +1,66 @@
+{
+  "dataset": "LOCSP CR2",
+  "dataset_doi": "10.57745/YCXRWF",
+  "candidate_physical_sources": [
+    "u-blox M8T",
+    "Septentrio"
+  ],
+  "reference_only": "NovAtel INSPVA",
+  "lidar_frontend": "KISS-ICP on Hesai PandarXT-32",
+  "evaluation_epoch_count": 781,
+  "reference_valid_state_fraction": 0.8118503118503119,
+  "evaluation_start_index": 181,
+  "stream_equivalence_audit": {
+    "bag": "LOCSP/CR2/locsp_08_04_2024_anneau_cite_scientifique_2024-04-08-12-14-51.bag",
+    "truth_topic_opened": false,
+    "fix_count": 307,
+    "navpvt_count": 307,
+    "paired_count": 307,
+    "maximum_absolute_pairing_offset_s": 0.0006711483001708984,
+    "maximum_absolute_geodetic_component_difference": 0.0,
+    "maximum_absolute_covariance_component_difference_m2": 3.552713678800501e-15,
+    "exact_position_and_covariance_replay": false,
+    "timestamp_policy_for_factor_test": "Use the NavSatFix measurement epochs for both encodings after equivalence is established; driver publication latency must not create a second physical measurement epoch."
+  },
+  "source_quotient_with_replay": {
+    "rmse_3d_m": 6.0538331145387,
+    "rmse_xy_m": 2.3937850078663403,
+    "rmse_z_m": 5.560457599406696,
+    "median_3d_m": 2.036498727912403,
+    "p95_3d_m": 15.827313831535442,
+    "maximum_3d_m": 17.458678457239238
+  },
+  "three_stream_naive": {
+    "rmse_3d_m": 7.713293044979478,
+    "rmse_xy_m": 2.6569084117433563,
+    "rmse_z_m": 7.241251776408287,
+    "median_3d_m": 2.7028203449915065,
+    "p95_3d_m": 19.298761432515715,
+    "maximum_3d_m": 21.081387541149248
+  },
+  "two_physical_sources_without_replay": {
+    "rmse_3d_m": 6.053833114531875,
+    "rmse_xy_m": 2.39378500786621,
+    "rmse_z_m": 5.560457599399322,
+    "median_3d_m": 2.036498727912398,
+    "p95_3d_m": 15.82731383151294,
+    "maximum_3d_m": 17.458678457219765
+  },
+  "replay_invariance": {
+    "maximum_trajectory_difference_m": 2.5320463371039414e-11,
+    "mean_trajectory_difference_m": 3.2222442892316387e-12,
+    "registered_tolerance_m": 1e-09,
+    "pass": true
+  },
+  "source_quotient_vs_naive": {
+    "rmse_reduction_percent": 21.51428606126805,
+    "p95_reduction_percent": 17.9879295006537,
+    "candidate_minus_baseline_rmse_m": -1.6594599304407778,
+    "ci95_low_m": -2.213466044891341,
+    "ci95_high_m": -0.9792044192469261,
+    "strict_improvement_ci_below_zero": true,
+    "one_sided_bootstrap_p": 9.999000099990002e-05,
+    "eligible_within_segment_block_starts": 752
+  },
+  "scope": "Independent external validation of physical-source replay invariance and information multiplicity; not validation of the three-receiver triangle selector or pair-collapse rule."
+}

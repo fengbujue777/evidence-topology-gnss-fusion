@@ -1,0 +1,1696 @@
+{
+  "evidentiary_status": "MOTION_MARGIN_SUBSET_CANDIDATE",
+  "epoch_policy": "all_sources",
+  "ablation": "none",
+  "truth_access_policy": "All grouping, alignment, branch adjudication, receiver selection, and trajectory optimization completed before hidden truth was read.",
+  "physical_receiver_groups": [
+    "google_pixel4",
+    "huawei_p40pro",
+    "xiaomi_mi8"
+  ],
+  "common_epoch_count": 335,
+  "state_epoch_count": 2059,
+  "evaluation_start_index": 201,
+  "evaluation_epoch_count": 1858,
+  "decision": {
+    "alignment_prefix_epoch_count": 120,
+    "initial_prefix_policy": "fixed_count",
+    "window_epochs": 30,
+    "decision_stride_epochs": 0,
+    "contamination_threshold": 0.1,
+    "receiver_dispersion_threshold": 2.0,
+    "persistent_shift_ratio_threshold": 1.35,
+    "persistent_shift_difference_threshold_m": 12.0,
+    "selected_receiver_isolation_ratio_threshold": 0.8,
+    "pairwise_median_limit_m": 355.2047108000247,
+    "pairwise_p95_limit_m": 301.47390221435677,
+    "sudden_pair_shift_ratio_threshold": 2.0,
+    "sudden_pair_shift_difference_threshold_m": 8.0,
+    "sudden_pair_tail_ratio_ceiling": 3.0,
+    "quorum_pair_tail_ratio_threshold": 1.4,
+    "initial_adjudication": {
+      "prefix_epoch_count": 60,
+      "selected_branch": "isolated_receiver_gaussian",
+      "selected_receiver": "huawei_p40pro",
+      "selected_family": "direct",
+      "consensus_relative_mismatch": {
+        "median": 29.37618870736818,
+        "mad": 11.200394601595171,
+        "robust_sigma": 16.605705036325,
+        "p95": 81.74365363727988,
+        "contamination_fraction": 0.06779661016949153
+      },
+      "receiver_relative_mismatch": {
+        "google_pixel4": {
+          "median": 52.360787523013855,
+          "mad": 24.01708130582532,
+          "robust_sigma": 35.60772474401662,
+          "p95": 214.50257615659518,
+          "contamination_fraction": 0.1016949152542373
+        },
+        "huawei_p40pro": {
+          "median": 15.683503668482176,
+          "mad": 9.053441329988148,
+          "robust_sigma": 13.422632115840427,
+          "p95": 132.956422653383,
+          "contamination_fraction": 0.1864406779661017
+        },
+        "xiaomi_mi8": {
+          "median": 50.75606924716205,
+          "mad": 34.941055337971775,
+          "robust_sigma": 51.80360864407695,
+          "p95": 276.3207921187177,
+          "contamination_fraction": 0.13559322033898305
+        }
+      },
+      "receiver_absolute_residual": {
+        "google_pixel4": {
+          "median": 67.30527890104949,
+          "mad": 28.113110779788002,
+          "robust_sigma": 41.68049804211369,
+          "p95": 150.75372273482512,
+          "contamination_fraction": 0.0
+        },
+        "huawei_p40pro": {
+          "median": 50.299436849183195,
+          "mad": 34.927648023733,
+          "robust_sigma": 51.78373095998654,
+          "p95": 135.78820696985795,
+          "contamination_fraction": 0.0
+        },
+        "xiaomi_mi8": {
+          "median": 74.0329551228337,
+          "mad": 27.667445875965125,
+          "robust_sigma": 41.019755255705896,
+          "p95": 248.04668977935432,
+          "contamination_fraction": 0.08333333333333333
+        }
+      },
+      "receiver_motion_p95_dispersion_ratio": 2.0782808878596652,
+      "receiver_absolute_median_dispersion_ratio": 1.4718446121934248,
+      "maximum_pairwise_receiver_separation": {
+        "median": 76.22347894185124,
+        "mad": 31.361710492622585,
+        "robust_sigma": 46.49687197636224,
+        "p95": 281.47390221435677,
+        "contamination_fraction": 0.11666666666666667
+      },
+      "receiver_pair_separation": {
+        "google_pixel4__huawei_p40pro": {
+          "median": 50.38684009637994,
+          "mad": 23.72454470889372,
+          "robust_sigma": 35.17400998540583,
+          "p95": 142.87398418472472,
+          "contamination_fraction": 0.03333333333333333
+        },
+        "google_pixel4__xiaomi_mi8": {
+          "median": 56.74419384059013,
+          "mad": 32.22375749822038,
+          "robust_sigma": 47.77494286686153,
+          "p95": 261.148363879097,
+          "contamination_fraction": 0.13333333333333333
+        },
+        "huawei_p40pro__xiaomi_mi8": {
+          "median": 50.179742217815885,
+          "mad": 23.26625929785414,
+          "robust_sigma": 34.494556034998546,
+          "p95": 216.4495223289925,
+          "contamination_fraction": 0.15
+        }
+      },
+      "pairwise_mahalanobis_d2": {
+        "median": 19.666539153831938,
+        "p95": 109.06274548277084,
+        "chi2_3_95_threshold": 7.814727903251179,
+        "fraction_within_chi2_3_95": 0.22777777777777777,
+        "prefix_receivers_statistically_consistent": false
+      }
+    },
+    "ablation": "none",
+    "change_action": "topology_adaptive",
+    "provisional_action": "quorum_aware",
+    "branch_counts": {
+      "anchored_receiver_cauchy": 8,
+      "anchored_receiver_nominal": 3
+    },
+    "receiver_counts": {
+      "huawei_p40pro": 11
+    },
+    "windows": [
+      {
+        "start_epoch": 0,
+        "stop_epoch": 30,
+        "start_common_epoch": 0,
+        "stop_common_epoch": 30,
+        "consensus_relative_mismatch": {
+          "median": 35.82680467196864,
+          "mad": 11.198171975087874,
+          "robust_sigma": 16.602409770265282,
+          "p95": 114.84730080530346,
+          "contamination_fraction": 0.10344827586206896
+        },
+        "receiver_relative_mismatch": {
+          "google_pixel4": {
+            "median": 62.92508716336991,
+            "mad": 28.149692746608324,
+            "robust_sigma": 41.734734466121495,
+            "p95": 218.667421374911,
+            "contamination_fraction": 0.10344827586206896
+          },
+          "huawei_p40pro": {
+            "median": 24.736944998470324,
+            "mad": 15.161726756684718,
+            "robust_sigma": 22.478776089460762,
+            "p95": 149.91576702305377,
+            "contamination_fraction": 0.20689655172413793
+          },
+          "xiaomi_mi8": {
+            "median": 45.0749780413257,
+            "mad": 32.174512340720845,
+            "robust_sigma": 47.70193199635272,
+            "p95": 264.7824897589464,
+            "contamination_fraction": 0.10344827586206896
+          }
+        },
+        "receiver_absolute_residual": {
+          "google_pixel4": {
+            "median": 41.59987072068269,
+            "mad": 14.32594049070972,
+            "robust_sigma": 21.239639371526227,
+            "p95": 160.92740271270503,
+            "contamination_fraction": 0.16666666666666666
+          },
+          "huawei_p40pro": {
+            "median": 27.992802316026452,
+            "mad": 13.400610941420897,
+            "robust_sigma": 19.86774578175062,
+            "p95": 138.89545691768188,
+            "contamination_fraction": 0.16666666666666666
+          },
+          "xiaomi_mi8": {
+            "median": 53.08946755420408,
+            "mad": 32.65712846580523,
+            "robust_sigma": 48.41745866340283,
+            "p95": 218.1527312671117,
+            "contamination_fraction": 0.06666666666666667
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 85.19219699331452,
+          "mad": 32.50490534148372,
+          "robust_sigma": 48.191772659283764,
+          "p95": 270.55642195799794,
+          "contamination_fraction": 0.1
+        },
+        "receiver_pair_separation": {
+          "google_pixel4__huawei_p40pro": {
+            "median": 58.32008766917616,
+            "mad": 28.225165324199175,
+            "robust_sigma": 41.846630109657696,
+            "p95": 154.62216820579962,
+            "contamination_fraction": 0.03333333333333333
+          },
+          "google_pixel4__xiaomi_mi8": {
+            "median": 64.34544522106516,
+            "mad": 30.77375497233689,
+            "robust_sigma": 45.625169121986666,
+            "p95": 254.94275870268805,
+            "contamination_fraction": 0.13333333333333333
+          },
+          "huawei_p40pro__xiaomi_mi8": {
+            "median": 46.48677455137158,
+            "mad": 22.06951399604057,
+            "robust_sigma": 32.72026145052975,
+            "p95": 209.58935074953465,
+            "contamination_fraction": 0.16666666666666666
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 1.766208418346208,
+        "receiver_absolute_median_dispersion_ratio": 1.8965399374756156,
+        "receiver_scores": {
+          "google_pixel4": 2.944693575231061,
+          "huawei_p40pro": 2.0,
+          "xiaomi_mi8": 3.6627483558218232
+        },
+        "selected_branch": "anchored_receiver_cauchy",
+        "selected_receiver": "huawei_p40pro",
+        "selected_family": "cauchy",
+        "unanchored_selected_branch": "isolated_receiver_cauchy",
+        "unanchored_selected_receiver": "huawei_p40pro",
+        "unanchored_selected_family": "cauchy",
+        "change_guard_reason": "selected_receiver_heavy_tail",
+        "selected_pair_key": "google_pixel4__huawei_p40pro",
+        "selected_pair_tail_ratio": 2.651267760139563,
+        "sudden_selected_pair_shift": false,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": false,
+        "receiver_divergence": false
+      },
+      {
+        "start_epoch": 30,
+        "stop_epoch": 60,
+        "start_common_epoch": 30,
+        "stop_common_epoch": 60,
+        "consensus_relative_mismatch": {
+          "median": 22.285075989553025,
+          "mad": 9.604431366386322,
+          "robust_sigma": 14.23952994380436,
+          "p95": 58.606140767438006,
+          "contamination_fraction": 0.034482758620689655
+        },
+        "receiver_relative_mismatch": {
+          "google_pixel4": {
+            "median": 48.84004917071834,
+            "mad": 20.496342953529805,
+            "robust_sigma": 30.387878062903287,
+            "p95": 161.35461037665854,
+            "contamination_fraction": 0.10344827586206896
+          },
+          "huawei_p40pro": {
+            "median": 10.969174537620834,
+            "mad": 5.690934479560264,
+            "robust_sigma": 8.437379459396046,
+            "p95": 60.93432831840215,
+            "contamination_fraction": 0.10344827586206896
+          },
+          "xiaomi_mi8": {
+            "median": 53.01436275166864,
+            "mad": 28.32776548967776,
+            "robust_sigma": 41.99874511499625,
+            "p95": 460.9650361654062,
+            "contamination_fraction": 0.20689655172413793
+          }
+        },
+        "receiver_absolute_residual": {
+          "google_pixel4": {
+            "median": 81.91672934278114,
+            "mad": 15.187009202705283,
+            "robust_sigma": 22.51625984393085,
+            "p95": 144.73149456529757,
+            "contamination_fraction": 0.03333333333333333
+          },
+          "huawei_p40pro": {
+            "median": 90.71639009860516,
+            "mad": 24.025622079585297,
+            "robust_sigma": 35.62038729519316,
+            "p95": 128.24295563282308,
+            "contamination_fraction": 0.0
+          },
+          "xiaomi_mi8": {
+            "median": 83.7046750692213,
+            "mad": 26.034283315580314,
+            "robust_sigma": 38.598428443679374,
+            "p95": 283.96241774757436,
+            "contamination_fraction": 0.1
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 73.26106318560726,
+          "mad": 32.445721886082964,
+          "robust_sigma": 48.1040272683066,
+          "p95": 300.58808567328606,
+          "contamination_fraction": 0.13333333333333333
+        },
+        "receiver_pair_separation": {
+          "google_pixel4__huawei_p40pro": {
+            "median": 38.395602158288156,
+            "mad": 16.85353180892506,
+            "robust_sigma": 24.98704625991229,
+            "p95": 112.5671882210166,
+            "contamination_fraction": 0.06666666666666667
+          },
+          "google_pixel4__xiaomi_mi8": {
+            "median": 47.52145446955925,
+            "mad": 28.06028781284148,
+            "robust_sigma": 41.602182711318775,
+            "p95": 300.58808567328606,
+            "contamination_fraction": 0.16666666666666666
+          },
+          "huawei_p40pro__xiaomi_mi8": {
+            "median": 50.34709717466217,
+            "mad": 25.270440447542434,
+            "robust_sigma": 37.46595500752641,
+            "p95": 201.3975962524319,
+            "contamination_fraction": 0.13333333333333333
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 7.564948180879429,
+        "receiver_absolute_median_dispersion_ratio": 1.1074220226615956,
+        "receiver_scores": {
+          "google_pixel4": 3.648008353083454,
+          "huawei_p40pro": 2.107422022661596,
+          "xiaomi_mi8": 8.586774561653964
+        },
+        "selected_branch": "anchored_receiver_cauchy",
+        "selected_receiver": "huawei_p40pro",
+        "selected_family": "cauchy",
+        "unanchored_selected_branch": "isolated_receiver_gaussian",
+        "unanchored_selected_receiver": "huawei_p40pro",
+        "unanchored_selected_family": "direct",
+        "change_guard_reason": "selected_receiver_heavy_tail",
+        "selected_pair_key": "google_pixel4__huawei_p40pro",
+        "selected_pair_tail_ratio": 2.931772960792532,
+        "sudden_selected_pair_shift": false,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": false,
+        "receiver_divergence": false
+      },
+      {
+        "start_epoch": 60,
+        "stop_epoch": 90,
+        "start_common_epoch": 60,
+        "stop_common_epoch": 90,
+        "consensus_relative_mismatch": {
+          "median": 19.983690090587185,
+          "mad": 13.044307007419638,
+          "robust_sigma": 19.339489569200353,
+          "p95": 65.12451889284604,
+          "contamination_fraction": 0.0
+        },
+        "receiver_relative_mismatch": {
+          "google_pixel4": {
+            "median": 64.46319355743087,
+            "mad": 35.14698330674844,
+            "robust_sigma": 52.10891745058523,
+            "p95": 178.92922823463593,
+            "contamination_fraction": 0.034482758620689655
+          },
+          "huawei_p40pro": {
+            "median": 6.939383083167547,
+            "mad": 3.627308997783177,
+            "robust_sigma": 5.377848320113338,
+            "p95": 58.65709174007424,
+            "contamination_fraction": 0.20689655172413793
+          },
+          "xiaomi_mi8": {
+            "median": 37.08444332433525,
+            "mad": 19.92177585139144,
+            "robust_sigma": 29.53602487727295,
+            "p95": 270.5926501797935,
+            "contamination_fraction": 0.13793103448275862
+          }
+        },
+        "receiver_absolute_residual": {
+          "google_pixel4": {
+            "median": 114.33329853910276,
+            "mad": 37.34776452178134,
+            "robust_sigma": 55.37179567999301,
+            "p95": 267.9481153502143,
+            "contamination_fraction": 0.03333333333333333
+          },
+          "huawei_p40pro": {
+            "median": 112.91077151355984,
+            "mad": 5.889128984731727,
+            "robust_sigma": 8.731222632763258,
+            "p95": 161.30495920245795,
+            "contamination_fraction": 0.16666666666666666
+          },
+          "xiaomi_mi8": {
+            "median": 137.4231153729946,
+            "mad": 23.329473874645217,
+            "robust_sigma": 34.58827796654899,
+            "p95": 204.50115001437163,
+            "contamination_fraction": 0.0
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 86.79352535715725,
+          "mad": 29.310957021870724,
+          "robust_sigma": 43.45642488062553,
+          "p95": 260.07340140089536,
+          "contamination_fraction": 0.13333333333333333
+        },
+        "receiver_pair_separation": {
+          "google_pixel4__huawei_p40pro": {
+            "median": 55.3868005014311,
+            "mad": 24.818594762194095,
+            "robust_sigma": 36.79604859442897,
+            "p95": 181.15521546828978,
+            "contamination_fraction": 0.13333333333333333
+          },
+          "google_pixel4__xiaomi_mi8": {
+            "median": 77.65125562196334,
+            "mad": 29.97617132812781,
+            "robust_sigma": 44.44267161108229,
+            "p95": 250.01409402381137,
+            "contamination_fraction": 0.13333333333333333
+          },
+          "huawei_p40pro__xiaomi_mi8": {
+            "median": 40.1965181082838,
+            "mad": 16.948926699142987,
+            "robust_sigma": 25.128478724149392,
+            "p95": 139.7231299257999,
+            "contamination_fraction": 0.13333333333333333
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 4.613127622809262,
+        "receiver_absolute_median_dispersion_ratio": 1.2170948221400737,
+        "receiver_scores": {
+          "google_pixel4": 4.063026567008552,
+          "huawei_p40pro": 2.0,
+          "xiaomi_mi8": 5.830222444949336
+        },
+        "selected_branch": "anchored_receiver_cauchy",
+        "selected_receiver": "huawei_p40pro",
+        "selected_family": "cauchy",
+        "unanchored_selected_branch": "isolated_receiver_gaussian",
+        "unanchored_selected_receiver": "huawei_p40pro",
+        "unanchored_selected_family": "direct",
+        "change_guard_reason": "selected_receiver_heavy_tail",
+        "selected_pair_key": "google_pixel4__huawei_p40pro",
+        "selected_pair_tail_ratio": 3.270729015365476,
+        "sudden_selected_pair_shift": false,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": false,
+        "receiver_divergence": false
+      },
+      {
+        "start_epoch": 90,
+        "stop_epoch": 120,
+        "start_common_epoch": 90,
+        "stop_common_epoch": 120,
+        "consensus_relative_mismatch": {
+          "median": 35.26950235701237,
+          "mad": 17.4018971246961,
+          "robust_sigma": 25.800052677074433,
+          "p95": 142.3672995127026,
+          "contamination_fraction": 0.10344827586206896
+        },
+        "receiver_relative_mismatch": {
+          "google_pixel4": {
+            "median": 81.82164665444273,
+            "mad": 41.88500513724272,
+            "robust_sigma": 62.09870861647605,
+            "p95": 502.39189763804313,
+            "contamination_fraction": 0.13793103448275862
+          },
+          "huawei_p40pro": {
+            "median": 65.82372725019255,
+            "mad": 45.12398599779746,
+            "robust_sigma": 66.90082164033451,
+            "p95": 476.925764437196,
+            "contamination_fraction": 0.10344827586206896
+          },
+          "xiaomi_mi8": {
+            "median": 82.34721468779422,
+            "mad": 49.6063620517329,
+            "robust_sigma": 73.5463923778992,
+            "p95": 437.00461825086165,
+            "contamination_fraction": 0.06896551724137931
+          }
+        },
+        "receiver_absolute_residual": {
+          "google_pixel4": {
+            "median": 84.79301409744716,
+            "mad": 42.85135628756822,
+            "robust_sigma": 63.531420831948644,
+            "p95": 443.7852037142731,
+            "contamination_fraction": 0.1
+          },
+          "huawei_p40pro": {
+            "median": 82.9114860507479,
+            "mad": 30.886903160951967,
+            "robust_sigma": 45.792922626427384,
+            "p95": 446.97384015564546,
+            "contamination_fraction": 0.1
+          },
+          "xiaomi_mi8": {
+            "median": 89.23389556098218,
+            "mad": 33.464740453135704,
+            "robust_sigma": 49.61482419581899,
+            "p95": 272.12710423664066,
+            "contamination_fraction": 0.1
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 114.02100310447801,
+          "mad": 51.53309341764961,
+          "robust_sigma": 76.4029643010073,
+          "p95": 825.0876300025084,
+          "contamination_fraction": 0.16666666666666666
+        },
+        "receiver_pair_separation": {
+          "google_pixel4__huawei_p40pro": {
+            "median": 77.73039011676687,
+            "mad": 45.62569577344672,
+            "robust_sigma": 67.64465655371211,
+            "p95": 818.2318522545919,
+            "contamination_fraction": 0.13333333333333333
+          },
+          "google_pixel4__xiaomi_mi8": {
+            "median": 97.60663314113187,
+            "mad": 53.013292912249426,
+            "robust_sigma": 78.597508071701,
+            "p95": 604.7662966762489,
+            "contamination_fraction": 0.1
+          },
+          "huawei_p40pro__xiaomi_mi8": {
+            "median": 53.99157165585373,
+            "mad": 31.70335874668201,
+            "robust_sigma": 47.00339967783074,
+            "p95": 526.3758927012237,
+            "contamination_fraction": 0.13333333333333333
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 1.1496260603581219,
+        "receiver_absolute_median_dispersion_ratio": 1.0762549293395187,
+        "receiver_scores": {
+          "google_pixel4": 2.172319273763411,
+          "huawei_p40pro": 2.0913517718556873,
+          "xiaomi_mi8": 2.0762549293395187
+        },
+        "selected_branch": "anchored_receiver_cauchy",
+        "selected_receiver": "huawei_p40pro",
+        "selected_family": "cauchy",
+        "unanchored_selected_branch": "isolated_receiver_cauchy",
+        "unanchored_selected_receiver": "xiaomi_mi8",
+        "unanchored_selected_family": "cauchy",
+        "change_guard_reason": "selected_receiver_heavy_tail",
+        "selected_pair_key": "google_pixel4__huawei_p40pro",
+        "selected_pair_tail_ratio": 10.526537317327767,
+        "sudden_selected_pair_shift": false,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": false,
+        "receiver_divergence": true
+      },
+      {
+        "start_epoch": 120,
+        "stop_epoch": 150,
+        "start_common_epoch": 120,
+        "stop_common_epoch": 150,
+        "consensus_relative_mismatch": {
+          "median": 32.345650019252936,
+          "mad": 15.62215300589196,
+          "robust_sigma": 23.161404046535417,
+          "p95": 210.2098713319913,
+          "contamination_fraction": 0.1724137931034483
+        },
+        "receiver_relative_mismatch": {
+          "google_pixel4": {
+            "median": 184.1039809634758,
+            "mad": 118.66496667774697,
+            "robust_sigma": 175.93267959642765,
+            "p95": 1894.5141200753997,
+            "contamination_fraction": 0.2413793103448276
+          },
+          "huawei_p40pro": {
+            "median": 14.700000414156317,
+            "mad": 8.061156572212768,
+            "robust_sigma": 11.95147073396265,
+            "p95": 35.426047791218856,
+            "contamination_fraction": 0.0
+          },
+          "xiaomi_mi8": {
+            "median": 86.40395903560521,
+            "mad": 37.450766166009196,
+            "robust_sigma": 55.52450591772523,
+            "p95": 267.6408427015895,
+            "contamination_fraction": 0.10344827586206896
+          }
+        },
+        "receiver_absolute_residual": {
+          "google_pixel4": {
+            "median": 118.65624149867705,
+            "mad": 65.31510308819071,
+            "robust_sigma": 96.83617183855154,
+            "p95": 1628.2494421209822,
+            "contamination_fraction": 0.26666666666666666
+          },
+          "huawei_p40pro": {
+            "median": 24.489296844235312,
+            "mad": 8.266711553544082,
+            "robust_sigma": 12.256226549284456,
+            "p95": 53.53737882678397,
+            "contamination_fraction": 0.0
+          },
+          "xiaomi_mi8": {
+            "median": 64.40079954507911,
+            "mad": 30.05084811356039,
+            "robust_sigma": 44.553387413164636,
+            "p95": 242.07740434869953,
+            "contamination_fraction": 0.1
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 190.64950634164774,
+          "mad": 113.48665311276059,
+          "robust_sigma": 168.25531190497884,
+          "p95": 1693.6703328835627,
+          "contamination_fraction": 0.2
+        },
+        "receiver_pair_separation": {
+          "google_pixel4__huawei_p40pro": {
+            "median": 116.20160200025441,
+            "mad": 69.51702944761381,
+            "robust_sigma": 103.06594785903222,
+            "p95": 1628.829550425729,
+            "contamination_fraction": 0.26666666666666666
+          },
+          "google_pixel4__xiaomi_mi8": {
+            "median": 153.25734655349936,
+            "mad": 98.39419269781973,
+            "robust_sigma": 145.87923009378753,
+            "p95": 1572.9960221308625,
+            "contamination_fraction": 0.2
+          },
+          "huawei_p40pro__xiaomi_mi8": {
+            "median": 74.42428688620743,
+            "mad": 35.645851698251505,
+            "robust_sigma": 52.84853972782768,
+            "p95": 251.11843938041557,
+            "contamination_fraction": 0.1
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 53.477998201792005,
+        "receiver_absolute_median_dispersion_ratio": 4.845228601433212,
+        "receiver_scores": {
+          "google_pixel4": 58.32322680322522,
+          "huawei_p40pro": 2.0,
+          "xiaomi_mi8": 10.184669680327538
+        },
+        "selected_branch": "anchored_receiver_nominal",
+        "selected_receiver": "huawei_p40pro",
+        "selected_family": "direct",
+        "unanchored_selected_branch": "isolated_receiver_cauchy",
+        "unanchored_selected_receiver": "huawei_p40pro",
+        "unanchored_selected_family": "cauchy",
+        "change_guard_reason": "no_change",
+        "selected_pair_key": "google_pixel4__huawei_p40pro",
+        "selected_pair_tail_ratio": 14.017272760337356,
+        "sudden_selected_pair_shift": false,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": false,
+        "receiver_divergence": true
+      },
+      {
+        "start_epoch": 150,
+        "stop_epoch": 180,
+        "start_common_epoch": 150,
+        "stop_common_epoch": 180,
+        "consensus_relative_mismatch": {
+          "median": 75.50588372384773,
+          "mad": 41.049982993065996,
+          "robust_sigma": 60.860704785519644,
+          "p95": 261.1448951958434,
+          "contamination_fraction": 0.06896551724137931
+        },
+        "receiver_relative_mismatch": {
+          "google_pixel4": {
+            "median": 213.41399171429808,
+            "mad": 107.43673528924748,
+            "robust_sigma": 159.2857037398383,
+            "p95": 1341.4774010472197,
+            "contamination_fraction": 0.10344827586206896
+          },
+          "huawei_p40pro": {
+            "median": 27.65682303047919,
+            "mad": 16.700358817483778,
+            "robust_sigma": 24.759951982801446,
+            "p95": 141.0679928554019,
+            "contamination_fraction": 0.10344827586206896
+          },
+          "xiaomi_mi8": {
+            "median": 176.55389053970822,
+            "mad": 144.99506399483343,
+            "robust_sigma": 214.96968187874003,
+            "p95": 7336.26694673114,
+            "contamination_fraction": 0.27586206896551724
+          }
+        },
+        "receiver_absolute_residual": {
+          "google_pixel4": {
+            "median": 129.03653203297057,
+            "mad": 68.6643389835454,
+            "robust_sigma": 101.80174897700441,
+            "p95": 733.3418838075365,
+            "contamination_fraction": 0.16666666666666666
+          },
+          "huawei_p40pro": {
+            "median": 37.66161167493132,
+            "mad": 14.559961727893704,
+            "robust_sigma": 21.586599257775205,
+            "p95": 88.52012144720773,
+            "contamination_fraction": 0.03333333333333333
+          },
+          "xiaomi_mi8": {
+            "median": 94.77691416487129,
+            "mad": 40.74751723384129,
+            "robust_sigma": 60.4122690508931,
+            "p95": 5369.3437785644455,
+            "contamination_fraction": 0.23333333333333334
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 246.18552019414267,
+          "mad": 140.50114045343355,
+          "robust_sigma": 208.30699083626058,
+          "p95": 5489.475947139427,
+          "contamination_fraction": 0.2
+        },
+        "receiver_pair_separation": {
+          "google_pixel4__huawei_p40pro": {
+            "median": 124.52774183295372,
+            "mad": 73.61938467444105,
+            "robust_sigma": 109.14809971832629,
+            "p95": 745.217230997981,
+            "contamination_fraction": 0.16666666666666666
+          },
+          "google_pixel4__xiaomi_mi8": {
+            "median": 211.677750981011,
+            "mad": 135.90366370274342,
+            "robust_sigma": 201.4907718056874,
+            "p95": 5430.932066960819,
+            "contamination_fraction": 0.16666666666666666
+          },
+          "huawei_p40pro__xiaomi_mi8": {
+            "median": 103.94116780686589,
+            "mad": 41.80991727811018,
+            "robust_sigma": 61.987383356526145,
+            "p95": 5384.836447042542,
+            "contamination_fraction": 0.23333333333333334
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 52.00518415436016,
+        "receiver_absolute_median_dispersion_ratio": 3.426208446593407,
+        "receiver_scores": {
+          "google_pixel4": 12.935646937167709,
+          "huawei_p40pro": 2.0,
+          "xiaomi_mi8": 54.52172314326268
+        },
+        "selected_branch": "anchored_receiver_cauchy",
+        "selected_receiver": "huawei_p40pro",
+        "selected_family": "cauchy",
+        "unanchored_selected_branch": "isolated_receiver_gaussian",
+        "unanchored_selected_receiver": "huawei_p40pro",
+        "unanchored_selected_family": "direct",
+        "change_guard_reason": "selected_receiver_heavy_tail",
+        "selected_pair_key": "google_pixel4__huawei_p40pro",
+        "selected_pair_tail_ratio": 5.984347102331976,
+        "sudden_selected_pair_shift": false,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": false,
+        "receiver_divergence": true
+      },
+      {
+        "start_epoch": 180,
+        "stop_epoch": 210,
+        "start_common_epoch": 180,
+        "stop_common_epoch": 210,
+        "consensus_relative_mismatch": {
+          "median": 25.41686885721827,
+          "mad": 6.889609948136808,
+          "robust_sigma": 10.214535709107631,
+          "p95": 53.639872827826714,
+          "contamination_fraction": 0.034482758620689655
+        },
+        "receiver_relative_mismatch": {
+          "google_pixel4": {
+            "median": 45.603622351040855,
+            "mad": 24.27634767441182,
+            "robust_sigma": 35.992113062082964,
+            "p95": 122.44129578574608,
+            "contamination_fraction": 0.0
+          },
+          "huawei_p40pro": {
+            "median": 25.245955361103757,
+            "mad": 15.03713774714362,
+            "robust_sigma": 22.29406042391513,
+            "p95": 55.97650046279492,
+            "contamination_fraction": 0.0
+          },
+          "xiaomi_mi8": {
+            "median": 37.87853798768986,
+            "mad": 22.482135165021795,
+            "robust_sigma": 33.33201359566131,
+            "p95": 152.04026699320897,
+            "contamination_fraction": 0.13793103448275862
+          }
+        },
+        "receiver_absolute_residual": {
+          "google_pixel4": {
+            "median": 91.01845864769105,
+            "mad": 23.59960730727242,
+            "robust_sigma": 34.98877779376209,
+            "p95": 180.59680394981245,
+            "contamination_fraction": 0.03333333333333333
+          },
+          "huawei_p40pro": {
+            "median": 109.28784816973285,
+            "mad": 15.271510797237475,
+            "robust_sigma": 22.64154190798428,
+            "p95": 145.95852993833353,
+            "contamination_fraction": 0.0
+          },
+          "xiaomi_mi8": {
+            "median": 111.62399620307738,
+            "mad": 22.0888292472125,
+            "robust_sigma": 32.74889824191725,
+            "p95": 180.13070263880178,
+            "contamination_fraction": 0.0
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 63.091032157459445,
+          "mad": 29.467990622627813,
+          "robust_sigma": 43.689242897107995,
+          "p95": 159.29361359864615,
+          "contamination_fraction": 0.0
+        },
+        "receiver_pair_separation": {
+          "google_pixel4__huawei_p40pro": {
+            "median": 38.58719181288957,
+            "mad": 17.84337895501277,
+            "robust_sigma": 26.454593638701933,
+            "p95": 104.48691969159798,
+            "contamination_fraction": 0.0
+          },
+          "google_pixel4__xiaomi_mi8": {
+            "median": 41.10764859536949,
+            "mad": 22.44746240072704,
+            "robust_sigma": 33.28060775531791,
+            "p95": 148.35681627581704,
+            "contamination_fraction": 0.06666666666666667
+          },
+          "huawei_p40pro__xiaomi_mi8": {
+            "median": 31.423290434964052,
+            "mad": 16.907799761148972,
+            "robust_sigma": 25.067503925879464,
+            "p95": 134.56228793876593,
+            "contamination_fraction": 0.1
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 2.716144555950999,
+        "receiver_absolute_median_dispersion_ratio": 1.226388557458933,
+        "receiver_scores": {
+          "google_pixel4": 3.1873696064141654,
+          "huawei_p40pro": 2.2007218073507255,
+          "xiaomi_mi8": 3.942533113409932
+        },
+        "selected_branch": "anchored_receiver_nominal",
+        "selected_receiver": "huawei_p40pro",
+        "selected_family": "direct",
+        "unanchored_selected_branch": "isolated_receiver_gaussian",
+        "unanchored_selected_receiver": "huawei_p40pro",
+        "unanchored_selected_family": "direct",
+        "change_guard_reason": "no_change",
+        "selected_pair_key": "google_pixel4__huawei_p40pro",
+        "selected_pair_tail_ratio": 2.707813520047225,
+        "sudden_selected_pair_shift": false,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": false,
+        "receiver_divergence": false
+      },
+      {
+        "start_epoch": 210,
+        "stop_epoch": 240,
+        "start_common_epoch": 210,
+        "stop_common_epoch": 240,
+        "consensus_relative_mismatch": {
+          "median": 18.01921761299424,
+          "mad": 12.389205527054155,
+          "robust_sigma": 18.36823611441049,
+          "p95": 51.34599930399067,
+          "contamination_fraction": 0.034482758620689655
+        },
+        "receiver_relative_mismatch": {
+          "google_pixel4": {
+            "median": 48.25333645730442,
+            "mad": 24.090594528761137,
+            "robust_sigma": 35.71671544834126,
+            "p95": 132.1348123234793,
+            "contamination_fraction": 0.034482758620689655
+          },
+          "huawei_p40pro": {
+            "median": 6.380371791894741,
+            "mad": 3.662763699176358,
+            "robust_sigma": 5.430413460398868,
+            "p95": 71.17912473745002,
+            "contamination_fraction": 0.13793103448275862
+          },
+          "xiaomi_mi8": {
+            "median": 52.69205034407736,
+            "mad": 29.603427638484163,
+            "robust_sigma": 43.89004181681662,
+            "p95": 98.75454073060617,
+            "contamination_fraction": 0.0
+          }
+        },
+        "receiver_absolute_residual": {
+          "google_pixel4": {
+            "median": 104.60121815039582,
+            "mad": 29.053015275966963,
+            "robust_sigma": 43.07400044814862,
+            "p95": 171.14564354856645,
+            "contamination_fraction": 0.0
+          },
+          "huawei_p40pro": {
+            "median": 86.1603392757077,
+            "mad": 9.004675386850863,
+            "robust_sigma": 13.35033172854509,
+            "p95": 99.08617807935508,
+            "contamination_fraction": 0.0
+          },
+          "xiaomi_mi8": {
+            "median": 95.32491826695156,
+            "mad": 25.196787335175244,
+            "robust_sigma": 37.356756903130815,
+            "p95": 147.23988641181285,
+            "contamination_fraction": 0.0
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 79.93597408420212,
+          "mad": 34.16916720299628,
+          "robust_sigma": 50.659207295162275,
+          "p95": 235.1744179384696,
+          "contamination_fraction": 0.06666666666666667
+        },
+        "receiver_pair_separation": {
+          "google_pixel4__huawei_p40pro": {
+            "median": 63.466915284899585,
+            "mad": 26.94559441779911,
+            "robust_sigma": 39.94953828382896,
+            "p95": 199.75322850526635,
+            "contamination_fraction": 0.1
+          },
+          "google_pixel4__xiaomi_mi8": {
+            "median": 56.64365362938492,
+            "mad": 37.13117935362663,
+            "robust_sigma": 55.050686509686834,
+            "p95": 219.626763881329,
+            "contamination_fraction": 0.06666666666666667
+          },
+          "huawei_p40pro__xiaomi_mi8": {
+            "median": 35.13051827758582,
+            "mad": 14.213594347370483,
+            "robust_sigma": 21.073074979411476,
+            "p95": 110.99838880624398,
+            "contamination_fraction": 0.06666666666666667
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 1.8563702884921567,
+        "receiver_absolute_median_dispersion_ratio": 1.2140297848140833,
+        "receiver_scores": {
+          "google_pixel4": 3.07040007330624,
+          "huawei_p40pro": 2.0,
+          "xiaomi_mi8": 2.493775314639376
+        },
+        "selected_branch": "anchored_receiver_cauchy",
+        "selected_receiver": "huawei_p40pro",
+        "selected_family": "cauchy",
+        "unanchored_selected_branch": "receiver_resolved_gaussian",
+        "unanchored_selected_receiver": null,
+        "unanchored_selected_family": "direct",
+        "change_guard_reason": "selected_receiver_heavy_tail",
+        "selected_pair_key": "google_pixel4__huawei_p40pro",
+        "selected_pair_tail_ratio": 3.1473599687110174,
+        "sudden_selected_pair_shift": false,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": false,
+        "receiver_divergence": false
+      },
+      {
+        "start_epoch": 240,
+        "stop_epoch": 270,
+        "start_common_epoch": 240,
+        "stop_common_epoch": 270,
+        "consensus_relative_mismatch": {
+          "median": 46.02855275277537,
+          "mad": 15.32162232482072,
+          "robust_sigma": 22.715837258779196,
+          "p95": 129.60083369264834,
+          "contamination_fraction": 0.06896551724137931
+        },
+        "receiver_relative_mismatch": {
+          "google_pixel4": {
+            "median": 75.68674101661021,
+            "mad": 27.541837365948197,
+            "robust_sigma": 40.833528078754796,
+            "p95": 256.2945559320491,
+            "contamination_fraction": 0.06896551724137931
+          },
+          "huawei_p40pro": {
+            "median": 33.61528628650517,
+            "mad": 20.40325977142816,
+            "robust_sigma": 30.249872937119388,
+            "p95": 126.4981018944461,
+            "contamination_fraction": 0.10344827586206896
+          },
+          "xiaomi_mi8": {
+            "median": 76.93647589003,
+            "mad": 34.518308888662844,
+            "robust_sigma": 51.17684475833153,
+            "p95": 326.3709133486199,
+            "contamination_fraction": 0.06896551724137931
+          }
+        },
+        "receiver_absolute_residual": {
+          "google_pixel4": {
+            "median": 106.10387431647018,
+            "mad": 43.097974158978104,
+            "robust_sigma": 63.89705648810094,
+            "p95": 190.72830321384833,
+            "contamination_fraction": 0.0
+          },
+          "huawei_p40pro": {
+            "median": 53.85174624370323,
+            "mad": 18.7268142960263,
+            "robust_sigma": 27.764374875288592,
+            "p95": 156.38771029351435,
+            "contamination_fraction": 0.16666666666666666
+          },
+          "xiaomi_mi8": {
+            "median": 61.41442519690673,
+            "mad": 29.99724307752752,
+            "robust_sigma": 44.4739125867423,
+            "p95": 196.3804069182832,
+            "contamination_fraction": 0.06666666666666667
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 124.11113609496594,
+          "mad": 41.96015980177131,
+          "robust_sigma": 62.21013292210614,
+          "p95": 269.3463485916835,
+          "contamination_fraction": 0.03333333333333333
+        },
+        "receiver_pair_separation": {
+          "google_pixel4__huawei_p40pro": {
+            "median": 87.29056658386924,
+            "mad": 36.82056951109671,
+            "robust_sigma": 54.590176357151975,
+            "p95": 242.50505866223335,
+            "contamination_fraction": 0.06666666666666667
+          },
+          "google_pixel4__xiaomi_mi8": {
+            "median": 83.93494732343908,
+            "mad": 37.53359425329404,
+            "robust_sigma": 55.64730683993374,
+            "p95": 259.7015389958957,
+            "contamination_fraction": 0.1
+          },
+          "huawei_p40pro__xiaomi_mi8": {
+            "median": 70.22036613950931,
+            "mad": 33.842451179197504,
+            "robust_sigma": 50.17481811827822,
+            "p95": 220.50106382922795,
+            "contamination_fraction": 0.06666666666666667
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 2.580045933186838,
+        "receiver_absolute_median_dispersion_ratio": 1.9702958904304182,
+        "receiver_scores": {
+          "google_pixel4": 3.996370211655484,
+          "huawei_p40pro": 2.0,
+          "xiaomi_mi8": 3.7204810997453928
+        },
+        "selected_branch": "anchored_receiver_cauchy",
+        "selected_receiver": "huawei_p40pro",
+        "selected_family": "cauchy",
+        "unanchored_selected_branch": "isolated_receiver_gaussian",
+        "unanchored_selected_receiver": "huawei_p40pro",
+        "unanchored_selected_family": "direct",
+        "change_guard_reason": "selected_receiver_heavy_tail",
+        "selected_pair_key": "google_pixel4__huawei_p40pro",
+        "selected_pair_tail_ratio": 2.7781359218150246,
+        "sudden_selected_pair_shift": false,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": false,
+        "receiver_divergence": false
+      },
+      {
+        "start_epoch": 270,
+        "stop_epoch": 300,
+        "start_common_epoch": 270,
+        "stop_common_epoch": 300,
+        "consensus_relative_mismatch": {
+          "median": 38.12546494518477,
+          "mad": 19.56069834606773,
+          "robust_sigma": 29.000691367880016,
+          "p95": 105.33809579490865,
+          "contamination_fraction": 0.0
+        },
+        "receiver_relative_mismatch": {
+          "google_pixel4": {
+            "median": 51.496841096495594,
+            "mad": 36.34681732063998,
+            "robust_sigma": 53.88779135958083,
+            "p95": 470.29374757696706,
+            "contamination_fraction": 0.10344827586206896
+          },
+          "huawei_p40pro": {
+            "median": 47.05321901337988,
+            "mad": 29.347827928801046,
+            "robust_sigma": 43.51108968724043,
+            "p95": 179.47527242440282,
+            "contamination_fraction": 0.06896551724137931
+          },
+          "xiaomi_mi8": {
+            "median": 63.7298293135724,
+            "mad": 40.4358108937736,
+            "robust_sigma": 59.95013323110874,
+            "p95": 364.1902827875909,
+            "contamination_fraction": 0.06896551724137931
+          }
+        },
+        "receiver_absolute_residual": {
+          "google_pixel4": {
+            "median": 63.10012278471133,
+            "mad": 20.879967978971067,
+            "robust_sigma": 30.9566405256225,
+            "p95": 239.51056224849546,
+            "contamination_fraction": 0.1
+          },
+          "huawei_p40pro": {
+            "median": 65.6213880237247,
+            "mad": 34.34994883067884,
+            "robust_sigma": 50.92723413636445,
+            "p95": 163.45008560725094,
+            "contamination_fraction": 0.03333333333333333
+          },
+          "xiaomi_mi8": {
+            "median": 79.50266357234153,
+            "mad": 43.1404184836382,
+            "robust_sigma": 63.95998444384199,
+            "p95": 189.1836079477206,
+            "contamination_fraction": 0.03333333333333333
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 101.90463080194826,
+          "mad": 46.405503960850496,
+          "robust_sigma": 68.80080017235694,
+          "p95": 417.3068019399452,
+          "contamination_fraction": 0.06666666666666667
+        },
+        "receiver_pair_separation": {
+          "google_pixel4__huawei_p40pro": {
+            "median": 72.77102461167291,
+            "mad": 37.985769265514,
+            "robust_sigma": 56.317701513051055,
+            "p95": 204.94759438131373,
+            "contamination_fraction": 0.03333333333333333
+          },
+          "google_pixel4__xiaomi_mi8": {
+            "median": 78.00415815937288,
+            "mad": 42.587700120728805,
+            "robust_sigma": 63.14052419899252,
+            "p95": 408.4119087329883,
+            "contamination_fraction": 0.06666666666666667
+          },
+          "huawei_p40pro__xiaomi_mi8": {
+            "median": 81.76127471642948,
+            "mad": 40.12833172879873,
+            "robust_sigma": 59.49426462111699,
+            "p95": 240.93700893314343,
+            "contamination_fraction": 0.03333333333333333
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 2.620381856643012,
+        "receiver_absolute_median_dispersion_ratio": 1.2599446730649533,
+        "receiver_scores": {
+          "google_pixel4": 3.620381856643012,
+          "huawei_p40pro": 2.039956582138763,
+          "xiaomi_mi8": 3.2891394354854553
+        },
+        "selected_branch": "anchored_receiver_nominal",
+        "selected_receiver": "huawei_p40pro",
+        "selected_family": "direct",
+        "unanchored_selected_branch": "isolated_receiver_gaussian",
+        "unanchored_selected_receiver": "huawei_p40pro",
+        "unanchored_selected_family": "direct",
+        "change_guard_reason": "no_change",
+        "selected_pair_key": "google_pixel4__huawei_p40pro",
+        "selected_pair_tail_ratio": 2.816335148157841,
+        "sudden_selected_pair_shift": false,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": false,
+        "receiver_divergence": true
+      },
+      {
+        "start_epoch": 300,
+        "stop_epoch": 335,
+        "start_common_epoch": 300,
+        "stop_common_epoch": 335,
+        "consensus_relative_mismatch": {
+          "median": 39.2234231747689,
+          "mad": 17.631766866170004,
+          "robust_sigma": 26.140857555783647,
+          "p95": 95.45389583977754,
+          "contamination_fraction": 0.029411764705882353
+        },
+        "receiver_relative_mismatch": {
+          "google_pixel4": {
+            "median": 65.37957496659774,
+            "mad": 36.22200369116881,
+            "robust_sigma": 53.702742672526874,
+            "p95": 427.75702991074735,
+            "contamination_fraction": 0.14705882352941177
+          },
+          "huawei_p40pro": {
+            "median": 44.4586485503322,
+            "mad": 28.350766047506106,
+            "robust_sigma": 42.03284574203255,
+            "p95": 272.8901667708911,
+            "contamination_fraction": 0.14705882352941177
+          },
+          "xiaomi_mi8": {
+            "median": 52.1651043158771,
+            "mad": 26.99390416560692,
+            "robust_sigma": 40.02116231592882,
+            "p95": 317.8941691953909,
+            "contamination_fraction": 0.058823529411764705
+          }
+        },
+        "receiver_absolute_residual": {
+          "google_pixel4": {
+            "median": 105.08710189399257,
+            "mad": 55.85515371912249,
+            "robust_sigma": 82.810850903971,
+            "p95": 299.2306242270266,
+            "contamination_fraction": 0.05714285714285714
+          },
+          "huawei_p40pro": {
+            "median": 122.88458522919473,
+            "mad": 25.31078870909343,
+            "robust_sigma": 37.525775340101916,
+            "p95": 369.56232942202695,
+            "contamination_fraction": 0.17142857142857143
+          },
+          "xiaomi_mi8": {
+            "median": 128.88393388965972,
+            "mad": 41.742303430787004,
+            "robust_sigma": 61.88713906648481,
+            "p95": 232.81204289412256,
+            "contamination_fraction": 0.02857142857142857
+          }
+        },
+        "maximum_pairwise_receiver_separation": {
+          "median": 90.86394733077191,
+          "mad": 29.539425374821526,
+          "robust_sigma": 43.79515206071039,
+          "p95": 475.26954240462356,
+          "contamination_fraction": 0.2
+        },
+        "receiver_pair_separation": {
+          "google_pixel4__huawei_p40pro": {
+            "median": 79.16193657872014,
+            "mad": 37.13790090620883,
+            "robust_sigma": 55.060651883545205,
+            "p95": 318.34846222199576,
+            "contamination_fraction": 0.11428571428571428
+          },
+          "google_pixel4__xiaomi_mi8": {
+            "median": 65.84972015994369,
+            "mad": 31.85080509502575,
+            "robust_sigma": 47.22200363388517,
+            "p95": 341.15960805384367,
+            "contamination_fraction": 0.08571428571428572
+          },
+          "huawei_p40pro__xiaomi_mi8": {
+            "median": 52.37156481772614,
+            "mad": 21.55040583333168,
+            "robust_sigma": 31.95063168849755,
+            "p95": 307.8198351537736,
+            "contamination_fraction": 0.17142857142857143
+          }
+        },
+        "receiver_motion_p95_dispersion_ratio": 1.567506205783798,
+        "receiver_absolute_median_dispersion_ratio": 1.226448646568181,
+        "receiver_scores": {
+          "google_pixel4": 2.567506205783798,
+          "huawei_p40pro": 2.1693593506190276,
+          "xiaomi_mi8": 2.391364821295296
+        },
+        "selected_branch": "anchored_receiver_cauchy",
+        "selected_receiver": "huawei_p40pro",
+        "selected_family": "cauchy",
+        "unanchored_selected_branch": "receiver_resolved_gaussian",
+        "unanchored_selected_receiver": null,
+        "unanchored_selected_family": "direct",
+        "change_guard_reason": "selected_receiver_heavy_tail",
+        "selected_pair_key": "google_pixel4__huawei_p40pro",
+        "selected_pair_tail_ratio": 4.021484010884751,
+        "sudden_selected_pair_shift": false,
+        "confirmed_selected_pair_shift": false,
+        "change_guard_latched": false,
+        "receiver_divergence": true
+      }
+    ]
+  },
+  "proposed_runtime_breakdown_s": {
+    "factor_construction": 0.6190905660000112,
+    "truth_free_alignment": 0.10633875599998532,
+    "topology_decision": 0.014882341999992832,
+    "final_graph_optimization": 0.26873968099999956,
+    "sum_excluding_file_io": 1.009051344999989
+  },
+  "metrics": {
+    "aligned_kiss_icp": {
+      "rmse_3d_m": 106.45147715305478,
+      "rmse_xy_m": 24.53310305258496,
+      "median_3d_m": 72.6057080486603,
+      "p95_3d_m": 220.40902110011356,
+      "maximum_3d_m": 230.329446927492,
+      "runtime_s": 0.0
+    },
+    "grouped_physical_receivers__direct": {
+      "rmse_3d_m": 61.15157615761853,
+      "rmse_xy_m": 12.234051547540428,
+      "median_3d_m": 57.453406847697096,
+      "p95_3d_m": 90.60798193835237,
+      "maximum_3d_m": 92.85351778796348,
+      "runtime_s": 0.6718117780000057
+    },
+    "hierarchical_consensus__direct": {
+      "rmse_3d_m": 43.022401137403996,
+      "rmse_xy_m": 10.677096440955378,
+      "median_3d_m": 37.36616205285691,
+      "p95_3d_m": 69.32530972994023,
+      "maximum_3d_m": 75.27550555894848,
+      "runtime_s": 0.2911458359999983
+    },
+    "flat_information_mean__direct": {
+      "rmse_3d_m": 43.823183480209536,
+      "rmse_xy_m": 10.499293055947073,
+      "median_3d_m": 39.36338031353189,
+      "p95_3d_m": 68.16404619969055,
+      "maximum_3d_m": 73.9207655167862,
+      "runtime_s": 0.42455665300002465
+    },
+    "grouped_physical_receivers__huber": {
+      "rmse_3d_m": 45.518904077300874,
+      "rmse_xy_m": 10.263875556568664,
+      "median_3d_m": 42.05409892189433,
+      "p95_3d_m": 70.24280460942413,
+      "maximum_3d_m": 77.10184836590655,
+      "runtime_s": 0.22292890099998885
+    },
+    "hierarchical_consensus__huber": {
+      "rmse_3d_m": 36.537320199696524,
+      "rmse_xy_m": 9.972431077809496,
+      "median_3d_m": 34.16949892430509,
+      "p95_3d_m": 56.055328878697196,
+      "maximum_3d_m": 59.83831325595676,
+      "runtime_s": 0.18390964599998938
+    },
+    "flat_information_mean__huber": {
+      "rmse_3d_m": 38.61954251356045,
+      "rmse_xy_m": 10.022615710749193,
+      "median_3d_m": 34.37149858949206,
+      "p95_3d_m": 61.252338677272,
+      "maximum_3d_m": 64.63871113019101,
+      "runtime_s": 0.1804816540000047
+    },
+    "grouped_physical_receivers__cauchy": {
+      "rmse_3d_m": 38.34649903240561,
+      "rmse_xy_m": 9.370792549091028,
+      "median_3d_m": 34.6557444107379,
+      "p95_3d_m": 62.73608934570521,
+      "maximum_3d_m": 68.02208725341508,
+      "runtime_s": 0.19505966200000557
+    },
+    "hierarchical_consensus__cauchy": {
+      "rmse_3d_m": 34.017924967569655,
+      "rmse_xy_m": 9.552148923855476,
+      "median_3d_m": 31.366761893198927,
+      "p95_3d_m": 50.444836130286,
+      "maximum_3d_m": 53.11327129828584,
+      "runtime_s": 0.20614861699999665
+    },
+    "flat_information_mean__cauchy": {
+      "rmse_3d_m": 36.961598841685074,
+      "rmse_xy_m": 9.806946507345986,
+      "median_3d_m": 32.38994247503789,
+      "p95_3d_m": 57.83196799597968,
+      "maximum_3d_m": 60.807637210503415,
+      "runtime_s": 0.23570075500001053
+    },
+    "grouped_physical_receivers__switch_irls": {
+      "rmse_3d_m": 29.845267146833358,
+      "rmse_xy_m": 7.837972067646057,
+      "median_3d_m": 26.5151674848925,
+      "p95_3d_m": 43.66344037443502,
+      "maximum_3d_m": 46.46944634588529,
+      "runtime_s": 1.1162297980000062
+    },
+    "grouped_physical_receivers__dcs_irls": {
+      "rmse_3d_m": 33.20090428606058,
+      "rmse_xy_m": 8.729260763080239,
+      "median_3d_m": 29.643553288674823,
+      "p95_3d_m": 51.21775217092408,
+      "maximum_3d_m": 54.26605918708289,
+      "runtime_s": 1.2051319739999826
+    },
+    "fixed_pair_consensus__google_pixel4__huawei_p40pro__cauchy": {
+      "rmse_3d_m": 38.75191881012352,
+      "rmse_xy_m": 10.115244999828317,
+      "median_3d_m": 30.98217373197955,
+      "p95_3d_m": 67.55010134183523,
+      "maximum_3d_m": 71.11277636811398,
+      "runtime_s": 0.1778657330000044
+    },
+    "fixed_pair_consensus__google_pixel4__xiaomi_mi8__cauchy": {
+      "rmse_3d_m": 44.157898685861205,
+      "rmse_xy_m": 10.027509928366946,
+      "median_3d_m": 36.91987474551124,
+      "p95_3d_m": 85.67859940443945,
+      "maximum_3d_m": 88.80437300491131,
+      "runtime_s": 0.19800314799999796
+    },
+    "fixed_pair_consensus__huawei_p40pro__xiaomi_mi8__cauchy": {
+      "rmse_3d_m": 32.96827457517623,
+      "rmse_xy_m": 8.302721906901555,
+      "median_3d_m": 28.957461241131327,
+      "p95_3d_m": 56.00035395066393,
+      "maximum_3d_m": 58.55896080156997,
+      "runtime_s": 0.19701437500000907
+    },
+    "single_physical_receiver__google_pixel4__direct": {
+      "rmse_3d_m": 81.72167883045448,
+      "rmse_xy_m": 17.863693058173162,
+      "median_3d_m": 78.29976990282624,
+      "p95_3d_m": 136.3136652800484,
+      "maximum_3d_m": 138.30437277996035,
+      "runtime_s": 0.49356014500000356
+    },
+    "single_physical_receiver__google_pixel4__huber": {
+      "rmse_3d_m": 70.93342507388581,
+      "rmse_xy_m": 15.443175586177635,
+      "median_3d_m": 69.68292455851923,
+      "p95_3d_m": 103.26778307911775,
+      "maximum_3d_m": 105.62119282702261,
+      "runtime_s": 0.1832458220000035
+    },
+    "single_physical_receiver__google_pixel4__cauchy": {
+      "rmse_3d_m": 64.05909126313423,
+      "rmse_xy_m": 14.01071875777516,
+      "median_3d_m": 66.87997806593461,
+      "p95_3d_m": 92.9983787520538,
+      "maximum_3d_m": 96.04059882357855,
+      "runtime_s": 0.20551503799998727
+    },
+    "single_physical_receiver__huawei_p40pro__direct": {
+      "rmse_3d_m": 41.8823646585147,
+      "rmse_xy_m": 11.63886424901898,
+      "median_3d_m": 36.85726528614827,
+      "p95_3d_m": 68.06255443597097,
+      "maximum_3d_m": 76.39805458968628,
+      "runtime_s": 0.47234155499998565
+    },
+    "single_physical_receiver__huawei_p40pro__huber": {
+      "rmse_3d_m": 35.2309651649207,
+      "rmse_xy_m": 10.299746178558651,
+      "median_3d_m": 31.417996101311456,
+      "p95_3d_m": 60.99355513775331,
+      "maximum_3d_m": 65.71238559748929,
+      "runtime_s": 0.2877669469999944
+    },
+    "single_physical_receiver__huawei_p40pro__cauchy": {
+      "rmse_3d_m": 32.63192703385389,
+      "rmse_xy_m": 9.837752304052275,
+      "median_3d_m": 29.156783555911574,
+      "p95_3d_m": 53.60904080944818,
+      "maximum_3d_m": 57.31368416264939,
+      "runtime_s": 0.26175373999998897
+    },
+    "single_physical_receiver__xiaomi_mi8__direct": {
+      "rmse_3d_m": 50.17150720766024,
+      "rmse_xy_m": 11.06090441186066,
+      "median_3d_m": 43.564233771451704,
+      "p95_3d_m": 73.91920371602967,
+      "maximum_3d_m": 78.56737500377213,
+      "runtime_s": 0.45963455800000474
+    },
+    "single_physical_receiver__xiaomi_mi8__huber": {
+      "rmse_3d_m": 40.50541056467194,
+      "rmse_xy_m": 8.694206308035184,
+      "median_3d_m": 37.97988975625769,
+      "p95_3d_m": 71.36254794094172,
+      "maximum_3d_m": 74.0057181547849,
+      "runtime_s": 0.14999212799997963
+    },
+    "single_physical_receiver__xiaomi_mi8__cauchy": {
+      "rmse_3d_m": 36.74583433946305,
+      "rmse_xy_m": 8.210866806033486,
+      "median_3d_m": 30.662672967359782,
+      "p95_3d_m": 71.23858590584395,
+      "maximum_3d_m": 74.16594370039257,
+      "runtime_s": 0.18663517499999216
+    },
+    "motion_margin_subset": {
+      "rmse_3d_m": 31.209461896620997,
+      "rmse_xy_m": 8.926451693654437,
+      "median_3d_m": 29.92328157602964,
+      "p95_3d_m": 41.61909001098699,
+      "maximum_3d_m": 43.647823033587144,
+      "runtime_s": 0.26873968099999956
+    }
+  },
+  "best_single_physical_receiver": {
+    "name": "single_physical_receiver__huawei_p40pro__cauchy",
+    "rmse_3d_m": 32.63192703385389
+  },
+  "best_fixed_topology": {
+    "name": "hierarchical_consensus__cauchy",
+    "rmse_3d_m": 34.017924967569655
+  },
+  "method_metadata": {
+    "method_name": "motion_margin_subset_topology",
+    "subset_policy": "full",
+    "pair_factor_mode": "consensus",
+    "loewner_floor_m": 1.0,
+    "motion_margin": 2.0,
+    "separation_margin": 2.0,
+    "loss_family": "cauchy_fixed",
+    "multi_receiver_factor": "single conservative Loewner-envelope subset consensus",
+    "decision_semantics": "same-window fixed-lag batch"
+  },
+  "candidate_subset_windows": [
+    {
+      "start_epoch": 0,
+      "stop_epoch": 30,
+      "selected_receivers": [
+        "huawei_p40pro",
+        "xiaomi_mi8"
+      ],
+      "reason": "kiss_motion_ambiguous_pair",
+      "motion_margin_ratio": 1.8221723840236954,
+      "separation_margin_ratio": 1.254552251301665
+    },
+    {
+      "start_epoch": 30,
+      "stop_epoch": 60,
+      "selected_receivers": [
+        "huawei_p40pro"
+      ],
+      "reason": "kiss_motion_clear_single",
+      "motion_margin_ratio": 4.4524817253305855,
+      "separation_margin_ratio": 1.2376796247041322
+    },
+    {
+      "start_epoch": 60,
+      "stop_epoch": 90,
+      "selected_receivers": [
+        "huawei_p40pro"
+      ],
+      "reason": "kiss_motion_clear_single",
+      "motion_margin_ratio": 5.344054778340282,
+      "separation_margin_ratio": 1.3779004527762033
+    },
+    {
+      "start_epoch": 90,
+      "stop_epoch": 120,
+      "selected_receivers": [
+        "google_pixel4",
+        "huawei_p40pro"
+      ],
+      "reason": "kiss_motion_ambiguous_pair",
+      "motion_margin_ratio": 1.2430418341921436,
+      "separation_margin_ratio": 1.439676374161251
+    },
+    {
+      "start_epoch": 120,
+      "stop_epoch": 150,
+      "selected_receivers": [
+        "huawei_p40pro"
+      ],
+      "reason": "kiss_motion_clear_single",
+      "motion_margin_ratio": 5.877820176957065,
+      "separation_margin_ratio": 1.5613398107250027
+    },
+    {
+      "start_epoch": 150,
+      "stop_epoch": 180,
+      "selected_receivers": [
+        "huawei_p40pro"
+      ],
+      "reason": "kiss_motion_clear_single",
+      "motion_margin_ratio": 6.3837372190268225,
+      "separation_margin_ratio": 1.1980598684857953
+    },
+    {
+      "start_epoch": 180,
+      "stop_epoch": 210,
+      "selected_receivers": [
+        "huawei_p40pro",
+        "xiaomi_mi8"
+      ],
+      "reason": "kiss_motion_ambiguous_pair",
+      "motion_margin_ratio": 1.5003804548450175,
+      "separation_margin_ratio": 1.2279806245228346
+    },
+    {
+      "start_epoch": 210,
+      "stop_epoch": 240,
+      "selected_receivers": [
+        "huawei_p40pro"
+      ],
+      "reason": "kiss_motion_clear_single",
+      "motion_margin_ratio": 7.562778162646054,
+      "separation_margin_ratio": 1.6123773973902638
+    },
+    {
+      "start_epoch": 240,
+      "stop_epoch": 270,
+      "selected_receivers": [
+        "huawei_p40pro"
+      ],
+      "reason": "kiss_motion_clear_single",
+      "motion_margin_ratio": 2.2515572341561345,
+      "separation_margin_ratio": 1.1953077424387466
+    },
+    {
+      "start_epoch": 270,
+      "stop_epoch": 300,
+      "selected_receivers": [
+        "google_pixel4",
+        "huawei_p40pro"
+      ],
+      "reason": "kiss_motion_ambiguous_pair",
+      "motion_margin_ratio": 1.0944382164767972,
+      "separation_margin_ratio": 1.0719123246597868
+    },
+    {
+      "start_epoch": 300,
+      "stop_epoch": 335,
+      "selected_receivers": [
+        "huawei_p40pro",
+        "xiaomi_mi8"
+      ],
+      "reason": "kiss_motion_ambiguous_pair",
+      "motion_margin_ratio": 1.173339856627003,
+      "separation_margin_ratio": 1.2573563610162668
+    }
+  ],
+  "candidate_branch_counts": {
+    "kiss_motion_ambiguous_pair": 5,
+    "kiss_motion_clear_single": 6
+  },
+  "candidate_subset_counts": {
+    "huawei_p40pro,xiaomi_mi8": 3,
+    "huawei_p40pro": 6,
+    "google_pixel4,huawei_p40pro": 2
+  },
+  "candidate_source_trajectory": "trajectory__dda_fc"
+}

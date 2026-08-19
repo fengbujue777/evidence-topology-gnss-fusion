@@ -1,0 +1,38 @@
+{
+  "design": "leave-one-panel-out selection on normalized RMSE",
+  "candidate_configurations": 9,
+  "rows": [
+    {
+      "held_out_panel": "hk",
+      "selected_configuration": "margin2.0_window30",
+      "training_mean_candidate_over_all_cauchy": 0.7667722266918022,
+      "held_out_candidate_rmse_m": 12.00655529980053,
+      "held_out_all_cauchy_rmse_m": 15.46230323737248,
+      "held_out_relative_improvement_percent": 22.349503075449885
+    },
+    {
+      "held_out_panel": "deep",
+      "selected_configuration": "margin2.0_window30",
+      "training_mean_candidate_over_all_cauchy": 0.7282987947299396,
+      "held_out_candidate_rmse_m": 9.95532733927351,
+      "held_out_all_cauchy_rmse_m": 11.161616032718104,
+      "held_out_relative_improvement_percent": 10.807473486891096
+    },
+    {
+      "held_out_panel": "harsh",
+      "selected_configuration": "margin2.0_window30",
+      "training_mean_candidate_over_all_cauchy": 0.8274368600928287,
+      "held_out_candidate_rmse_m": 10.535220268385867,
+      "held_out_all_cauchy_rmse_m": 17.72081432454224,
+      "held_out_relative_improvement_percent": 40.548893095757826
+    },
+    {
+      "held_out_panel": "phone",
+      "selected_configuration": "margin2.0_window30",
+      "training_mean_candidate_over_all_cauchy": 0.7543137678063373,
+      "held_out_candidate_rmse_m": 31.209461896620997,
+      "held_out_all_cauchy_rmse_m": 38.34649903240561,
+      "held_out_relative_improvement_percent": 18.611965409810406
+    }
+  ]
+}

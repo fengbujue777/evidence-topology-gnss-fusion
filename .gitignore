@@ -1,0 +1,33 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Raw or processed datasets are downloaded separately.
+data/
+*.bag
+*.mcap
+*.pcd
+*.las
+*.laz
+
+# Locally generated estimator outputs.
+outputs/*
+!outputs/.gitkeep
+*.log
+
+# Local build and editor files.
+.idea/
+.vscode/
+Thumbs.db
+.DS_Store
+
+# Archives and binary environments must not enter the repository.
+*.zip
+*.7z
+*.whl
+*.dll
+*.exe

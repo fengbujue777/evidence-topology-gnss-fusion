@@ -1,0 +1,38 @@
+{
+  "transform_convention": "A_T_B maps coordinates from frame B into frame A",
+  "global_frame": "local ENU",
+  "urbannav": {
+    "body_frame": "IMU; x right, y forward, z up",
+    "state_frame": "published GNSS antenna reference",
+    "official_sources": [
+      "https://github.com/IPNL-POLYU/UrbanNavDataset/blob/master/UrbanNav-HK-Medium-Urban-1/extrinsic.yaml",
+      "https://github.com/IPNL-POLYU/UrbanNavDataset/blob/master/UrbanNav-HK-Deep-Urban-1/extrinsic.yaml",
+      "https://github.com/IPNL-POLYU/UrbanNavDataset/blob/master/UrbanNav-HK-Harsh-Urban-1/extrinsic.yaml"
+    ],
+    "body_from_center_lidar_translation_m": [0.0, 0.0, 0.28],
+    "body_from_antenna_translation_m": [0.0, 0.86, -0.31],
+    "body_from_span_translation_m": [0.0, 0.0, 0.14],
+    "center_lidar_from_antenna_translation_m": [0.0, 0.86, -0.59],
+    "span_from_antenna_translation_m": [0.0, 0.86, -0.45],
+    "released_rotations": "identity for the listed transforms",
+    "reported_gnss_imu_mechanical_calibration_accuracy": "better than 0.05 m",
+    "remaining_approximation": "derived low-cost solutions do not expose distinct per-receiver phase-center offsets; phones are treated as co-located"
+  },
+  "locsp": {
+    "official_source": "https://doi.org/10.57745/YCXRWF",
+    "state_frame": "antenne_frame",
+    "base_link_from_hesai_translation_m": [-0.77, 0.0, 1.83],
+    "base_link_from_antenne_translation_m": [0.78, 0.16, 1.52],
+    "base_link_from_novatel_translation_m": [0.79, -0.18, 1.52],
+    "static_tf_file": "tf_static_locsp.json"
+  },
+  "global_alignment": {
+    "model": "SE(2) yaw and ENU translation; no scale",
+    "reference_truth_used": false,
+    "input": "physical-source-quotient GNSS centers",
+    "maximum_prefix_epochs": 120,
+    "minimum_duration_s": 60,
+    "minimum_horizontal_displacement_m": 30,
+    "minimum_heading_change_deg": 15
+  }
+}

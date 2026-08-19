@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "panels": {
+    "hk_medium": "data/processed/hk_medium/cases",
+    "hk_deep": "data/processed/hk_deep/cases",
+    "hk_harsh": "data/processed/hk_harsh/cases",
+    "three_phones": "data/processed/three_phones/cases"
+  },
+  "output_root": "outputs/paper_panels"
+}

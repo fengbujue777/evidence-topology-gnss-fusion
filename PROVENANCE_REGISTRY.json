@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "description": "Experiment metadata: solution streams sharing one physical receiver map to one evidence source.",
+  "solution_stream_to_physical_source": {
+    "novatel_flexpak6": "novatel",
+    "ublox_f9p": "ublox_f9p",
+    "ublox_m8t_gc": "ublox_m8t",
+    "ublox_m8t_gc_duplicate": "ublox_m8t",
+    "ublox_m8t_gej": "ublox_m8t",
+    "ublox_m8t_gr": "ublox_m8t",
+    "ublox_m8t_grj": "ublox_m8t",
+    "google_pixel4": "google_pixel4",
+    "huawei_p40pro": "huawei_p40pro",
+    "xiaomi_mi8": "xiaomi_mi8",
+    "samsung_note8": "samsung_note8",
+    "trimble": "trimble",
+    "ublox": "ublox",
+    "trimble_gps": "trimble",
+    "trimble_glonass": "trimble",
+    "trimble_galileo": "trimble",
+    "trimble_beidou": "trimble",
+    "ublox_gps": "ublox",
+    "ublox_glonass": "ublox",
+    "ublox_galileo": "ublox",
+    "ublox_beidou": "ublox",
+    "locsp_m8t": "locsp_m8t",
+    "locsp_m8t_navpvt": "locsp_m8t",
+    "locsp_septentrio": "locsp_septentrio"
+  }
+}
