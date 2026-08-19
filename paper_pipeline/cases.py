@@ -322,6 +322,9 @@ def build_real_gnss_case(
             - estimator_input.gnss_timestamps_s[0]
         ),
         "rtklib_solution": str(rtklib_solution_path),
+        "sensor_cache_sha256": sha256(sensor_cache_path),
+        "truth_cache_sha256": sha256(truth_cache_path),
+        "rtklib_solution_sha256": sha256(rtklib_solution_path),
         "use_full_gnss_covariance": use_full_gnss_covariance,
         "minimum_gnss_interval_s": float(minimum_gnss_interval_s),
     }

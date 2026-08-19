@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "natural_case_roots": {
+    "hk": "data/processed/hk_medium/cases",
+    "deep": "data/processed/hk_deep/cases",
+    "harsh": "data/processed/hk_harsh/cases",
+    "phone": "data/processed/three_phones/cases"
+  },
+  "work_root": "data/processed/reproduction",
+  "output_root": "outputs/paper_reproduction",
+  "statistics_trials": 10000
+}

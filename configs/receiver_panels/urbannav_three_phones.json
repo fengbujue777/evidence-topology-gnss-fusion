@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "dataset_id": "urbannav_hk_harsh_phone_panel",
+  "sensor_dataset_id": "urbannav_hk_harsh_part",
+  "navigation_globs": ["BRDM*.rnx", "*.nav"],
+  "requires_timestamp_normalization": true,
+  "streams": [
+    {
+      "id": "google_pixel4",
+      "physical_source": "google_pixel4",
+      "role": "physical_receiver",
+      "observation_globs": ["*google*pixel4*.obs"],
+      "solution": "phone.google_pixel4.pos"
+    },
+    {
+      "id": "huawei_p40pro",
+      "physical_source": "huawei_p40pro",
+      "role": "physical_receiver",
+      "observation_globs": ["*huawei*p40pro*.obs"],
+      "solution": "phone.huawei_p40pro.pos"
+    },
+    {
+      "id": "xiaomi_mi8",
+      "physical_source": "xiaomi_mi8",
+      "role": "physical_receiver",
+      "observation_globs": ["*xiaomi*mi8*.obs"],
+      "solution": "phone.xiaomi_mi8.pos"
+    },
+    {
+      "id": "samsung_note8",
+      "physical_source": "samsung_note8",
+      "role": "unused_receiver",
+      "include_in_panel": false,
+      "observation_globs": ["*samsung*note8*.obs"],
+      "solution": "phone.samsung_note8.pos"
+    }
+  ]
+}

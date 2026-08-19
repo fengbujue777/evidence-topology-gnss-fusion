@@ -14,9 +14,30 @@ python examples/synthetic_topology_demo.py
 python -m pytest -q
 ```
 
+## 从公开原始数据完整复现
+
+仓库已经补齐以下链路：
+
+```text
+UrbanNav/LOCSP 原始数据
+  → KISS-ICP 轨迹与固定版本 RTKLIB 单点定位
+  → 真值隔离的多接收机案例
+  → 本文方法、基线、消融和参数敏感性实验
+  → 统计检验、运行时间与冻结结果核验
+```
+
+- `prepare_urbannav_panel.py`：从 UrbanNav ROS bag 与 RINEX 构建一个面板；
+- `reproduce_paper.py`：一次运行论文的 UrbanNav 完整实验矩阵；
+- `reproduce_locsp.py`：运行 LOCSP 同源消息流外部验证；
+- `verify_reproduction.py`：核验历元数和论文主结果。
+
+具体下载链接、目录要求与可直接复制的命令见
+`docs/DATASETS.md` 和 `docs/REPRODUCTION.md`。
+
 ## 重要说明
 
-- 原始 UrbanNav、LOCSP 数据不上传 GitHub，只提供公开下载来源与处理代码。
+- 原始 UrbanNav、LOCSP 数据不上传 GitHub，只提供官方公开下载来源、读取器、
+  固定参数、外参、RTKLIB 配置和完整处理代码。
 - `results/` 保存论文表格对应的小型 JSON/CSV、运行时间记录和外部复现实验摘要。
 - 主算法入口是 `run_evidence_topology.py`。
 - 冻结参数见 `configs/frozen_parameters.json`。

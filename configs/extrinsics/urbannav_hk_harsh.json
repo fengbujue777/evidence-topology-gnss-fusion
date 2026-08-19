@@ -1,0 +1,38 @@
+{
+  "dataset_id": "urbannav_hk_harsh_part",
+  "state_frame": "novatel_gnss_antenna",
+  "source": "https://github.com/IPNL-POLYU/UrbanNavDataset/blob/master/UrbanNav-HK-Harsh-Urban-1/extrinsic.yaml",
+  "convention": "Published matrices map Center LiDAR, antenna, and SPAN source frames into the IMU/body frame. lidar_to_state = inv(IMU_T_LiDAR) @ IMU_T_ANTENNA; truth_to_state = inv(IMU_T_SPAN) @ IMU_T_ANTENNA.",
+  "published": {
+    "imu_from_center_lidar": [
+      [1.0, 0.0, 0.0, 0.0],
+      [0.0, 1.0, 0.0, 0.0],
+      [0.0, 0.0, 1.0, 0.28],
+      [0.0, 0.0, 0.0, 1.0]
+    ],
+    "imu_from_antenna": [
+      [1.0, 0.0, 0.0, 0.0],
+      [0.0, 1.0, 0.0, 0.86],
+      [0.0, 0.0, 1.0, -0.31],
+      [0.0, 0.0, 0.0, 1.0]
+    ],
+    "imu_from_span": [
+      [1.0, 0.0, 0.0, 0.0],
+      [0.0, 1.0, 0.0, 0.0],
+      [0.0, 0.0, 1.0, 0.14],
+      [0.0, 0.0, 0.0, 1.0]
+    ]
+  },
+  "lidar_to_state": [
+    [1.0, 0.0, 0.0, 0.0],
+    [0.0, 1.0, 0.0, 0.86],
+    [0.0, 0.0, 1.0, -0.59],
+    [0.0, 0.0, 0.0, 1.0]
+  ],
+  "truth_to_state": [
+    [1.0, 0.0, 0.0, 0.0],
+    [0.0, 1.0, 0.0, 0.86],
+    [0.0, 0.0, 1.0, -0.45],
+    [0.0, 0.0, 0.0, 1.0]
+  ]
+}

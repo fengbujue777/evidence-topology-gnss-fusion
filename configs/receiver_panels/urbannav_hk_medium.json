@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "dataset_id": "urbannav_hk_medium_urban_1",
+  "navigation_globs": ["BRDM*.rnx", "*.nav"],
+  "streams": [
+    {
+      "id": "novatel_flexpak6",
+      "physical_source": "novatel",
+      "role": "physical_receiver",
+      "observation_globs": ["*novatel.flexpak6.obs", "*novatel*flexpak6*.obs"],
+      "solution": "urbannav_hk_medium_urban_1.pos"
+    },
+    {
+      "id": "ublox_f9p",
+      "physical_source": "ublox_f9p",
+      "role": "physical_receiver",
+      "observation_globs": ["*ublox.f9p.obs", "*ublox*f9p*.obs"],
+      "solution": "urbannav_hk_medium_urban_1.ublox.f9p.pos"
+    },
+    {
+      "id": "ublox_m8t_gc",
+      "physical_source": "ublox_m8t",
+      "role": "dependent_constellation_partition",
+      "observation_globs": ["*ublox.m8t.GC.obs", "*m8t*GC*.obs"],
+      "solution": "urbannav_hk_medium_urban_1.ublox.m8t.GC.pos"
+    },
+    {
+      "id": "ublox_m8t_gej",
+      "physical_source": "ublox_m8t",
+      "role": "dependent_constellation_partition",
+      "observation_globs": ["*ublox.m8t.GEJ.obs", "*m8t*GEJ*.obs"],
+      "solution": "urbannav_hk_medium_urban_1.ublox.m8t.GEJ.pos"
+    },
+    {
+      "id": "ublox_m8t_gr",
+      "physical_source": "ublox_m8t",
+      "role": "dependent_constellation_partition",
+      "observation_globs": ["*ublox.m8t.GR.obs", "*m8t*GR.obs"],
+      "solution": "urbannav_hk_medium_urban_1.ublox.m8t.GR.pos"
+    }
+  ]
+}

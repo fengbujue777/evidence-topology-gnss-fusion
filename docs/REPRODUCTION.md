@@ -1,73 +1,134 @@
 # Reproduction guide
 
-## 1. Verify the release without datasets
+This guide covers the complete path from public raw data to the paper tables.
+Commands use PowerShell line continuation; Linux/WSL users can replace the
+backticks with backslashes.
+
+## 1. Create the environment
+
+Python 3.12 is the frozen interpreter version.
 
 ```powershell
-python examples/synthetic_topology_demo.py
+conda env create -f environment.yml
+conda activate evidence-topology-gnss-fusion
+```
+
+Alternatively create a Python 3.12 virtual environment and install
+`requirements.txt`.
+
+Build the exact RTKLIB revision used for SPP:
+
+```bash
+bash scripts/install_rtklib.sh
+export RTKLIB_RNX2RTKP="$PWD/.tools/RTKLIB/app/consapp/rnx2rtkp/gcc/rnx2rtkp"
+```
+
+The frozen RTKLIB commit is
+`180043ee24b6d2b168f98b64be15f69d50046b1a`; the command records it and input
+SHA-256 hashes in `spp_manifest.json`.
+
+## 2. Verify code without a dataset
+
+```powershell
 python -m pytest -q
+python examples/synthetic_topology_demo.py
 ```
 
-The synthetic demo verifies the separation-triangle branch, physical-source
-mapping and Loewner dominance.  Unit tests cover the selector, source
-provenance, covariance construction, covariance intersection and temporal
-information-multiplicity solver.
+## 3. Build one UrbanNav panel from raw data
 
-## 2. Prepare public datasets
-
-Follow `docs/DATASETS.md`.  Store processed cases below `data/processed/` or
-use any external location.  Do not place reference arrays inside estimator
-input files.
-
-## 3. Run the proposed method
+Download the files listed in `docs/DATASETS.md`. Medium can then be prepared
+with one command:
 
 ```powershell
-python run_evidence_topology.py `
-  --case-root <CASE_DIRECTORY> `
-  --motion-margin 2.0 `
-  --separation-margin 2.0 `
-  --window-epochs 30 `
-  --epoch-policy all_sources `
-  --alignment-prefix-epochs 120 `
-  --initial-prefix-epochs 60 `
-  --output outputs/panel.json `
-  --trajectory-output outputs/panel.npz
+python prepare_urbannav_panel.py `
+  --panel configs/receiver_panels/urbannav_hk_medium.json `
+  --bag <MEDIUM_ROS_BAG> `
+  --rinex-root <MEDIUM_RINEX_DIRECTORY> `
+  --extrinsics-json configs/extrinsics/urbannav_hk_medium.json `
+  --cache-root data/processed/hk_medium/cache `
+  --solution-root data/processed/hk_medium/solutions `
+  --case-root data/processed/hk_medium/cases
 ```
 
-The defaults in `run_evidence_topology.py` are not a substitute for the
-frozen command above.  The complete parameter record is in
-`configs/frozen_parameters.json`.
+For Deep, change the panel/extrinsic/output paths and provide every bag after
+`--bag`. For Harsh, use the verified partial bag and add
+`--truth-csv <OFFICIAL_HARSH_PARTIAL_TRUTH>`.
 
-## 4. Run principal baselines
-
-Inspect each CLI before running:
+The three-phone panel reuses the Harsh KISS/truth cache:
 
 ```powershell
-python run_ci_baseline.py --help
-python run_contrast_factor.py --help
-python topology_factor_graph.py --help
+python prepare_urbannav_panel.py `
+  --panel configs/receiver_panels/urbannav_three_phones.json `
+  --rinex-root <PHONE_RINEX_DIRECTORY> `
+  --cache-root data/processed/hk_harsh/cache `
+  --solution-root data/processed/three_phones/solutions `
+  --case-root data/processed/three_phones/cases
 ```
 
-Every comparison must use identical KISS constraints, initialization,
-timestamps, receiver covariance inputs and evaluation start index.
+The phone command performs the registered half-second timestamp
+canonicalization and records its hashes. Samsung Note8 is processed for the
+audit but excluded from the frozen three-phone panel by configuration.
 
-## 5. Statistics
+If KISS/truth caches already exist, omit `--bag`; this is useful for rerunning
+SPP or case construction without decoding LiDAR again.
+
+## 4. Run the complete UrbanNav paper matrix
+
+Copy `configs/paper_reproduction.example.json`, replace its four case roots,
+and keep generated outputs under ignored directories. Then run:
 
 ```powershell
-python analyze_paired_statistics.py --help
-python analyze_ci_statistics.py --help
-python analyze_leave_one_panel_out.py --help
+python reproduce_paper.py `
+  --config configs/paper_reproduction.local.json `
+  --stages all
 ```
 
-The manuscript uses paired moving-block bootstrap with 10,000 resamples,
-30-epoch blocks and Holm correction at family-wise alpha 0.05.
+The launcher performs, in dependency order:
 
-## 6. Frozen artifacts
+1. seven deterministic controlled-fault case builds;
+2. four natural and seven fault evaluations;
+3. covariance-intersection baselines;
+4. selector-component and factor-topology ablations;
+5. the 3-by-3 parameter grid;
+6. 10,000-replicate paired block-bootstrap, CI and cross-run statistics;
+7. leave-one-route-out parameter selection;
+8. five fusion-layer runtime repeats;
+9. numerical comparison with committed frozen summaries.
 
-`results/frozen_json/` contains the compact JSON outputs for four natural and
-seven controlled-fault cases.  `results/paper_summaries/` contains the exact
-CSV/JSON summaries used for tables, CI comparison, sensitivity, external
-LOCSP replication and runtime reporting.  Large trajectory NPZ files and
-rendered publication figures are omitted because they are derived outputs.
+Run only selected stages with, for example,
+`--stages natural,fault-cases,faults,verify`. Existing complete outputs are
+not overwritten unless `--overwrite` is given.
 
-The runtime table measures the fusion layer only.  It excludes file I/O and
-KISS-ICP registration because those costs are shared by every fusion method.
+Verification requires exact epoch counts. Because nonlinear solvers can take
+slightly different floating-point stopping paths across operating systems and
+CPU libraries, RMSE bounds are explicitly fixed at 3 cm for the proposed
+method and 15 cm for iterative baselines. In the release audit, the largest
+observed deviations were 2.32 cm and 10.39 cm, respectively.
+
+## 5. Reproduce the LOCSP external test
+
+```powershell
+python reproduce_locsp.py `
+  --dataset-id locsp_cr2 `
+  --bag <LOCSP_CR2_ROS_BAG> `
+  --output-root outputs/locsp_cr2
+```
+
+The command extracts KISS-ICP and receiver streams, audits the duplicated M8T
+encoding, runs two-source/source-aware/naive graphs, performs a 10,000-sample
+paired moving-block bootstrap and verifies replay invariance to `1e-9 m`.
+Use `--dataset-id locsp_cr1` for CR1; its partial-reference mask is applied
+automatically.
+
+## 6. Output-to-paper mapping
+
+- `natural/*.json`, `fault/*.json`: principal RMSE/P95 tables;
+- `ci/`: covariance-intersection comparison;
+- `component_ablation/`, `factor_ablation/`: ablation table;
+- `sensitivity/`, `statistics/leave_one_panel_out.*`: parameter analysis;
+- `statistics/`: paired confidence intervals and corrected tests;
+- `runtime/summary/runtime_benchmark.json`: fusion-layer timing;
+- `verification.json`: final pass/fail gate.
+
+Committed small summaries live in `results/`; raw and generated NPZ files do
+not need to be versioned because every stage above regenerates them.

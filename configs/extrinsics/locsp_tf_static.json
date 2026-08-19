@@ -1,0 +1,107 @@
+[
+  {
+    "parent": "base_link",
+    "child": "zoe_trunk_frame",
+    "translation": [
+      0.0,
+      -0.657,
+      0.724
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  },
+  {
+    "parent": "base_link",
+    "child": "antenne_frame",
+    "translation": [
+      0.78,
+      0.16,
+      1.52
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  },
+  {
+    "parent": "base_link",
+    "child": "hesai_frame",
+    "translation": [
+      -0.77,
+      0.0,
+      1.83
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  },
+  {
+    "parent": "base_link",
+    "child": "novatel_frame",
+    "translation": [
+      0.79,
+      -0.18,
+      1.52
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  },
+  {
+    "parent": "base_link",
+    "child": "sick_frame",
+    "translation": [
+      0.52,
+      0.0,
+      0.41
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  },
+  {
+    "parent": "base_link",
+    "child": "velodyne_frame",
+    "translation": [
+      0.5,
+      0.78,
+      1.4
+    ],
+    "rotation": [
+      0.0,
+      -0.7071,
+      0.7071,
+      0.0
+    ]
+  },
+  {
+    "parent": "base_link",
+    "child": "os3d_frame",
+    "translation": [
+      0.0,
+      -0.27,
+      1.02
+    ],
+    "rotation": [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  }
+]

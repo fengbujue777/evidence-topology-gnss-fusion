@@ -5,6 +5,7 @@ __pycache__/
 .ruff_cache/
 .venv/
 venv/
+.tools/
 
 # Raw or processed datasets are downloaded separately.
 data/

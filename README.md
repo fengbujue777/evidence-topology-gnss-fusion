@@ -58,6 +58,9 @@ python -m pip install -r requirements.txt
 
 On Linux or WSL, activate with `source .venv/bin/activate`.
 
+For an exact Conda environment, use `conda env create -f environment.yml`.
+RTKLIB is pinned and built by `scripts/install_rtklib.sh`.
+
 ## Quick verification
 
 The synthetic check needs no downloaded dataset:
@@ -67,10 +70,24 @@ python examples/synthetic_topology_demo.py
 python -m pytest -q
 ```
 
-## Running one real panel
+## End-to-end reproduction
 
-After preparing the truth-separated case files described in
-[`docs/DATASETS.md`](docs/DATASETS.md):
+The release includes the full public-data preprocessing chain:
+
+```text
+ROS bags + RINEX
+  -> KISS-ICP extraction + pinned RTKLIB SPP
+  -> truth-isolated receiver cases
+  -> proposed/baseline/ablation runs
+  -> statistics, runtime and numerical verification
+```
+
+Prepare one panel with `prepare_urbannav_panel.py`; run the complete paper
+matrix with `reproduce_paper.py`; reproduce the independent LOCSP source-
+quotient experiment with `reproduce_locsp.py`. Exact commands are in
+[`docs/REPRODUCTION.md`](docs/REPRODUCTION.md).
+
+To run one already-prepared panel directly:
 
 ```powershell
 python run_evidence_topology.py `
@@ -85,10 +102,11 @@ python run_evidence_topology.py `
   --trajectory-output outputs/hk_medium.npz
 ```
 
-For several panels, edit `configs/paper_panels.example.json` and run:
+For the complete matrix, copy and edit
+`configs/paper_reproduction.example.json` and run:
 
 ```powershell
-python run_paper_suite.py --config configs/paper_panels.example.json
+python reproduce_paper.py --config configs/paper_reproduction.local.json --stages all
 ```
 
 Full instructions and the correspondence between manuscript experiments and
@@ -97,10 +115,11 @@ scripts are in [`docs/REPRODUCTION.md`](docs/REPRODUCTION.md) and
 
 ## Data and frozen results
 
-Raw UrbanNav and LOCSP files are not redistributed.  They remain governed by
-their original providers.  This repository includes only code, small frozen
-JSON/CSV summaries, and runtime repeats required to verify reported numbers. Reference
-trajectories are loaded only after candidate trajectories have been produced.
+Raw UrbanNav and LOCSP files are not redistributed. They remain governed by
+their original providers. This repository includes the readers, pinned SPP
+configuration, extrinsics, panel definitions and orchestration needed to
+regenerate cases, plus small frozen JSON/CSV summaries. Reference trajectories
+are loaded only after candidate trajectories have been produced.
 
 ## Reproducibility scope
 
