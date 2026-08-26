@@ -1,0 +1,5 @@
+case,window_count,singleton_fraction,pair_fraction,topology_switch_count,switch_fraction_per_transition,subset_counts
+hk,6,0.0,1.0,0,0.0,"{""novatel,ublox_f9p"": 6}"
+deep,24,0.2916666666666667,0.7083333333333334,12,0.5217391304347826,"{""novatel,ublox_f9p"": 17, ""novatel"": 7}"
+harsh,18,0.3888888888888889,0.6111111111111112,11,0.6470588235294118,"{""novatel"": 7, ""ublox_f9p,ublox_m8t"": 1, ""novatel,ublox_m8t"": 1, ""novatel,ublox_f9p"": 9}"
+phone,11,0.5454545454545454,0.45454545454545453,7,0.7,"{""huawei_p40pro,xiaomi_mi8"": 3, ""huawei_p40pro"": 6, ""google_pixel4,huawei_p40pro"": 2}"

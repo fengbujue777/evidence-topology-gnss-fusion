@@ -12,6 +12,7 @@
   "state_epoch_count": 587,
   "evaluation_start_index": 72,
   "evaluation_epoch_count": 515,
+  "reference_validity": null,
   "decision": {
     "alignment_prefix_epoch_count": 120,
     "initial_prefix_policy": "fixed_count",
@@ -34,60 +35,60 @@
       "selected_receiver": "novatel",
       "selected_family": "direct",
       "consensus_relative_mismatch": {
-        "median": 5.717023950890462,
-        "mad": 3.9815501162419564,
-        "robust_sigma": 5.903046202340324,
-        "p95": 20.47253466264138,
+        "median": 5.717023950890463,
+        "mad": 3.981550116241915,
+        "robust_sigma": 5.9030462023402634,
+        "p95": 20.472534662641397,
         "contamination_fraction": 0.01694915254237288
       },
       "receiver_relative_mismatch": {
         "novatel": {
-          "median": 3.0033575692890717,
-          "mad": 1.6017602463641887,
-          "robust_sigma": 2.374769741259546,
-          "p95": 12.539872423325258,
+          "median": 3.00335756928913,
+          "mad": 1.601760246364143,
+          "robust_sigma": 2.3747697412594784,
+          "p95": 12.539872423325281,
           "contamination_fraction": 0.1016949152542373
         },
         "ublox_f9p": {
-          "median": 3.293319841684609,
-          "mad": 2.44591232657209,
-          "robust_sigma": 3.6263096153757806,
-          "p95": 13.113185751122366,
+          "median": 3.2933198416846112,
+          "mad": 2.445912326572079,
+          "robust_sigma": 3.626309615375764,
+          "p95": 13.11318575112228,
           "contamination_fraction": 0.03389830508474576
         },
         "ublox_m8t": {
-          "median": 21.242862634174887,
-          "mad": 14.958747114540973,
-          "robust_sigma": 22.177838472018447,
+          "median": 21.242862634174838,
+          "mad": 14.958747114541037,
+          "robust_sigma": 22.17783847201854,
           "p95": 242.75343413885687,
           "contamination_fraction": 0.15254237288135594
         }
       },
       "receiver_absolute_residual": {
         "novatel": {
-          "median": 11.29030885523146,
-          "mad": 4.264239054749224,
-          "robust_sigma": 6.322160822571199,
-          "p95": 20.175283256534215,
+          "median": 11.290308855231423,
+          "mad": 4.264239054749175,
+          "robust_sigma": 6.322160822571126,
+          "p95": 20.175283256534147,
           "contamination_fraction": 0.0
         },
         "ublox_f9p": {
-          "median": 8.869867529691872,
-          "mad": 3.274402594800328,
-          "robust_sigma": 4.854629287050966,
-          "p95": 19.88257473243323,
+          "median": 8.869867529691861,
+          "mad": 3.274402594800502,
+          "robust_sigma": 4.854629287051224,
+          "p95": 19.882574732433277,
           "contamination_fraction": 0.016666666666666666
         },
         "ublox_m8t": {
-          "median": 21.641449219908452,
-          "mad": 10.73824618909168,
-          "robust_sigma": 15.920523799947324,
-          "p95": 239.76933546096407,
+          "median": 21.64144921990853,
+          "mad": 10.738246189091731,
+          "robust_sigma": 15.9205237999474,
+          "p95": 239.76933546096427,
           "contamination_fraction": 0.16666666666666666
         }
       },
-      "receiver_motion_p95_dispersion_ratio": 19.3585250267231,
-      "receiver_absolute_median_dispersion_ratio": 2.4398841524367443,
+      "receiver_motion_p95_dispersion_ratio": 19.358525026723065,
+      "receiver_absolute_median_dispersion_ratio": 2.4398841524367563,
       "maximum_pairwise_receiver_separation": {
         "median": 30.719263131603142,
         "mad": 10.578564136449302,
@@ -119,7 +120,7 @@
         }
       },
       "pairwise_mahalanobis_d2": {
-        "median": 0.8977171695837053,
+        "median": 0.8994818800451574,
         "p95": 9.32087990494634,
         "chi2_3_95_threshold": 7.814727903251179,
         "fraction_within_chi2_3_95": 0.9222222222222223,
@@ -143,54 +144,54 @@
         "start_common_epoch": 0,
         "stop_common_epoch": 30,
         "consensus_relative_mismatch": {
-          "median": 8.326034238826125,
-          "mad": 3.0812695102346694,
-          "robust_sigma": 4.568290175873921,
-          "p95": 18.468169228556317,
+          "median": 8.326034238825908,
+          "mad": 3.0812695102348417,
+          "robust_sigma": 4.568290175874176,
+          "p95": 18.468169228556384,
           "contamination_fraction": 0.034482758620689655
         },
         "receiver_relative_mismatch": {
           "novatel": {
-            "median": 3.0033575692890717,
-            "mad": 1.5250202486479412,
-            "robust_sigma": 2.2609950206454377,
-            "p95": 5.328823828911779,
+            "median": 3.00335756928913,
+            "mad": 1.525020248647961,
+            "robust_sigma": 2.2609950206454665,
+            "p95": 5.328823828911776,
             "contamination_fraction": 0.0
           },
           "ublox_f9p": {
-            "median": 4.532274293712136,
-            "mad": 3.4690388244495844,
-            "robust_sigma": 5.143196961128954,
-            "p95": 12.977284051224503,
+            "median": 4.5322742937121445,
+            "mad": 3.469038824449602,
+            "robust_sigma": 5.14319696112898,
+            "p95": 12.977284051224546,
             "contamination_fraction": 0.034482758620689655
           },
           "ublox_m8t": {
-            "median": 15.68309208500213,
-            "mad": 8.85038234924522,
-            "robust_sigma": 13.12157687099096,
+            "median": 15.683092085002226,
+            "mad": 8.850382349245113,
+            "robust_sigma": 13.121576870990804,
             "p95": 666.8959200664625,
             "contamination_fraction": 0.2413793103448276
           }
         },
         "receiver_absolute_residual": {
           "novatel": {
-            "median": 14.488702552838728,
-            "mad": 1.7263819478238203,
-            "robust_sigma": 2.559533875843596,
-            "p95": 17.449615131009033,
+            "median": 14.488702552838678,
+            "mad": 1.726381947823822,
+            "robust_sigma": 2.5595338758435986,
+            "p95": 17.449615131009,
             "contamination_fraction": 0.0
           },
           "ublox_f9p": {
-            "median": 9.782758404247588,
-            "mad": 3.7364027604037924,
-            "robust_sigma": 5.539590732574662,
-            "p95": 19.504690095501154,
+            "median": 9.78275840424759,
+            "mad": 3.7364027604038377,
+            "robust_sigma": 5.539590732574729,
+            "p95": 19.5046900955012,
             "contamination_fraction": 0.0
           },
           "ublox_m8t": {
-            "median": 20.167837448918117,
-            "mad": 9.61266398622903,
-            "robust_sigma": 14.25173562598316,
+            "median": 20.167837448918327,
+            "mad": 9.612663986229293,
+            "robust_sigma": 14.25173562598355,
             "p95": 611.0726828726802,
             "contamination_fraction": 0.2
           }
@@ -225,12 +226,12 @@
             "contamination_fraction": 0.2
           }
         },
-        "receiver_motion_p95_dispersion_ratio": 125.14880233949337,
-        "receiver_absolute_median_dispersion_ratio": 2.0615696121209965,
+        "receiver_motion_p95_dispersion_ratio": 125.14880233949344,
+        "receiver_absolute_median_dispersion_ratio": 2.0615696121210174,
         "receiver_scores": {
-          "novatel": 2.481044706833183,
-          "ublox_f9p": 3.435299883778415,
-          "ublox_m8t": 127.21037195161436
+          "novatel": 2.4810447068331776,
+          "ublox_f9p": 3.435299883778424,
+          "ublox_m8t": 127.21037195161446
         },
         "selected_branch": "anchored_receiver_nominal",
         "selected_receiver": "novatel",
@@ -252,55 +253,55 @@
         "start_common_epoch": 30,
         "stop_common_epoch": 60,
         "consensus_relative_mismatch": {
-          "median": 3.02888921533774,
-          "mad": 1.9091936364398185,
-          "robust_sigma": 2.830570485385675,
-          "p95": 19.273670550646887,
+          "median": 3.0288892153377596,
+          "mad": 1.9091936364397872,
+          "robust_sigma": 2.8305704853856284,
+          "p95": 19.273670550646877,
           "contamination_fraction": 0.13793103448275862
         },
         "receiver_relative_mismatch": {
           "novatel": {
-            "median": 2.9038646788146925,
-            "mad": 1.7111614172478071,
-            "robust_sigma": 2.536967917211599,
-            "p95": 20.637374581274276,
+            "median": 2.903864678814638,
+            "mad": 1.7111614172479017,
+            "robust_sigma": 2.5369679172117388,
+            "p95": 20.637374581274337,
             "contamination_fraction": 0.1724137931034483
           },
           "ublox_f9p": {
-            "median": 3.0131279010901273,
-            "mad": 1.9465368513703045,
-            "robust_sigma": 2.885935535841613,
-            "p95": 12.797542734618442,
+            "median": 3.0131279010901464,
+            "mad": 1.9465368513702732,
+            "robust_sigma": 2.885935535841567,
+            "p95": 12.797542734618382,
             "contamination_fraction": 0.10344827586206896
           },
           "ublox_m8t": {
-            "median": 24.235689599759674,
-            "mad": 18.432630486947808,
-            "robust_sigma": 27.32821795994882,
-            "p95": 231.7299710840636,
+            "median": 24.23568959975976,
+            "mad": 18.432630486947918,
+            "robust_sigma": 27.328217959948983,
+            "p95": 231.72997108406358,
             "contamination_fraction": 0.1724137931034483
           }
         },
         "receiver_absolute_residual": {
           "novatel": {
-            "median": 8.413898782822491,
-            "mad": 2.324965030412361,
-            "robust_sigma": 3.446993154089366,
-            "p95": 20.175415483629713,
+            "median": 8.413898782822276,
+            "mad": 2.324965030412444,
+            "robust_sigma": 3.446993154089489,
+            "p95": 20.175415483629635,
             "contamination_fraction": 0.1
           },
           "ublox_f9p": {
-            "median": 7.806578396152409,
-            "mad": 3.012316092002175,
-            "robust_sigma": 4.466059838002424,
-            "p95": 20.889623361154843,
+            "median": 7.806578396152126,
+            "mad": 3.012316092002113,
+            "robust_sigma": 4.466059838002332,
+            "p95": 20.8896233611547,
             "contamination_fraction": 0.06666666666666667
           },
           "ublox_m8t": {
-            "median": 26.262138197523115,
-            "mad": 13.857643500852824,
-            "robust_sigma": 20.545342254364396,
-            "p95": 232.41294515351933,
+            "median": 26.262138197523086,
+            "mad": 13.857643500853001,
+            "robust_sigma": 20.54534225436466,
+            "p95": 232.4129451535195,
             "contamination_fraction": 0.13333333333333333
           }
         },
@@ -334,12 +335,12 @@
             "contamination_fraction": 0.13333333333333333
           }
         },
-        "receiver_motion_p95_dispersion_ratio": 18.107380134563982,
-        "receiver_absolute_median_dispersion_ratio": 3.3641035630240785,
+        "receiver_motion_p95_dispersion_ratio": 18.107380134564064,
+        "receiver_absolute_median_dispersion_ratio": 3.3641035630241967,
         "receiver_scores": {
-          "novatel": 2.6904004432064994,
+          "novatel": 2.6904004432065234,
           "ublox_f9p": 2.0,
-          "ublox_m8t": 21.47148369758806
+          "ublox_m8t": 21.471483697588262
         },
         "selected_branch": "anchored_receiver_cauchy",
         "selected_receiver": "novatel",
@@ -361,64 +362,64 @@
         "start_common_epoch": 60,
         "stop_common_epoch": 90,
         "consensus_relative_mismatch": {
-          "median": 3.7546994269565372,
-          "mad": 1.8150619595200892,
-          "robust_sigma": 2.691010861184484,
-          "p95": 17.995343670004928,
+          "median": 3.7546994273628256,
+          "mad": 1.8150619591138177,
+          "robust_sigma": 2.691010860582146,
+          "p95": 17.995343670004925,
           "contamination_fraction": 0.1724137931034483
         },
         "receiver_relative_mismatch": {
           "novatel": {
-            "median": 5.758147396717578,
-            "mad": 4.4289438165290935,
-            "robust_sigma": 6.566352102386034,
+            "median": 5.758147396717564,
+            "mad": 4.428943816529085,
+            "robust_sigma": 6.566352102386021,
             "p95": 56.92595212806681,
             "contamination_fraction": 0.06896551724137931
           },
           "ublox_f9p": {
-            "median": 3.729672671527903,
-            "mad": 2.424942109678901,
-            "robust_sigma": 3.595219171809938,
-            "p95": 13.894351256263876,
+            "median": 3.729672671527886,
+            "mad": 2.4249421096788826,
+            "robust_sigma": 3.595219171809911,
+            "p95": 13.894351256263871,
             "contamination_fraction": 0.06896551724137931
           },
           "ublox_m8t": {
-            "median": 10.082040567415268,
-            "mad": 7.667133039958484,
-            "robust_sigma": 11.367291445042449,
-            "p95": 140.32685639936153,
+            "median": 11.081208563873423,
+            "mad": 8.666301036416646,
+            "robust_sigma": 12.84865791659132,
+            "p95": 140.3268563993615,
             "contamination_fraction": 0.13793103448275862
           }
         },
         "receiver_absolute_residual": {
           "novatel": {
-            "median": 13.806088415801481,
-            "mad": 3.521414091927346,
-            "robust_sigma": 5.220848532691482,
-            "p95": 24.786954967678096,
+            "median": 13.806088415801504,
+            "mad": 3.5214140919272747,
+            "robust_sigma": 5.220848532691377,
+            "p95": 24.786954967678152,
             "contamination_fraction": 0.03333333333333333
           },
           "ublox_f9p": {
-            "median": 12.722890822545306,
-            "mad": 1.7959762052346528,
-            "robust_sigma": 2.662714321880896,
-            "p95": 19.932687651917075,
+            "median": 12.72289082254517,
+            "mad": 1.7959762052346253,
+            "robust_sigma": 2.6627143218808556,
+            "p95": 19.93268765191706,
             "contamination_fraction": 0.06666666666666667
           },
           "ublox_m8t": {
-            "median": 20.77517127367664,
-            "mad": 11.938277501454932,
-            "robust_sigma": 17.699690223657083,
-            "p95": 89.5158868665364,
+            "median": 26.64447892711052,
+            "mad": 13.33081568528942,
+            "robust_sigma": 19.764267335010093,
+            "p95": 89.5158868665361,
             "contamination_fraction": 0.06666666666666667
           }
         },
         "maximum_pairwise_receiver_separation": {
-          "median": 19.50151726105836,
-          "mad": 11.278126544790751,
-          "robust_sigma": 16.720950415306767,
+          "median": 23.081555163182458,
+          "mad": 12.541851557903545,
+          "robust_sigma": 18.594549119747796,
           "p95": 94.95180477405275,
-          "contamination_fraction": 0.13333333333333333
+          "contamination_fraction": 0.1
         },
         "receiver_pair_separation": {
           "novatel__ublox_f9p": {
@@ -429,26 +430,26 @@
             "contamination_fraction": 0.03333333333333333
           },
           "novatel__ublox_m8t": {
-            "median": 18.266700739667886,
-            "mad": 11.543638930713982,
-            "robust_sigma": 17.114599078676548,
+            "median": 23.081555163182458,
+            "mad": 14.675928957687907,
+            "robust_sigma": 21.758532272668088,
             "p95": 88.5442964794506,
-            "contamination_fraction": 0.13333333333333333
+            "contamination_fraction": 0.06666666666666667
           },
           "ublox_f9p__ublox_m8t": {
-            "median": 15.887444800111172,
-            "mad": 11.439755441172437,
-            "robust_sigma": 16.960581417082253,
+            "median": 19.769341568751628,
+            "mad": 12.59961174362691,
+            "robust_sigma": 18.680184371101255,
             "p95": 88.41904276103493,
-            "contamination_fraction": 0.1
+            "contamination_fraction": 0.06666666666666667
           }
         },
-        "receiver_motion_p95_dispersion_ratio": 10.099561599617624,
-        "receiver_absolute_median_dispersion_ratio": 1.6328970800301514,
+        "receiver_motion_p95_dispersion_ratio": 10.099561599617626,
+        "receiver_absolute_median_dispersion_ratio": 2.0942157956661918,
         "receiver_scores": {
-          "novatel": 5.1821949143372965,
+          "novatel": 5.182194914337311,
           "ublox_f9p": 2.0,
-          "ublox_m8t": 11.732458679647776
+          "ublox_m8t": 12.193777395283817
         },
         "selected_branch": "anchored_receiver_nominal",
         "selected_receiver": "novatel",
@@ -470,64 +471,64 @@
         "start_common_epoch": 90,
         "stop_common_epoch": 120,
         "consensus_relative_mismatch": {
-          "median": 2.5325354103951883,
-          "mad": 0.9678396905155031,
-          "robust_sigma": 1.434919125158285,
-          "p95": 13.607662978657896,
+          "median": 2.423020495385367,
+          "mad": 1.094643396383752,
+          "robust_sigma": 1.6229182994785507,
+          "p95": 15.29146054244335,
           "contamination_fraction": 0.10344827586206896
         },
         "receiver_relative_mismatch": {
           "novatel": {
-            "median": 3.3788144576262766,
-            "mad": 1.5290680364941203,
-            "robust_sigma": 2.2669962709061826,
-            "p95": 10.253735732784888,
+            "median": 3.3788144576262593,
+            "mad": 1.5290680364941776,
+            "robust_sigma": 2.2669962709062674,
+            "p95": 10.253735732784913,
             "contamination_fraction": 0.06896551724137931
           },
           "ublox_f9p": {
-            "median": 3.753993031386082,
-            "mad": 2.1504969920562074,
-            "robust_sigma": 3.188326840422533,
-            "p95": 26.428189323162442,
+            "median": 3.7539930313860648,
+            "mad": 2.1504969920561745,
+            "robust_sigma": 3.188326840422484,
+            "p95": 26.42818932316246,
             "contamination_fraction": 0.13793103448275862
           },
           "ublox_m8t": {
-            "median": 7.120055950028008,
-            "mad": 3.3616511879736413,
-            "robust_sigma": 4.98398405128972,
+            "median": 7.12005595002798,
+            "mad": 3.3616511879737105,
+            "robust_sigma": 4.983984051289823,
             "p95": 267.19431126232865,
             "contamination_fraction": 0.13793103448275862
           }
         },
         "receiver_absolute_residual": {
           "novatel": {
-            "median": 31.941301433668215,
-            "mad": 6.579587238366198,
-            "robust_sigma": 9.754896039601725,
-            "p95": 58.07131489563324,
+            "median": 31.94130143366846,
+            "mad": 6.579587238366267,
+            "robust_sigma": 9.754896039601828,
+            "p95": 58.07131489563361,
             "contamination_fraction": 0.03333333333333333
           },
           "ublox_f9p": {
-            "median": 32.88995435017747,
-            "mad": 7.267158093889924,
-            "robust_sigma": 10.7742885900012,
-            "p95": 57.44371299352776,
+            "median": 32.88995435017773,
+            "mad": 7.267158093890048,
+            "robust_sigma": 10.774288590001385,
+            "p95": 57.44371299352813,
             "contamination_fraction": 0.03333333333333333
           },
           "ublox_m8t": {
-            "median": 37.2089216523764,
-            "mad": 8.219922538421153,
-            "robust_sigma": 12.186857155463201,
-            "p95": 74.67960854405096,
+            "median": 49.042664953925375,
+            "mad": 6.212138969850233,
+            "robust_sigma": 9.210117236699956,
+            "p95": 82.36171689723473,
             "contamination_fraction": 0.06666666666666667
           }
         },
         "maximum_pairwise_receiver_separation": {
-          "median": 10.125669586574581,
-          "mad": 2.817969721683517,
-          "robust_sigma": 4.177921909367982,
-          "p95": 51.287226504862446,
-          "contamination_fraction": 0.2
+          "median": 25.749834479005166,
+          "mad": 2.4710701530534998,
+          "robust_sigma": 3.6636086089171185,
+          "p95": 55.828166094145224,
+          "contamination_fraction": 0.1
         },
         "receiver_pair_separation": {
           "novatel__ublox_f9p": {
@@ -538,26 +539,26 @@
             "contamination_fraction": 0.1
           },
           "novatel__ublox_m8t": {
-            "median": 8.140810826957543,
-            "mad": 3.074484957597949,
-            "robust_sigma": 4.558231398134719,
-            "p95": 36.65446802274325,
-            "contamination_fraction": 0.16666666666666666
+            "median": 25.279131643487183,
+            "mad": 2.6673453011512525,
+            "robust_sigma": 3.9546061434868465,
+            "p95": 45.12872984513951,
+            "contamination_fraction": 0.1
           },
           "ublox_f9p__ublox_m8t": {
-            "median": 9.398114614497958,
-            "mad": 2.819300776212418,
-            "robust_sigma": 4.17989533081253,
-            "p95": 50.32003981324691,
+            "median": 23.144552681637812,
+            "mad": 2.2567286278373206,
+            "robust_sigma": 3.3458258636316116,
+            "p95": 54.81319380958241,
             "contamination_fraction": 0.13333333333333333
           }
         },
-        "receiver_motion_p95_dispersion_ratio": 26.05824045260033,
-        "receiver_absolute_median_dispersion_ratio": 1.1649156415760744,
+        "receiver_motion_p95_dispersion_ratio": 26.058240452600266,
+        "receiver_absolute_median_dispersion_ratio": 1.5353997098637575,
         "receiver_scores": {
           "novatel": 2.0,
-          "ublox_f9p": 3.6071204458298753,
-          "ublox_m8t": 27.223156094176403
+          "ublox_f9p": 3.607120445829871,
+          "ublox_m8t": 27.593640162464023
         },
         "selected_branch": "anchored_receiver_nominal",
         "selected_receiver": "novatel",
@@ -579,63 +580,63 @@
         "start_common_epoch": 120,
         "stop_common_epoch": 150,
         "consensus_relative_mismatch": {
-          "median": 4.244334079828164,
-          "mad": 1.9361775577820852,
-          "robust_sigma": 2.8705768471677193,
-          "p95": 14.816874794205328,
-          "contamination_fraction": 0.10344827586206896
+          "median": 3.9716577105609594,
+          "mad": 2.1195241248842907,
+          "robust_sigma": 3.142406467553449,
+          "p95": 12.150297375121617,
+          "contamination_fraction": 0.034482758620689655
         },
         "receiver_relative_mismatch": {
           "novatel": {
-            "median": 1.647271959061309,
-            "mad": 0.8234644895855769,
-            "robust_sigma": 1.2208684522595763,
-            "p95": 7.683213107959662,
+            "median": 1.6472719590613136,
+            "mad": 0.8234644895855567,
+            "robust_sigma": 1.2208684522595463,
+            "p95": 7.683213107959659,
             "contamination_fraction": 0.13793103448275862
           },
           "ublox_f9p": {
-            "median": 2.4743111481411137,
-            "mad": 1.7700229325617594,
-            "robust_sigma": 2.6242359998160643,
-            "p95": 14.080427386759363,
+            "median": 2.474311148141089,
+            "mad": 1.770022932561763,
+            "robust_sigma": 2.6242359998160696,
+            "p95": 14.080427386759355,
             "contamination_fraction": 0.13793103448275862
           },
           "ublox_m8t": {
-            "median": 11.359250168763039,
-            "mad": 6.072663567070401,
-            "robust_sigma": 9.003331004538575,
+            "median": 11.359250168763019,
+            "mad": 6.072663567070391,
+            "robust_sigma": 9.00333100453856,
             "p95": 330.54178291578893,
             "contamination_fraction": 0.13793103448275862
           }
         },
         "receiver_absolute_residual": {
           "novatel": {
-            "median": 44.70290320507401,
-            "mad": 4.69601432660081,
-            "robust_sigma": 6.962310840618361,
-            "p95": 49.723634738114,
+            "median": 44.70290320507432,
+            "mad": 4.696014326600821,
+            "robust_sigma": 6.962310840618377,
+            "p95": 49.72363473811433,
             "contamination_fraction": 0.0
           },
           "ublox_f9p": {
-            "median": 35.53835797691933,
-            "mad": 3.7769414782050035,
-            "robust_sigma": 5.599693435586738,
-            "p95": 42.478407783519216,
+            "median": 35.53835797691964,
+            "mad": 3.7769414782049893,
+            "robust_sigma": 5.599693435586717,
+            "p95": 42.47840778351949,
             "contamination_fraction": 0.0
           },
           "ublox_m8t": {
-            "median": 36.004249653481835,
-            "mad": 10.200937509246838,
-            "robust_sigma": 15.123909951209361,
-            "p95": 103.79473854352634,
+            "median": 48.45113136840986,
+            "mad": 6.70620553398091,
+            "robust_sigma": 9.942620324680096,
+            "p95": 120.72869873457292,
             "contamination_fraction": 0.2
           }
         },
         "maximum_pairwise_receiver_separation": {
-          "median": 23.03785693576942,
-          "mad": 6.339410614472653,
-          "robust_sigma": 9.398810177017156,
-          "p95": 118.69101355816132,
+          "median": 34.00763394288117,
+          "mad": 5.224953833992103,
+          "robust_sigma": 7.746516554276692,
+          "p95": 133.56655618190706,
           "contamination_fraction": 0.2
         },
         "receiver_pair_separation": {
@@ -647,33 +648,33 @@
             "contamination_fraction": 0.0
           },
           "novatel__ublox_m8t": {
-            "median": 21.51553569622739,
-            "mad": 7.57227547044561,
-            "robust_sigma": 11.226655612482661,
-            "p95": 118.29181653621015,
+            "median": 33.90305630257137,
+            "mad": 4.971182014675291,
+            "robust_sigma": 7.370274454957586,
+            "p95": 132.30244416170933,
             "contamination_fraction": 0.2
           },
           "ublox_f9p__ublox_m8t": {
-            "median": 15.504392926704229,
-            "mad": 6.920919830803261,
-            "robust_sigma": 10.260955741148914,
-            "p95": 118.53027375665329,
+            "median": 29.30225231092095,
+            "mad": 6.844098729993183,
+            "robust_sigma": 10.147060777087892,
+            "p95": 133.56655618190706,
             "contamination_fraction": 0.2
           }
         },
-        "receiver_motion_p95_dispersion_ratio": 43.02129568335856,
-        "receiver_absolute_median_dispersion_ratio": 1.2578775652523582,
+        "receiver_motion_p95_dispersion_ratio": 43.02129568335858,
+        "receiver_absolute_median_dispersion_ratio": 1.363347496242691,
         "receiver_scores": {
-          "novatel": 2.2578775652523584,
-          "ublox_f9p": 2.832622262185115,
-          "ublox_m8t": 44.03440522761114
+          "novatel": 2.2578775652523557,
+          "ublox_f9p": 2.8326222621851143,
+          "ublox_m8t": 44.38464317960127
         },
         "selected_branch": "anchored_receiver_cauchy",
         "selected_receiver": "novatel",
         "selected_family": "cauchy",
-        "unanchored_selected_branch": "isolated_receiver_cauchy",
+        "unanchored_selected_branch": "isolated_receiver_gaussian",
         "unanchored_selected_receiver": "novatel",
-        "unanchored_selected_family": "cauchy",
+        "unanchored_selected_family": "direct",
         "change_guard_reason": "selected_receiver_heavy_tail",
         "selected_pair_key": "novatel__ublox_f9p",
         "selected_pair_tail_ratio": 1.4117927831310029,
@@ -688,62 +689,62 @@
         "start_common_epoch": 150,
         "stop_common_epoch": 177,
         "consensus_relative_mismatch": {
-          "median": 2.6085947177480033,
-          "mad": 1.7340031452655627,
-          "robust_sigma": 2.5708330631707232,
-          "p95": 12.669454674158814,
-          "contamination_fraction": 0.11538461538461539
+          "median": 2.6085947177479554,
+          "mad": 1.800076170297092,
+          "robust_sigma": 2.6687929300824687,
+          "p95": 12.669454674158807,
+          "contamination_fraction": 0.07692307692307693
         },
         "receiver_relative_mismatch": {
           "novatel": {
-            "median": 3.8634296420316607,
-            "mad": 2.7613198534796846,
-            "robust_sigma": 4.09393281476898,
+            "median": 3.8634296420316496,
+            "mad": 2.7613198534796752,
+            "robust_sigma": 4.093932814768967,
             "p95": 42.053018897806936,
             "contamination_fraction": 0.11538461538461539
           },
           "ublox_f9p": {
-            "median": 2.635746531817877,
-            "mad": 1.3792511182391816,
-            "robust_sigma": 2.0448777079014104,
+            "median": 2.6357465318178814,
+            "mad": 1.3792511182391618,
+            "robust_sigma": 2.044877707901381,
             "p95": 11.213320251490867,
             "contamination_fraction": 0.11538461538461539
           },
           "ublox_m8t": {
-            "median": 6.627374160151886,
-            "mad": 4.15923872356542,
-            "robust_sigma": 6.166487331558092,
-            "p95": 81.8881415778898,
+            "median": 6.627374160151943,
+            "mad": 4.15923872356554,
+            "robust_sigma": 6.16648733155827,
+            "p95": 74.31328455793579,
             "contamination_fraction": 0.2692307692307692
           }
         },
         "receiver_absolute_residual": {
           "novatel": {
-            "median": 89.02195737504265,
-            "mad": 8.076505742258192,
-            "robust_sigma": 11.974227413471995,
-            "p95": 106.36012670310384,
+            "median": 89.02195737504452,
+            "mad": 8.07650574225822,
+            "robust_sigma": 11.974227413472036,
+            "p95": 106.36012670310568,
             "contamination_fraction": 0.0
           },
           "ublox_f9p": {
-            "median": 92.73289748698642,
-            "mad": 4.349694491692901,
-            "robust_sigma": 6.448857053383895,
-            "p95": 103.52734723807403,
+            "median": 92.73289748698829,
+            "mad": 4.349694491692844,
+            "robust_sigma": 6.4488570533838105,
+            "p95": 103.52734723807588,
             "contamination_fraction": 0.0
           },
           "ublox_m8t": {
-            "median": 102.20035785003753,
-            "mad": 4.844324911634061,
-            "robust_sigma": 7.182196113988659,
-            "p95": 109.93982877011877,
+            "median": 102.20035785003951,
+            "mad": 4.54659073185249,
+            "robust_sigma": 6.7407754190445015,
+            "p95": 109.9398287701207,
             "contamination_fraction": 0.0
           }
         },
         "maximum_pairwise_receiver_separation": {
-          "median": 26.752673087124947,
-          "mad": 2.1376235018615724,
-          "robust_sigma": 3.169240603859967,
+          "median": 26.845588127785053,
+          "mad": 2.0757160821153917,
+          "robust_sigma": 3.0774566633442797,
           "p95": 89.54455421748293,
           "contamination_fraction": 0.2222222222222222
         },
@@ -756,33 +757,33 @@
             "contamination_fraction": 0.1111111111111111
           },
           "novatel__ublox_m8t": {
-            "median": 26.752673087124947,
-            "mad": 2.1376235018615724,
-            "robust_sigma": 3.169240603859967,
+            "median": 26.845588127785053,
+            "mad": 2.0447084612014663,
+            "robust_sigma": 3.0314847645772938,
             "p95": 89.52030651743051,
             "contamination_fraction": 0.2222222222222222
           },
           "ublox_f9p__ublox_m8t": {
-            "median": 24.42246481292324,
-            "mad": 2.3326801402274207,
-            "robust_sigma": 3.4584315759011734,
+            "median": 24.447957978400623,
+            "mad": 2.3071869747500386,
+            "robust_sigma": 3.420635408764407,
             "p95": 73.67550788357946,
             "contamination_fraction": 0.2222222222222222
           }
         },
-        "receiver_motion_p95_dispersion_ratio": 7.302755984963719,
-        "receiver_absolute_median_dispersion_ratio": 1.1480353933297074,
+        "receiver_motion_p95_dispersion_ratio": 6.627232870483251,
+        "receiver_absolute_median_dispersion_ratio": 1.1480353933297054,
         "receiver_scores": {
           "novatel": 4.750273599134545,
-          "ublox_f9p": 2.041685671955177,
-          "ublox_m8t": 8.450791378293426
+          "ublox_f9p": 2.041685671955176,
+          "ublox_m8t": 7.775268263812956
         },
         "selected_branch": "anchored_receiver_cauchy",
         "selected_receiver": "novatel",
         "selected_family": "cauchy",
-        "unanchored_selected_branch": "isolated_receiver_cauchy",
+        "unanchored_selected_branch": "isolated_receiver_gaussian",
         "unanchored_selected_receiver": "ublox_f9p",
-        "unanchored_selected_family": "cauchy",
+        "unanchored_selected_family": "direct",
         "change_guard_reason": "selected_receiver_heavy_tail",
         "selected_pair_key": "novatel__ublox_f9p",
         "selected_pair_tail_ratio": 4.035092579047385,
@@ -794,227 +795,228 @@
     ]
   },
   "proposed_runtime_breakdown_s": {
-    "factor_construction": 0.34949597599998583,
-    "truth_free_alignment": 0.060258193000009896,
-    "topology_decision": 0.009757303000014872,
-    "final_graph_optimization": 0.05279194800002074,
-    "sum_excluding_file_io": 0.47230342000003134
+    "factor_construction": 0.3291108770000051,
+    "truth_free_alignment": 0.06479921299995794,
+    "topology_decision": 0.00821975100001282,
+    "final_graph_optimization": 0.0476071280000383,
+    "sum_excluding_file_io": 0.44973696900001414
   },
   "metrics": {
     "aligned_kiss_icp": {
-      "rmse_3d_m": 41.380508346059536,
-      "rmse_xy_m": 16.269481542491267,
-      "median_3d_m": 27.91067275546594,
-      "p95_3d_m": 76.68028959854156,
-      "maximum_3d_m": 111.77717272961162,
+      "rmse_3d_m": 41.38050834606006,
+      "rmse_xy_m": 16.269481542491693,
+      "median_3d_m": 27.91067275546574,
+      "p95_3d_m": 76.68028959854334,
+      "maximum_3d_m": 111.77717272961351,
       "runtime_s": 0.0
     },
     "grouped_physical_receivers__direct": {
-      "rmse_3d_m": 13.761724752503905,
-      "rmse_xy_m": 7.389289065783843,
-      "median_3d_m": 8.577067840604272,
-      "p95_3d_m": 29.4042753587499,
-      "maximum_3d_m": 29.866491843761708,
-      "runtime_s": 0.06566564800002084
+      "rmse_3d_m": 15.794315743678727,
+      "rmse_xy_m": 10.263546308988236,
+      "median_3d_m": 11.020547945836677,
+      "p95_3d_m": 31.60296758869865,
+      "maximum_3d_m": 32.429245709544205,
+      "runtime_s": 0.06431399800004556
     },
     "hierarchical_consensus__direct": {
-      "rmse_3d_m": 13.123821503804896,
-      "rmse_xy_m": 5.314673907929383,
-      "median_3d_m": 7.943656254893347,
-      "p95_3d_m": 30.379729167468362,
-      "maximum_3d_m": 31.30170392385769,
-      "runtime_s": 0.03103022100000885
+      "rmse_3d_m": 13.985479522923944,
+      "rmse_xy_m": 4.718271120045084,
+      "median_3d_m": 7.910367096040523,
+      "p95_3d_m": 32.382657757017476,
+      "maximum_3d_m": 33.61756450543559,
+      "runtime_s": 0.028778454000018883
     },
     "flat_information_mean__direct": {
-      "rmse_3d_m": 15.010293999341481,
-      "rmse_xy_m": 5.583265174344548,
-      "median_3d_m": 9.444163499503361,
-      "p95_3d_m": 32.827364523488676,
-      "maximum_3d_m": 34.57868950380234,
-      "runtime_s": 0.03530872700000032
+      "rmse_3d_m": 15.925261321152659,
+      "rmse_xy_m": 6.143250995529844,
+      "median_3d_m": 9.876008980815683,
+      "p95_3d_m": 33.89899194639809,
+      "maximum_3d_m": 35.9653481148819,
+      "runtime_s": 0.028036035000013726
     },
     "grouped_physical_receivers__huber": {
-      "rmse_3d_m": 14.014798783798765,
-      "rmse_xy_m": 4.433206748077594,
-      "median_3d_m": 8.184016777660663,
-      "p95_3d_m": 32.49863554362862,
-      "maximum_3d_m": 33.69342232519636,
-      "runtime_s": 0.051374031000023024
+      "rmse_3d_m": 13.252102990904083,
+      "rmse_xy_m": 3.865788385320824,
+      "median_3d_m": 7.384349835920152,
+      "p95_3d_m": 31.392115284657947,
+      "maximum_3d_m": 32.42320734515324,
+      "runtime_s": 0.04985955800003694
     },
     "hierarchical_consensus__huber": {
-      "rmse_3d_m": 12.856221802967188,
-      "rmse_xy_m": 5.70197679635289,
-      "median_3d_m": 7.9338518356477685,
-      "p95_3d_m": 29.484114395850476,
-      "maximum_3d_m": 30.284992721718677,
-      "runtime_s": 0.03853250700001354
+      "rmse_3d_m": 13.80535463480911,
+      "rmse_xy_m": 5.25374918569424,
+      "median_3d_m": 7.925100660657156,
+      "p95_3d_m": 31.7723017155058,
+      "maximum_3d_m": 32.90137262375069,
+      "runtime_s": 0.03728778300001068
     },
     "flat_information_mean__huber": {
-      "rmse_3d_m": 14.527542784822744,
-      "rmse_xy_m": 5.5528281635628245,
-      "median_3d_m": 9.345712800383978,
-      "p95_3d_m": 31.93380724382428,
-      "maximum_3d_m": 33.48452889670742,
-      "runtime_s": 0.03652307499999097
+      "rmse_3d_m": 16.71475934398333,
+      "rmse_xy_m": 6.117616283174496,
+      "median_3d_m": 10.23422481148272,
+      "p95_3d_m": 34.941141733668815,
+      "maximum_3d_m": 37.37794591295154,
+      "runtime_s": 0.037556297999969956
     },
     "grouped_physical_receivers__cauchy": {
-      "rmse_3d_m": 14.856126780202064,
-      "rmse_xy_m": 4.947302630618173,
-      "median_3d_m": 8.524358150908268,
-      "p95_3d_m": 33.66779407722281,
-      "maximum_3d_m": 35.22636103347807,
-      "runtime_s": 0.04739654400000859
+      "rmse_3d_m": 13.478807628202958,
+      "rmse_xy_m": 4.553489247323376,
+      "median_3d_m": 7.536932248117826,
+      "p95_3d_m": 31.436279811530614,
+      "maximum_3d_m": 32.485294043885204,
+      "runtime_s": 0.04977688399998215
     },
     "hierarchical_consensus__cauchy": {
-      "rmse_3d_m": 12.613295352304275,
-      "rmse_xy_m": 5.763846579478674,
-      "median_3d_m": 7.907150986683769,
-      "p95_3d_m": 28.834930545445413,
-      "maximum_3d_m": 29.562129400041176,
-      "runtime_s": 0.035506953999998814
+      "rmse_3d_m": 13.60785029418705,
+      "rmse_xy_m": 5.32590870969834,
+      "median_3d_m": 7.9103448180779035,
+      "p95_3d_m": 31.337682681792607,
+      "maximum_3d_m": 32.40743832425164,
+      "runtime_s": 0.03557790300004626
     },
     "flat_information_mean__cauchy": {
-      "rmse_3d_m": 13.755445292506682,
-      "rmse_xy_m": 5.497455815462447,
-      "median_3d_m": 9.126431583407397,
-      "p95_3d_m": 30.6057560381653,
-      "maximum_3d_m": 31.797407666206848,
-      "runtime_s": 0.03812401099997942
+      "rmse_3d_m": 15.994226714772706,
+      "rmse_xy_m": 6.047287388098671,
+      "median_3d_m": 9.916741820123525,
+      "p95_3d_m": 33.82740559672821,
+      "maximum_3d_m": 35.96963669730293,
+      "runtime_s": 0.034105449999970006
     },
     "grouped_physical_receivers__switch_irls": {
-      "rmse_3d_m": 10.845515739607729,
-      "rmse_xy_m": 5.35759498763559,
-      "median_3d_m": 8.608724868273589,
-      "p95_3d_m": 23.32124542691978,
-      "maximum_3d_m": 23.65186885775866,
-      "runtime_s": 0.2508968270000196
+      "rmse_3d_m": 10.344488605143786,
+      "rmse_xy_m": 4.646455448385459,
+      "median_3d_m": 7.805909466956551,
+      "p95_3d_m": 22.482179771253634,
+      "maximum_3d_m": 22.74493654601357,
+      "runtime_s": 0.1800656979999644
     },
     "grouped_physical_receivers__dcs_irls": {
-      "rmse_3d_m": 15.504221109301282,
-      "rmse_xy_m": 5.554635455311131,
-      "median_3d_m": 8.83795332257498,
-      "p95_3d_m": 34.59570248567608,
-      "maximum_3d_m": 36.364345959961,
-      "runtime_s": 0.18765562600000862
+      "rmse_3d_m": 12.578783829505959,
+      "rmse_xy_m": 5.300518278733183,
+      "median_3d_m": 7.326786006495541,
+      "p95_3d_m": 29.114032143205222,
+      "maximum_3d_m": 29.832583313807245,
+      "runtime_s": 0.18946669600001087
     },
     "fixed_pair_consensus__novatel__ublox_f9p__cauchy": {
-      "rmse_3d_m": 12.00655529980053,
-      "rmse_xy_m": 4.361531696315581,
-      "median_3d_m": 7.821277383728312,
-      "p95_3d_m": 27.436888798534113,
-      "maximum_3d_m": 27.680679521070484,
-      "runtime_s": 0.034602780000000166
+      "rmse_3d_m": 12.006555299800494,
+      "rmse_xy_m": 4.361531696315944,
+      "median_3d_m": 7.82127738372837,
+      "p95_3d_m": 27.43688879853473,
+      "maximum_3d_m": 27.680679521071315,
+      "runtime_s": 0.0337464009999735
     },
     "fixed_pair_consensus__novatel__ublox_m8t__cauchy": {
-      "rmse_3d_m": 12.75820136698698,
-      "rmse_xy_m": 6.147639369829392,
-      "median_3d_m": 4.521194116683338,
-      "p95_3d_m": 29.582443627050257,
-      "maximum_3d_m": 29.904014367271692,
-      "runtime_s": 0.0337858929999868
+      "rmse_3d_m": 12.91602275724875,
+      "rmse_xy_m": 6.832546887571883,
+      "median_3d_m": 6.422772922825741,
+      "p95_3d_m": 29.22446173106143,
+      "maximum_3d_m": 29.49329012644973,
+      "runtime_s": 0.03416780300000255
     },
     "fixed_pair_consensus__ublox_f9p__ublox_m8t__cauchy": {
-      "rmse_3d_m": 13.780187849316029,
-      "rmse_xy_m": 6.727170037034179,
-      "median_3d_m": 7.8122430112059105,
-      "p95_3d_m": 30.314176463638987,
-      "maximum_3d_m": 31.107026942636658,
-      "runtime_s": 0.03373430499999586
+      "rmse_3d_m": 14.166885041346813,
+      "rmse_xy_m": 6.492235692780013,
+      "median_3d_m": 8.1558844024392,
+      "p95_3d_m": 31.364025709584457,
+      "maximum_3d_m": 32.27741974101065,
+      "runtime_s": 0.03583356100000401
     },
     "single_physical_receiver__novatel__direct": {
-      "rmse_3d_m": 9.673877815295725,
-      "rmse_xy_m": 2.408847977161974,
-      "median_3d_m": 6.948330498583382,
-      "p95_3d_m": 19.99979377756608,
-      "maximum_3d_m": 21.807070497541766,
-      "runtime_s": 0.0347324159999971
+      "rmse_3d_m": 9.673877815296578,
+      "rmse_xy_m": 2.4088479771621603,
+      "median_3d_m": 6.9483304985828775,
+      "p95_3d_m": 19.999793777569703,
+      "maximum_3d_m": 21.807070497545837,
+      "runtime_s": 0.0351350519999869
     },
     "single_physical_receiver__novatel__huber": {
-      "rmse_3d_m": 9.675862326318908,
-      "rmse_xy_m": 2.4088192042377696,
-      "median_3d_m": 6.9471677837963215,
-      "p95_3d_m": 20.00649270481536,
-      "maximum_3d_m": 21.81349724642142,
-      "runtime_s": 0.036732307999983504
+      "rmse_3d_m": 9.675862326314528,
+      "rmse_xy_m": 2.408819204238544,
+      "median_3d_m": 6.947167783801115,
+      "p95_3d_m": 20.006492704795566,
+      "maximum_3d_m": 21.813497246400143,
+      "runtime_s": 0.03701307099998985
     },
     "single_physical_receiver__novatel__cauchy": {
-      "rmse_3d_m": 9.63528746347677,
-      "rmse_xy_m": 2.436040254246487,
-      "median_3d_m": 6.988518903036484,
-      "p95_3d_m": 19.639305860657057,
-      "maximum_3d_m": 21.34713244271531,
-      "runtime_s": 0.03786820999999918
+      "rmse_3d_m": 9.635287463480607,
+      "rmse_xy_m": 2.43604025424691,
+      "median_3d_m": 6.988518903028532,
+      "p95_3d_m": 19.639305860671335,
+      "maximum_3d_m": 21.347132442729542,
+      "runtime_s": 0.03800252799999271
     },
     "single_physical_receiver__ublox_f9p__direct": {
-      "rmse_3d_m": 16.135448119966703,
-      "rmse_xy_m": 7.0741824607426205,
-      "median_3d_m": 9.975351877493743,
-      "p95_3d_m": 35.54192428975962,
-      "maximum_3d_m": 37.03023594659122,
-      "runtime_s": 0.03433708000000024
+      "rmse_3d_m": 16.13544811996576,
+      "rmse_xy_m": 7.074182460743214,
+      "median_3d_m": 9.975351877494253,
+      "p95_3d_m": 35.541924289757326,
+      "maximum_3d_m": 37.030235946588476,
+      "runtime_s": 0.034261013999980605
     },
     "single_physical_receiver__ublox_f9p__huber": {
-      "rmse_3d_m": 17.145771508397228,
-      "rmse_xy_m": 7.497872265088932,
-      "median_3d_m": 9.836436452963424,
-      "p95_3d_m": 36.861107069578026,
-      "maximum_3d_m": 39.03522536065993,
-      "runtime_s": 0.04270135699999855
+      "rmse_3d_m": 17.14577150838728,
+      "rmse_xy_m": 7.497872265090011,
+      "median_3d_m": 9.836436452963211,
+      "p95_3d_m": 36.86110706955987,
+      "maximum_3d_m": 39.03522536063683,
+      "runtime_s": 0.049374050999972496
     },
     "single_physical_receiver__ublox_f9p__cauchy": {
-      "rmse_3d_m": 16.816570001710193,
-      "rmse_xy_m": 7.352839333102307,
-      "median_3d_m": 9.73036043603059,
-      "p95_3d_m": 36.36699145820114,
-      "maximum_3d_m": 38.386566757929316,
-      "runtime_s": 0.03866002600000229
+      "rmse_3d_m": 16.816570001716517,
+      "rmse_xy_m": 7.352839333103191,
+      "median_3d_m": 9.730360436030756,
+      "p95_3d_m": 36.36699145821166,
+      "maximum_3d_m": 38.38656675794309,
+      "runtime_s": 0.04287433400003238
     },
     "single_physical_receiver__ublox_m8t__direct": {
-      "rmse_3d_m": 40.57585182583868,
-      "rmse_xy_m": 31.999475854962483,
-      "median_3d_m": 28.280229245121987,
-      "p95_3d_m": 70.74576425307383,
-      "maximum_3d_m": 73.62831584693822,
-      "runtime_s": 0.04325614800001176
+      "rmse_3d_m": 37.74343792769971,
+      "rmse_xy_m": 33.548370881807344,
+      "median_3d_m": 36.68703521903253,
+      "p95_3d_m": 54.19717856821771,
+      "maximum_3d_m": 56.70978452644107,
+      "runtime_s": 0.048230551000017385
     },
     "single_physical_receiver__ublox_m8t__huber": {
-      "rmse_3d_m": 31.18487909192156,
-      "rmse_xy_m": 16.756992457606504,
-      "median_3d_m": 13.583911062932296,
-      "p95_3d_m": 58.713646836613556,
-      "maximum_3d_m": 62.513680790389536,
-      "runtime_s": 0.0359923629999912
+      "rmse_3d_m": 36.739556239282145,
+      "rmse_xy_m": 20.1929054824349,
+      "median_3d_m": 24.54255630498,
+      "p95_3d_m": 64.76820734542814,
+      "maximum_3d_m": 68.5432760153434,
+      "runtime_s": 0.04530216900002415
     },
     "single_physical_receiver__ublox_m8t__cauchy": {
-      "rmse_3d_m": 32.64697045841734,
-      "rmse_xy_m": 14.759991251233194,
-      "median_3d_m": 14.48217481965619,
-      "p95_3d_m": 61.18155517517487,
-      "maximum_3d_m": 64.99024087567118,
-      "runtime_s": 0.03567558400001758
+      "rmse_3d_m": 36.68823781609275,
+      "rmse_xy_m": 19.555084515472636,
+      "median_3d_m": 24.505192721203738,
+      "p95_3d_m": 64.56481407242212,
+      "maximum_3d_m": 68.33056797523946,
+      "runtime_s": 0.04625031199998375
     },
     "motion_margin_subset": {
-      "rmse_3d_m": 12.00655529980053,
-      "rmse_xy_m": 4.361531696315581,
-      "median_3d_m": 7.821277383728312,
-      "p95_3d_m": 27.436888798534113,
-      "maximum_3d_m": 27.680679521070484,
-      "runtime_s": 0.05279194800002074
+      "rmse_3d_m": 12.006555299800494,
+      "rmse_xy_m": 4.361531696315944,
+      "median_3d_m": 7.82127738372837,
+      "p95_3d_m": 27.43688879853473,
+      "maximum_3d_m": 27.680679521071315,
+      "runtime_s": 0.0476071280000383
     }
   },
   "best_single_physical_receiver": {
     "name": "single_physical_receiver__novatel__cauchy",
-    "rmse_3d_m": 9.63528746347677
+    "rmse_3d_m": 9.635287463480607
   },
   "best_fixed_topology": {
     "name": "hierarchical_consensus__cauchy",
-    "rmse_3d_m": 12.613295352304275
+    "rmse_3d_m": 13.60785029418705
   },
   "method_metadata": {
     "method_name": "motion_margin_subset_topology",
     "subset_policy": "full",
     "pair_factor_mode": "consensus",
     "loewner_floor_m": 1.0,
+    "effective_gnss_covariance_floor_m": 1.0,
     "motion_margin": 2.0,
     "separation_margin": 2.0,
     "loss_family": "cauchy_fixed",
@@ -1030,7 +1032,7 @@
         "ublox_f9p"
       ],
       "reason": "kiss_motion_ambiguous_pair",
-      "motion_margin_ratio": 1.5090691631449584,
+      "motion_margin_ratio": 1.509069163144932,
       "separation_margin_ratio": 1.062783979344925
     },
     {
@@ -1041,7 +1043,7 @@
         "ublox_f9p"
       ],
       "reason": "separation_triangle_coherent_pair",
-      "motion_margin_ratio": 1.037626829883834,
+      "motion_margin_ratio": 1.0376268298838602,
       "separation_margin_ratio": 2.378436561542115
     },
     {
@@ -1051,9 +1053,9 @@
         "novatel",
         "ublox_f9p"
       ],
-      "reason": "kiss_motion_ambiguous_pair",
-      "motion_margin_ratio": 1.5438747321380049,
-      "separation_margin_ratio": 1.7330085291920259
+      "reason": "separation_triangle_coherent_pair",
+      "motion_margin_ratio": 1.543874732138008,
+      "separation_margin_ratio": 2.156447307053259
     },
     {
       "start_epoch": 90,
@@ -1062,9 +1064,9 @@
         "novatel",
         "ublox_f9p"
       ],
-      "reason": "kiss_motion_ambiguous_pair",
-      "motion_margin_ratio": 1.111038525040342,
-      "separation_margin_ratio": 1.6299145549615153
+      "reason": "separation_triangle_coherent_pair",
+      "motion_margin_ratio": 1.1110385250403427,
+      "separation_margin_ratio": 4.633892628846832
     },
     {
       "start_epoch": 120,
@@ -1073,9 +1075,9 @@
         "novatel",
         "ublox_f9p"
       ],
-      "reason": "kiss_motion_ambiguous_pair",
-      "motion_margin_ratio": 1.5020659670253171,
-      "separation_margin_ratio": 1.3282923937768902
+      "reason": "separation_triangle_coherent_pair",
+      "motion_margin_ratio": 1.5020659670252978,
+      "separation_margin_ratio": 2.510382641173249
     },
     {
       "start_epoch": 150,
@@ -1085,16 +1087,17 @@
         "ublox_f9p"
       ],
       "reason": "separation_triangle_coherent_pair",
-      "motion_margin_ratio": 1.465781931378299,
-      "separation_margin_ratio": 4.465650597808567
+      "motion_margin_ratio": 1.4657819313782923,
+      "separation_margin_ratio": 4.4703120261503075
     }
   ],
   "candidate_branch_counts": {
-    "kiss_motion_ambiguous_pair": 4,
-    "separation_triangle_coherent_pair": 2
+    "kiss_motion_ambiguous_pair": 1,
+    "separation_triangle_coherent_pair": 5
   },
   "candidate_subset_counts": {
     "novatel,ublox_f9p": 6
   },
-  "candidate_source_trajectory": "trajectory__dda_fc"
+  "candidate_source_trajectory": "trajectory__dda_fc",
+  "selected_factor_inputs": "ublox_m8t_step.selected_factor_inputs.npz"
 }

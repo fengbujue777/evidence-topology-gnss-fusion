@@ -13,6 +13,8 @@ import shutil
 
 import numpy as np
 
+from receiver_consensus import _hardware_group, _nearest_indices
+
 
 def _inject(
     positions: np.ndarray,
@@ -22,10 +24,15 @@ def _inject(
     seed: int,
     step_offset_m: np.ndarray,
     ramp_end_offset_m: np.ndarray,
+    start_timestamp_s: float | None = None,
 ) -> tuple[np.ndarray, np.ndarray]:
     result = np.asarray(positions, dtype=float).copy()
     count = len(result)
-    start = min(max(int(np.floor(start_fraction * count)), 1), count - 1)
+    if start_timestamp_s is None:
+        start = int(np.floor(start_fraction * count))
+    else:
+        start = int(np.searchsorted(timestamps_s, start_timestamp_s, side="left"))
+    start = min(max(start, 1), count - 1)
     affected = np.arange(count) >= start
     if mode == "step":
         result[affected] += np.asarray(step_offset_m, dtype=float)
@@ -82,6 +89,69 @@ def main() -> None:
     if not 0.0 < args.start_fraction < 1.0:
         raise ValueError("start-fraction must lie strictly between zero and one")
     args.output_root.mkdir(parents=True, exist_ok=True)
+    sources = []
+    for estimator_path in sorted(
+        args.source_root.glob("*.estimator_input.npz")
+    ):
+        with np.load(estimator_path, allow_pickle=False) as source:
+            timestamps = np.asarray(source["gnss_timestamps_s"], dtype=float)
+            lidar_timestamps = np.asarray(
+                source["lidar_timestamps_s"], dtype=float
+            )
+        sources.append(
+            {
+                "path": estimator_path,
+                "group": _hardware_group(estimator_path),
+                "gnss_timestamps_s": timestamps,
+                "lidar_start_s": float(lidar_timestamps[0]),
+                "lidar_end_s": float(lidar_timestamps[-1]),
+            }
+        )
+    if not sources:
+        raise ValueError(f"no estimator inputs in {args.source_root}")
+    common_start_s = max(float(source["lidar_start_s"]) for source in sources)
+    common_end_s = min(float(source["lidar_end_s"]) for source in sources)
+    if common_end_s <= common_start_s:
+        raise ValueError("receiver streams have no common LiDAR time interval")
+    groups = sorted({str(source["group"]) for source in sources})
+    all_times = np.unique(
+        np.concatenate(
+            [
+                np.asarray(source["gnss_timestamps_s"], dtype=float)
+                for source in sources
+            ]
+        )
+    )
+    all_times = all_times[
+        (all_times >= common_start_s) & (all_times <= common_end_s)
+    ]
+    common_epochs = []
+    for timestamp in all_times:
+        complete = True
+        for group in groups:
+            group_complete = False
+            for source in sources:
+                if source["group"] != group:
+                    continue
+                _, difference = _nearest_indices(
+                    np.asarray(source["gnss_timestamps_s"], dtype=float),
+                    np.asarray([timestamp]),
+                )
+                if float(difference[0]) <= 0.2:
+                    group_complete = True
+                    break
+            if not group_complete:
+                complete = False
+                break
+        if complete:
+            common_epochs.append(float(timestamp))
+    if len(common_epochs) < 2:
+        raise ValueError("fewer than two synchronized physical-source epochs")
+    start_epoch = min(
+        max(int(np.floor(args.start_fraction * len(common_epochs))), 1),
+        len(common_epochs) - 1,
+    )
+    start_timestamp_s = common_epochs[start_epoch]
     records = []
     for estimator_path in sorted(
         args.source_root.glob("*.estimator_input.npz")
@@ -107,6 +177,7 @@ def main() -> None:
                 args.seed,
                 np.asarray(args.step_offset_m, dtype=float),
                 np.asarray(args.ramp_end_offset_m, dtype=float),
+                start_timestamp_s=start_timestamp_s,
             )
             arrays["gnss_positions_enu_m"] = changed
             np.savez_compressed(output_estimator, **arrays)
@@ -131,6 +202,10 @@ def main() -> None:
         "receiver_token": args.receiver_token,
         "mode": args.mode,
         "start_fraction": args.start_fraction,
+        "common_time_interval_s": [common_start_s, common_end_s],
+        "common_source_epoch_count": len(common_epochs),
+        "start_common_source_epoch": start_epoch,
+        "start_timestamp_s": start_timestamp_s,
         "step_offset_m": list(args.step_offset_m),
         "ramp_end_offset_m": list(args.ramp_end_offset_m),
         "seed": args.seed,

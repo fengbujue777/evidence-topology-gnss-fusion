@@ -21,6 +21,8 @@ import json
 from pathlib import Path
 import sys
 
+import numpy as np
+
 import loewner_topology as loewner
 import topology_factor_graph as base
 from paper_pipeline.provenance import ProvenanceRegistry
@@ -103,11 +105,11 @@ def main() -> None:
     )
     custom.add_argument(
         "--pair-factor-mode",
-        choices=("consensus", "independent"),
+        choices=("consensus", "independent", "covariance_union"),
         default="consensus",
         help=(
-            "Construct one conservative factor for a selected pair or "
-            "ablate it with two separately counted receiver factors."
+            "Construct the proposed envelope factor, two independently "
+            "counted factors, or a same-subset covariance-union factor."
         ),
     )
     custom.add_argument(
@@ -153,6 +155,7 @@ def main() -> None:
     base._gps_noise = gps_noise_with_effective_floor
     original_optimize = base._optimize_adjudicated
     candidate_summary: list[dict[str, object]] = []
+    factor_input_records: list[dict[str, object]] = []
 
     def optimize_subset(
         lidar,
@@ -167,6 +170,7 @@ def main() -> None:
         group_names = sorted(group_positions[0])
         candidate_windows = copy.deepcopy(windows)
         candidate_summary.clear()
+        factor_input_records.clear()
         for window in candidate_windows:
             subset, reason, diagnostics = _candidate_subset(
                 window,
@@ -186,11 +190,14 @@ def main() -> None:
             else:
                 window["selected_receiver"] = None
                 window["selected_receivers"] = subset
-                window["factor_topology"] = (
-                    "receiver_subset_consensus"
-                    if custom_args.pair_factor_mode == "consensus"
-                    else "receiver_subset_independent"
-                )
+                if custom_args.pair_factor_mode == "consensus":
+                    window["factor_topology"] = "receiver_subset_consensus"
+                elif custom_args.pair_factor_mode == "covariance_union":
+                    window["factor_topology"] = (
+                        "receiver_subset_covariance_union"
+                    )
+                else:
+                    window["factor_topology"] = "receiver_subset_independent"
                 window["selected_branch"] = f"mms__{reason}"
             candidate_summary.append(
                 {
@@ -201,6 +208,30 @@ def main() -> None:
                     **diagnostics,
                 }
             )
+            for epoch in range(
+                int(window["start_epoch"]), int(window["stop_epoch"])
+            ):
+                points = np.asarray(
+                    [group_positions[epoch][group] for group in subset],
+                    dtype=float,
+                )
+                covariances = np.asarray(
+                    [group_covariances[epoch][group] for group in subset],
+                    dtype=float,
+                )
+                factor_input_records.append(
+                    {
+                        "timestamp_s": float(
+                            state_times[int(measurement_indices[epoch])]
+                        ),
+                        "window_start_epoch": int(window["start_epoch"]),
+                        "window_stop_epoch": int(window["stop_epoch"]),
+                        "reason": reason,
+                        "receivers": list(subset),
+                        "points": points,
+                        "covariances": covariances,
+                    }
+                )
         return original_optimize(
             lidar,
             state_times,
@@ -228,9 +259,11 @@ def main() -> None:
         "motion_margin": custom_args.motion_margin,
         "separation_margin": custom_args.separation_margin,
         "loss_family": "cauchy_fixed",
-        "multi_receiver_factor": (
-            "single conservative Loewner-envelope subset consensus"
-        ),
+        "multi_receiver_factor": {
+            "consensus": "single conservative Loewner-envelope subset consensus",
+            "independent": "two independently counted receiver factors",
+            "covariance_union": "single same-subset covariance-union factor",
+        }[custom_args.pair_factor_mode],
         "decision_semantics": "same-window fixed-lag batch",
     }
     payload["candidate_subset_windows"] = candidate_summary
@@ -244,6 +277,57 @@ def main() -> None:
     payload["candidate_branch_counts"] = branch_counts
     payload["candidate_subset_counts"] = subset_counts
     payload["candidate_source_trajectory"] = "trajectory__dda_fc"
+    factor_input_output = output.with_name(
+        f"{output.stem}.selected_factor_inputs.npz"
+    )
+    maximum_members = 2
+    record_count = len(factor_input_records)
+    member_points = np.full(
+        (record_count, maximum_members, 3), np.nan, dtype=float
+    )
+    member_covariances = np.full(
+        (record_count, maximum_members, 3, 3), np.nan, dtype=float
+    )
+    receiver_names = np.full(
+        (record_count, maximum_members), "", dtype="U64"
+    )
+    member_counts = np.zeros(record_count, dtype=int)
+    for record_index, record in enumerate(factor_input_records):
+        count = len(record["receivers"])
+        member_counts[record_index] = count
+        member_points[record_index, :count] = record["points"]
+        member_covariances[record_index, :count] = record["covariances"]
+        receiver_names[record_index, :count] = record["receivers"]
+    np.savez_compressed(
+        factor_input_output,
+        timestamps_s=np.asarray(
+            [record["timestamp_s"] for record in factor_input_records],
+            dtype=float,
+        ),
+        window_start_epochs=np.asarray(
+            [
+                record["window_start_epoch"]
+                for record in factor_input_records
+            ],
+            dtype=int,
+        ),
+        window_stop_epochs=np.asarray(
+            [
+                record["window_stop_epoch"]
+                for record in factor_input_records
+            ],
+            dtype=int,
+        ),
+        selection_reasons=np.asarray(
+            [record["reason"] for record in factor_input_records],
+            dtype="U64",
+        ),
+        receiver_names=receiver_names,
+        member_counts=member_counts,
+        member_points_enu_m=member_points,
+        member_covariances_m2=member_covariances,
+    )
+    payload["selected_factor_inputs"] = factor_input_output.name
     payload.pop("dda_source_trajectory", None)
     payload.pop("registered_primary_pass_rules", None)
     payload.pop("registered_primary_pass", None)

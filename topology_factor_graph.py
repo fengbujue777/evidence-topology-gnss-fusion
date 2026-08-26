@@ -10,6 +10,8 @@ import time
 
 import numpy as np
 
+from paper_pipeline.covariance_union import pair_covariance_union
+
 from fusion_graph_backend import (
     _gps_noise,
     _gtsam,
@@ -242,6 +244,38 @@ def _optimize_adjudicated(
                     ),
                     "geometric",
                     "nonshrinking",
+                )
+                graph.add(
+                    gtsam.GPSFactor(
+                        _key(index),
+                        position,
+                        _gps_noise(covariance, family),
+                    )
+                )
+                continue
+            if window.get("factor_topology") == "receiver_subset_covariance_union":
+                selected_receivers = [
+                    str(group)
+                    for group in window.get("selected_receivers", [])
+                ]
+                if len(selected_receivers) != 2:
+                    raise ValueError(
+                        "receiver_subset_covariance_union requires exactly "
+                        "two physical receivers"
+                    )
+                position, covariance, _ = pair_covariance_union(
+                    np.asarray(
+                        [
+                            group_positions[epoch][group]
+                            for group in selected_receivers
+                        ]
+                    ),
+                    np.asarray(
+                        [
+                            group_covariances[epoch][group]
+                            for group in selected_receivers
+                        ]
+                    ),
                 )
                 graph.add(
                     gtsam.GPSFactor(

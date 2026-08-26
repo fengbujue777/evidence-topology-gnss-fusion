@@ -17,7 +17,8 @@ cardinality before GNSS factors enter the graph.
 3. Compute a KISS-conditioned motion margin and a receiver-separation margin
    over non-overlapping windows.
 4. Select a singleton or coherent receiver pair with frozen thresholds.
-5. Insert one conservative Loewner-envelope factor for a selected pair.
+5. Insert one conservative Loewner-envelope factor for a selected pair; the
+   released same-subset CU baseline changes only this final construction.
 
 The nominal parameters are `W=30`, `tau_m=tau_d=2.0`, covariance floor
 `1.0 m`, and fixed Cauchy scale `2.5`.  They are recorded in
@@ -30,6 +31,7 @@ run_evidence_topology.py       main proposed estimator
 topology_factor_graph.py       graph construction and evaluation boundary
 paper_pipeline/                alignment, cases, provenance and covariance code
 run_ci_baseline.py             covariance-intersection baseline
+paper_pipeline/covariance_union.py  same-subset covariance-union baseline
 run_contrast_factor.py         independent-factor topology ablation
 analyze_*.py                   statistics and leave-one-panel-out analysis
 build_*.py                     controlled-fault and stress-case builders
@@ -122,9 +124,12 @@ regenerate cases, plus small frozen JSON/CSV summaries. Reference trajectories
 are loaded only after candidate trajectories have been produced.
 
 An independent clean-room rerun from freshly downloaded official files passed
-all 11 registered cases and all 19 tests. See the
+the registered natural/legacy matrix within documented solver tolerances.
+The synchronized common-epoch fault builder, CU feasibility constraints, and
+revision diagnostics pass the current 22-test suite. See the
 [clean-room audit](docs/CLEANROOM_REPRODUCTION_AUDIT.md) and its machine-readable
-records under `results/reproduction_audit/`.
+records under `results/reproduction_audit/`.  The seven controlled faults are
+perturbations of one Medium route, not seven independent route validations.
 
 ## Reproducibility scope
 

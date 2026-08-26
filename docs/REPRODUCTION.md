@@ -87,16 +87,17 @@ The launcher performs, in dependency order:
 
 1. seven deterministic controlled-fault case builds;
 2. four natural and seven fault evaluations;
-3. covariance-intersection baselines;
+3. covariance-intersection and same-selected-subset covariance-union baselines;
 4. selector-component and factor-topology ablations;
 5. the 3-by-3 parameter grid;
 6. 10,000-replicate paired block-bootstrap, CI and cross-run statistics;
 7. leave-one-route-out parameter selection;
 8. five fusion-layer runtime repeats;
-9. numerical comparison with committed frozen summaries.
+9. factor-level coverage, CU and direct topology-decision diagnostics;
+10. numerical comparison with committed frozen summaries.
 
 Run only selected stages with, for example,
-`--stages natural,fault-cases,faults,verify`. Existing complete outputs are
+`--stages natural,fault-cases,faults,cu,diagnostics,verify`. Existing complete outputs are
 not overwritten unless `--overwrite` is given.
 
 Verification requires exact epoch counts. Because nonlinear solvers can take
@@ -124,9 +125,12 @@ automatically.
 
 - `natural/*.json`, `fault/*.json`: principal RMSE/P95 tables;
 - `ci/`: covariance-intersection comparison;
+- `cu_same_subset/`: CU using exactly the proposed selected subsets;
 - `component_ablation/`, `factor_ablation/`: ablation table;
 - `sensitivity/`, `statistics/leave_one_panel_out.*`: parameter analysis;
 - `statistics/`: paired confidence intervals and corrected tests;
+- `revision_diagnostics/`: factor-level coverage, direct topology decisions,
+  same-subset CU comparison and route-balanced descriptive aggregation;
 - `runtime/summary/runtime_benchmark.json`: fusion-layer timing;
 - `verification.json`: final pass/fail gate.
 

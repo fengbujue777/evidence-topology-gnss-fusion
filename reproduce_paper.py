@@ -2,8 +2,9 @@
 
 Raw-data extraction and case construction are separate, auditable stages
 documented in ``docs/REPRODUCTION.md``.  This launcher covers the frozen
-natural panels, controlled faults, CI, ablations, sensitivity, statistics,
-runtime repeats and numerical verification against the committed artifacts.
+natural panels, controlled faults, CI/CU, ablations, calibration/topology
+diagnostics, sensitivity, statistics, runtime repeats and numerical
+verification against the committed artifacts.
 """
 
 from __future__ import annotations
@@ -41,9 +42,11 @@ STAGE_ORDER = (
     "natural",
     "faults",
     "ci",
+    "cu",
     "ablations",
     "sensitivity",
     "statistics",
+    "diagnostics",
     "runtime",
     "verify",
 )
@@ -96,6 +99,7 @@ def _run_estimator(
     destination.mkdir(parents=True, exist_ok=True)
     report = destination / f"{name}.json"
     trajectory = destination / f"{name}.npz"
+    factor_inputs = destination / f"{name}.selected_factor_inputs.npz"
     _run_logged(
         [
             sys.executable,
@@ -106,7 +110,7 @@ def _run_estimator(
             "--output", str(report),
             "--trajectory-output", str(trajectory),
         ],
-        [report, trajectory],
+        [report, trajectory, factor_inputs],
         destination / f"{name}.log",
         overwrite,
     )
@@ -193,6 +197,42 @@ def _run_ci(
             output_root / f"{name}.log",
             overwrite,
         )
+
+
+def _run_cu(
+    cases: dict[str, Path], output_root: Path, overwrite: bool
+) -> None:
+    """Run CU with exactly the subsets selected by the proposed topology."""
+
+    for name, case_root in cases.items():
+        _run_estimator(
+            case_root,
+            output_root,
+            name,
+            overwrite,
+            ("--pair-factor-mode", "covariance_union"),
+        )
+
+
+def _revision_diagnostics(
+    output: Path, fault_case_root: Path, overwrite: bool
+) -> None:
+    destination = output / "revision_diagnostics"
+    expected = destination / "revision_diagnostics.json"
+    _run_logged(
+        [
+            sys.executable,
+            str(REPOSITORY / "analyze_revision_diagnostics.py"),
+            "--proposed-natural-root", str(output / "natural"),
+            "--proposed-fault-root", str(output / "fault"),
+            "--cu-root", str(output / "cu_same_subset"),
+            "--fault-case-root", str(fault_case_root),
+            "--output-root", str(destination),
+        ],
+        [expected],
+        output / "revision_diagnostics.log",
+        overwrite,
+    )
 
 
 def _statistics(output: Path, trials: int, overwrite: bool) -> None:
@@ -296,6 +336,12 @@ def main() -> None:
             _run_estimator(root, output / "fault", name, args.overwrite)
     if "ci" in requested:
         _run_ci({**natural_cases, **faults}, output / "ci", args.overwrite)
+    if "cu" in requested:
+        _run_cu(
+            {**natural_cases, **faults},
+            output / "cu_same_subset",
+            args.overwrite,
+        )
     if "ablations" in requested:
         for policy in ("motion_single", "separation_pair"):
             for name, root in natural_cases.items():
@@ -341,6 +387,8 @@ def main() -> None:
                     )
     if "statistics" in requested:
         _statistics(output, trials, args.overwrite)
+    if "diagnostics" in requested:
+        _revision_diagnostics(output, work_root / "fault_cases", args.overwrite)
     if "runtime" in requested:
         repeats = output / "runtime" / "repeats"
         for index in range(1, 6):
