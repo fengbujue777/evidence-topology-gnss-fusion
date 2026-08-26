@@ -5,12 +5,16 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import time
 from pathlib import Path
 
 import numpy as np
 from scipy.stats import chi2
 
-from paper_pipeline.covariance_union import pair_covariance_union
+from paper_pipeline.covariance_union import (
+    pair_covariance_union,
+    pair_covariance_union_diagnostics,
+)
 from paper_pipeline.loewner_envelope import provenance_loewner_envelope
 from run_ci_baseline import _covariance_intersection
 
@@ -112,12 +116,17 @@ def _calibration_case(
             for dimension in range(3)
         ]
     )
-    records: dict[str, dict[str, list[float]]] = {}
+    records: dict[tuple[str, str], dict[str, list[float]]] = {}
 
-    def append(method: str, q_value: float, volume: float) -> None:
-        target = records.setdefault(method, {"q": [], "volume": []})
-        target["q"].append(float(q_value))
-        target["volume"].append(float(volume))
+    def append(
+        subset_kind: str, method: str, q_value: float, volume: float
+    ) -> None:
+        for stratum in ("all_selected", subset_kind):
+            target = records.setdefault(
+                (stratum, method), {"q": [], "volume": []}
+            )
+            target["q"].append(float(q_value))
+            target["volume"].append(float(volume))
 
     for epoch in np.flatnonzero(keep):
         count = int(factor_arrays["member_counts"][epoch])
@@ -129,9 +138,11 @@ def _calibration_case(
             factor_arrays["member_covariances_m2"][epoch, :count],
             dtype=float,
         )
+        subset_kind = "singleton" if count == 1 else "pair"
         candidates = _factor_candidates(points, covariances)
         for method, (center, covariance) in candidates.items():
             append(
+                subset_kind,
                 method,
                 _normalized_squared_error(center, covariance, truth[epoch]),
                 _ellipsoid_volume(covariance),
@@ -139,6 +150,7 @@ def _calibration_case(
         for point, covariance in zip(points, covariances):
             covariance = _floor_covariance(covariance)
             append(
+                subset_kind,
                 "selected_member_marginal",
                 _normalized_squared_error(point, covariance, truth[epoch]),
                 _ellipsoid_volume(covariance),
@@ -149,12 +161,13 @@ def _calibration_case(
         probability: float(chi2.ppf(probability, df=3))
         for probability in CONFIDENCE_LEVELS
     }
-    for method, values in records.items():
+    for (subset_kind, method), values in records.items():
         q_values = np.asarray(values["q"], dtype=float)
         volumes = np.asarray(values["volume"], dtype=float)
         row: dict[str, object] = {
             "case": name,
             "case_group": group,
+            "subset_kind": subset_kind,
             "method": method,
             "sample_count": int(len(q_values)),
             "q_median": float(np.median(q_values)),
@@ -174,7 +187,11 @@ def _aggregate_calibration(rows: list[dict[str, object]]) -> list[dict[str, obje
     # table below is an equal-case descriptive summary, not an iid interval.
     output = []
     for group in ("natural", "controlled_fault"):
-        group_rows = [row for row in rows if row["case_group"] == group]
+        group_rows = [
+            row for row in rows
+            if row["case_group"] == group
+            and row["subset_kind"] == "all_selected"
+        ]
         for method in sorted({str(row["method"]) for row in group_rows}):
             selected = [row for row in group_rows if row["method"] == method]
             result: dict[str, object] = {
@@ -190,6 +207,43 @@ def _aggregate_calibration(rows: list[dict[str, object]]) -> list[dict[str, obje
                 key = f"coverage_{int(100 * probability)}"
                 result[key] = float(np.mean([row[key] for row in selected]))
             output.append(result)
+    return output
+
+
+def _aggregate_stratified_calibration(
+    rows: list[dict[str, object]],
+) -> list[dict[str, object]]:
+    """Equal-case summaries that keep pair and singleton epochs separate."""
+
+    output = []
+    for group in ("natural", "controlled_fault"):
+        for subset_kind in ("pair", "singleton"):
+            group_rows = [
+                row for row in rows
+                if row["case_group"] == group
+                and row["subset_kind"] == subset_kind
+            ]
+            for method in sorted({str(row["method"]) for row in group_rows}):
+                selected = [row for row in group_rows if row["method"] == method]
+                if not selected:
+                    continue
+                result: dict[str, object] = {
+                    "case_group": group,
+                    "subset_kind": subset_kind,
+                    "method": method,
+                    "contributing_case_count": len(selected),
+                    "sample_count": int(
+                        sum(int(row["sample_count"]) for row in selected)
+                    ),
+                    "aggregation": "equal-contributing-case descriptive mean",
+                    "median_95_volume_m3": float(
+                        np.mean([row["median_95_volume_m3"] for row in selected])
+                    ),
+                }
+                for probability in CONFIDENCE_LEVELS:
+                    key = f"coverage_{int(100 * probability)}"
+                    result[key] = float(np.mean([row[key] for row in selected]))
+                output.append(result)
     return output
 
 
@@ -282,6 +336,16 @@ def _topology_diagnostics(
 
     fault_rows = []
     all_receivers = {"novatel", "ublox_f9p", "ublox_m8t"}
+
+    def subset_counts(subsets: list[set[str]]) -> dict[str, int]:
+        keys = [",".join(sorted(subset)) for subset in subsets]
+        return {key: keys.count(key) for key in sorted(set(keys))}
+
+    def dominant_subset(counts: dict[str, int]) -> str | None:
+        if not counts:
+            return None
+        return min(counts, key=lambda key: (-counts[key], key))
+
     for name in FAULT_CASES:
         report = json.loads((root / f"{name}.json").read_text(encoding="utf-8"))
         factors = np.load(
@@ -300,13 +364,18 @@ def _topology_diagnostics(
                 continue
             if float(timestamps[start_epoch]) >= onset:
                 post_windows.append(window)
-        epoch_mask = timestamps >= onset
-        epoch_subsets = []
-        for epoch in np.flatnonzero(epoch_mask):
+        all_epoch_subsets = []
+        for epoch in range(len(timestamps)):
             count = int(factors["member_counts"][epoch])
-            epoch_subsets.append(
+            all_epoch_subsets.append(
                 set(str(item) for item in factors["receiver_names"][epoch, :count])
             )
+
+        pre_indices = np.flatnonzero(timestamps < onset)
+        post_indices = np.flatnonzero(timestamps >= onset)
+        pre_subsets = [all_epoch_subsets[index] for index in pre_indices]
+        epoch_subsets = [all_epoch_subsets[index] for index in post_indices]
+        pre_safe = [faulty.isdisjoint(subset) for subset in pre_subsets]
         safe = [faulty.isdisjoint(subset) for subset in epoch_subsets]
         healthy_pair = [
             subset == healthy and len(healthy) == 2 for subset in epoch_subsets
@@ -320,18 +389,35 @@ def _topology_diagnostics(
             for subset in epoch_subsets
         ]
         first_safe_offset = None
-        for epoch, is_safe in zip(np.flatnonzero(epoch_mask), safe):
+        for epoch, is_safe in zip(post_indices, safe):
             if is_safe:
                 first_safe_offset = float(timestamps[epoch] - onset)
                 break
+        pre_counts = subset_counts(pre_subsets)
+        post_counts = subset_counts(epoch_subsets)
+        pre_exclusion = float(np.mean(pre_safe)) if pre_safe else None
+        post_exclusion = float(np.mean(safe)) if safe else None
         fault_rows.append(
             {
                 "case": name,
                 "faulty_receivers": sorted(faulty),
+                "pre_onset_epoch_count": len(pre_subsets),
                 "post_onset_epoch_count": len(epoch_subsets),
                 "post_onset_full_window_count": len(post_windows),
-                "fault_exclusion_rate": float(np.mean(safe)) if safe else None,
-                "fault_inclusion_rate": float(1.0 - np.mean(safe)) if safe else None,
+                "pre_onset_fault_exclusion_count": int(np.count_nonzero(pre_safe)),
+                "post_onset_fault_exclusion_count": int(np.count_nonzero(safe)),
+                "pre_onset_fault_exclusion_rate": pre_exclusion,
+                "post_onset_fault_exclusion_rate": post_exclusion,
+                "fault_exclusion_rate_change": (
+                    float(post_exclusion - pre_exclusion)
+                    if pre_exclusion is not None and post_exclusion is not None
+                    else None
+                ),
+                "fault_exclusion_rate": post_exclusion,
+                "fault_inclusion_rate": (
+                    float(1.0 - post_exclusion)
+                    if post_exclusion is not None else None
+                ),
                 "correct_healthy_pair_rate": (
                     float(np.mean(healthy_pair)) if healthy_pair else None
                 ),
@@ -349,14 +435,13 @@ def _topology_diagnostics(
                 ),
                 "recovery_delay_s": None,
                 "recovery_delay_note": "not identifiable: injected faults persist to route end",
-                "post_onset_subset_counts": {
-                    ",".join(window["selected_receivers"]): sum(
-                        tuple(other["selected_receivers"])
-                        == tuple(window["selected_receivers"])
-                        for other in post_windows
-                    )
-                    for window in post_windows
-                },
+                "pre_onset_subset_counts_by_epoch": pre_counts,
+                "post_onset_subset_counts_by_epoch": post_counts,
+                "pre_onset_dominant_subset": dominant_subset(pre_counts),
+                "post_onset_dominant_subset": dominant_subset(post_counts),
+                "post_onset_subset_counts_by_full_window": subset_counts(
+                    [set(window["selected_receivers"]) for window in post_windows]
+                ),
             }
         )
         factors.close()
@@ -437,6 +522,197 @@ def _cu_and_route_balanced(
     return comparison, route_rows
 
 
+def _paired_rmse_interval(
+    candidate_squared: np.ndarray,
+    baseline_squared: np.ndarray,
+    *,
+    block: int,
+    trials: int,
+    seed: int,
+) -> dict[str, float | bool]:
+    count = len(candidate_squared)
+    starts = np.arange(max(count - block + 1, 1))
+    blocks_needed = int(np.ceil(count / block))
+    rng = np.random.default_rng(seed)
+    samples = np.empty(trials, dtype=float)
+    for trial in range(trials):
+        chosen = rng.choice(starts, blocks_needed, replace=True)
+        indices = np.concatenate(
+            [
+                np.arange(start, min(start + block, count))
+                for start in chosen
+            ]
+        )[:count]
+        samples[trial] = float(
+            np.sqrt(np.mean(candidate_squared[indices]))
+            - np.sqrt(np.mean(baseline_squared[indices]))
+        )
+    observed = float(
+        np.sqrt(np.mean(candidate_squared))
+        - np.sqrt(np.mean(baseline_squared))
+    )
+    low, high = np.percentile(samples, [2.5, 97.5])
+    return {
+        "envelope_minus_cu_rmse_m": observed,
+        "ci95_low_m": float(low),
+        "ci95_high_m": float(high),
+        "interval_below_zero": bool(high < 0.0),
+        "interval_above_zero": bool(low > 0.0),
+    }
+
+
+def _cu_paired_bootstrap(
+    proposed_natural_root: Path,
+    proposed_fault_root: Path,
+    cu_root: Path,
+    *,
+    trials: int = 10_000,
+    block: int = 30,
+    seed: int = 20260826,
+) -> list[dict[str, object]]:
+    """Paired envelope-minus-CU intervals on identical states and subsets."""
+
+    rows = []
+    for group, names, proposed_root in (
+        ("natural", NATURAL_CASES, proposed_natural_root),
+        ("controlled_fault", FAULT_CASES, proposed_fault_root),
+    ):
+        for name in names:
+            report = json.loads(
+                (proposed_root / f"{name}.json").read_text(encoding="utf-8")
+            )
+            start = int(report["evaluation_start_index"])
+            with np.load(
+                proposed_root / f"{name}.npz", allow_pickle=False
+            ) as proposed_archive, np.load(
+                cu_root / f"{name}.npz", allow_pickle=False
+            ) as cu_archive:
+                truth = np.asarray(
+                    proposed_archive["truth_positions_enu_m"], dtype=float
+                )[start:]
+                envelope = np.asarray(
+                    proposed_archive["trajectory__dda_fc"], dtype=float
+                )[start:]
+                cu = np.asarray(cu_archive["trajectory__dda_fc"], dtype=float)[
+                    start:
+                ]
+            envelope_squared = np.sum((envelope - truth) ** 2, axis=1)
+            cu_squared = np.sum((cu - truth) ** 2, axis=1)
+            rows.append(
+                {
+                    "case": name,
+                    "case_group": group,
+                    "evaluation_epoch_count": len(truth),
+                    "bootstrap_trials": trials,
+                    "block_epochs": block,
+                    **_paired_rmse_interval(
+                        envelope_squared,
+                        cu_squared,
+                        block=block,
+                        trials=trials,
+                        seed=seed + len(rows),
+                    ),
+                }
+            )
+    return rows
+
+
+def _factor_construction_runtime(
+    factor_root: Path, repeats: int
+) -> list[dict[str, object]]:
+    """Microbenchmark envelope and CU on the exact selected pair inputs."""
+
+    pair_inputs: list[tuple[np.ndarray, np.ndarray]] = []
+    for name in (*NATURAL_CASES, *FAULT_CASES):
+        with np.load(
+            factor_root / f"{name}.selected_factor_inputs.npz",
+            allow_pickle=False,
+        ) as factors:
+            for epoch, count in enumerate(factors["member_counts"]):
+                if int(count) != 2:
+                    continue
+                pair_inputs.append(
+                    (
+                        np.asarray(
+                            factors["member_points_enu_m"][epoch, :2],
+                            dtype=float,
+                        ),
+                        np.asarray(
+                            factors["member_covariances_m2"][epoch, :2],
+                            dtype=float,
+                        ),
+                    )
+                )
+    if not pair_inputs:
+        raise RuntimeError("no pair-selected epochs available for runtime audit")
+
+    diagnostics = [
+        pair_covariance_union_diagnostics(points, covariances, floor_m=1.0)[2]
+        for points, covariances in pair_inputs
+    ]
+
+    # Warm both implementations before measuring batches.
+    for points, covariances in pair_inputs[: min(20, len(pair_inputs))]:
+        provenance_loewner_envelope(
+            points,
+            covariances,
+            floor_m=1.0,
+            center_mode="arithmetic",
+            envelope_mode="positive_part",
+        )
+        pair_covariance_union(points, covariances, floor_m=1.0)
+
+    timings: dict[str, list[float]] = {"envelope": [], "cu": []}
+    for _ in range(repeats):
+        started = time.perf_counter_ns()
+        for points, covariances in pair_inputs:
+            provenance_loewner_envelope(
+                points,
+                covariances,
+                floor_m=1.0,
+                center_mode="arithmetic",
+                envelope_mode="positive_part",
+            )
+        timings["envelope"].append(
+            (time.perf_counter_ns() - started) / (1000.0 * len(pair_inputs))
+        )
+
+        started = time.perf_counter_ns()
+        for points, covariances in pair_inputs:
+            pair_covariance_union(points, covariances, floor_m=1.0)
+        timings["cu"].append(
+            (time.perf_counter_ns() - started) / (1000.0 * len(pair_inputs))
+        )
+
+    success_count = sum(bool(item["success"]) for item in diagnostics)
+    fallback_count = sum(bool(item["used_fallback"]) for item in diagnostics)
+    minimum_feasibility = min(
+        float(item["minimum_feasibility_eigenvalue_m2"])
+        for item in diagnostics
+    )
+    common = {
+        "pair_epoch_count": len(pair_inputs),
+        "batch_repeats": repeats,
+        "cu_solver_success_count": success_count,
+        "cu_solver_fallback_count": fallback_count,
+        "cu_solver_success_rate": success_count / len(diagnostics),
+        "minimum_cu_feasibility_eigenvalue_m2": minimum_feasibility,
+        "median_cu_function_evaluations": float(
+            np.median([item["function_evaluations"] for item in diagnostics])
+        ),
+    }
+    return [
+        {
+            "method": method,
+            "median_runtime_us_per_pair_factor": float(np.median(values)),
+            "min_runtime_us_per_pair_factor": float(np.min(values)),
+            "max_runtime_us_per_pair_factor": float(np.max(values)),
+            **common,
+        }
+        for method, values in timings.items()
+    ]
+
+
 def _write_csv(path: Path, rows: list[dict[str, object]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     if not rows:
@@ -462,6 +738,9 @@ def main() -> None:
     parser.add_argument("--cu-root", type=Path, required=True)
     parser.add_argument("--fault-case-root", type=Path, required=True)
     parser.add_argument("--output-root", type=Path, required=True)
+    parser.add_argument("--bootstrap-trials", type=int, default=10_000)
+    parser.add_argument("--bootstrap-block", type=int, default=30)
+    parser.add_argument("--runtime-repeats", type=int, default=10)
     args = parser.parse_args()
     args.output_root.mkdir(parents=True, exist_ok=True)
 
@@ -473,6 +752,7 @@ def main() -> None:
         for name in names:
             calibration_rows.extend(_calibration_case(name, group, args.cu_root))
     calibration_summary = _aggregate_calibration(calibration_rows)
+    calibration_stratified = _aggregate_stratified_calibration(calibration_rows)
     natural_topology, fault_topology = _topology_diagnostics(
         args.cu_root, args.fault_case_root
     )
@@ -481,6 +761,16 @@ def main() -> None:
         args.proposed_fault_root,
         args.cu_root,
     )
+    cu_paired_bootstrap = _cu_paired_bootstrap(
+        args.proposed_natural_root,
+        args.proposed_fault_root,
+        args.cu_root,
+        trials=args.bootstrap_trials,
+        block=args.bootstrap_block,
+    )
+    factor_runtime = _factor_construction_runtime(
+        args.cu_root, args.runtime_repeats
+    )
     payload = {
         "calibration_interpretation": (
             "factor-level normalized squared error; descriptive coverage, "
@@ -488,9 +778,12 @@ def main() -> None:
         ),
         "calibration_by_case": calibration_rows,
         "calibration_summary": calibration_summary,
+        "calibration_stratified_summary": calibration_stratified,
         "natural_topology": natural_topology,
         "controlled_fault_topology": fault_topology,
         "same_subset_cu_comparison": cu_comparison,
+        "same_subset_envelope_minus_cu_paired_bootstrap": cu_paired_bootstrap,
+        "factor_construction_runtime": factor_runtime,
         "route_balanced_aggregate": route_balanced,
         "independence_note": (
             "The seven injected cases share the Medium route; Harsh and "
@@ -504,9 +797,18 @@ def main() -> None:
     )
     _write_csv(args.output_root / "calibration_by_case.csv", calibration_rows)
     _write_csv(args.output_root / "calibration_summary.csv", calibration_summary)
+    _write_csv(
+        args.output_root / "calibration_stratified_summary.csv",
+        calibration_stratified,
+    )
     _write_csv(args.output_root / "natural_topology.csv", natural_topology)
     _write_csv(args.output_root / "fault_topology.csv", fault_topology)
     _write_csv(args.output_root / "same_subset_cu.csv", cu_comparison)
+    _write_csv(
+        args.output_root / "same_subset_envelope_minus_cu_bootstrap.csv",
+        cu_paired_bootstrap,
+    )
+    _write_csv(args.output_root / "factor_construction_runtime.csv", factor_runtime)
     _write_csv(args.output_root / "route_balanced.csv", route_balanced)
     print(json.dumps(payload, indent=2, ensure_ascii=False))
 

@@ -129,8 +129,10 @@ automatically.
 - `component_ablation/`, `factor_ablation/`: ablation table;
 - `sensitivity/`, `statistics/leave_one_panel_out.*`: parameter analysis;
 - `statistics/`: paired confidence intervals and corrected tests;
-- `revision_diagnostics/`: factor-level coverage, direct topology decisions,
-  same-subset CU comparison and route-balanced descriptive aggregation;
+- `revision_diagnostics/`: pair/singleton-stratified factor coverage,
+  pre/post-fault topology decisions, same-subset envelope--CU paired
+  intervals, pair-factor runtime/feasibility, and route-balanced descriptive
+  aggregation;
 - `runtime/summary/runtime_benchmark.json`: fusion-layer timing;
 - `verification.json`: final pass/fail gate.
 

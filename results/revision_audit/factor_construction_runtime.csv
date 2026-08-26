@@ -1,0 +1,3 @@
+method,median_runtime_us_per_pair_factor,min_runtime_us_per_pair_factor,max_runtime_us_per_pair_factor,pair_epoch_count,batch_repeats,cu_solver_success_count,cu_solver_fallback_count,cu_solver_success_rate,minimum_cu_feasibility_eigenvalue_m2,median_cu_function_evaluations
+envelope,72.87658305921053,69.86324013157895,75.9618009868421,2432,10,2432,0,1.0,-7.689198552025616e-09,31.0
+cu,1009.5897615131579,998.1376644736843,1053.1802631578948,2432,10,2432,0,1.0,-7.689198552025616e-09,31.0

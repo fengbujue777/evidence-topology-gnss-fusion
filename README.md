@@ -17,8 +17,10 @@ cardinality before GNSS factors enter the graph.
 3. Compute a KISS-conditioned motion margin and a receiver-separation margin
    over non-overlapping windows.
 4. Select a singleton or coherent receiver pair with frozen thresholds.
-5. Insert one conservative Loewner-envelope factor for a selected pair; the
-   released same-subset CU baseline changes only this final construction.
+5. Instantiate the selected pair as one factor.  The closed-form Loewner
+   envelope is the default realization; the released same-subset CU baseline
+   changes only this final construction and is not treated as a different
+   selector.
 
 The nominal parameters are `W=30`, `tau_m=tau_d=2.0`, covariance floor
 `1.0 m`, and fixed Cauchy scale `2.5`.  They are recorded in
@@ -126,7 +128,7 @@ are loaded only after candidate trajectories have been produced.
 An independent clean-room rerun from freshly downloaded official files passed
 the registered natural/legacy matrix within documented solver tolerances.
 The synchronized common-epoch fault builder, CU feasibility constraints, and
-revision diagnostics pass the current 22-test suite. See the
+revision diagnostics pass the current 23-test suite. See the
 [clean-room audit](docs/CLEANROOM_REPRODUCTION_AUDIT.md) and its machine-readable
 records under `results/reproduction_audit/`.  The seven controlled faults are
 perturbations of one Medium route, not seven independent route validations.

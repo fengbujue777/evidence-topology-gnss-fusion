@@ -4,12 +4,19 @@ These compact files support the manuscript revision that adds covariance
 union, factor-level calibration and direct topology-decision diagnostics.
 
 - `revision_diagnostics.json` is the machine-readable complete summary.
-- `calibration_by_case.csv` and `calibration_summary.csv` report factor-level
-  normalized-squared-error coverage, not posterior NIS or NEES.
-- `fault_topology.csv` and `natural_topology.csv` report assigned subsets.
+- `calibration_by_case.csv`, `calibration_summary.csv`, and
+  `calibration_stratified_summary.csv` report factor-level
+  normalized-squared-error coverage, including pair-only and singleton
+  strata, not posterior NIS or NEES.
+- `fault_topology.csv` and `natural_topology.csv` report assigned subsets;
+  fault rows include pre-onset and post-onset raw exclusion counts.
   Fault delays are offline same-window offsets and are not causal latency.
 - `same_subset_cu.csv` holds topology fixed and changes only pair covariance
   construction.
+- `same_subset_envelope_minus_cu_bootstrap.csv` reports paired 30-epoch
+  moving-block intervals between the two constructions.
+- `factor_construction_runtime.csv` records the same-input envelope/CU
+  microbenchmark and CU solver/feasibility audit.
 - `route_balanced.csv` treats the seven Medium perturbations as one route
   cluster and Harsh/phones as one shared-route cluster.
 - `paired_bootstrap_report.*` contains the revised common-epoch fault

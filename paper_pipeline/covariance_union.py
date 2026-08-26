@@ -55,6 +55,25 @@ def pair_covariance_union(
     optimum.  The third return value is the optimized segment coordinate.
     """
 
+    center, union, diagnostics = pair_covariance_union_diagnostics(
+        points, covariances, floor_m=floor_m
+    )
+    return center, union, float(diagnostics["alpha"])
+
+
+def pair_covariance_union_diagnostics(
+    points: np.ndarray,
+    covariances: np.ndarray,
+    floor_m: float = 1.0,
+) -> tuple[np.ndarray, np.ndarray, dict[str, float | int | bool | str]]:
+    """Construct the pair CU and expose reproducibility diagnostics.
+
+    The scalar parameter ``alpha`` is globally bounded to ``[0, 1]`` and
+    solved with SciPy's bounded golden-section/parabolic search.  Returning
+    solver status and feasibility makes the paper comparator auditable while
+    preserving :func:`pair_covariance_union`'s original public interface.
+    """
+
     points = np.asarray(points, dtype=float)
     covariances = np.asarray(covariances, dtype=float)
     if points.ndim != 2 or points.shape[1] != 3:
@@ -70,7 +89,21 @@ def pair_covariance_union(
         [_regularize(covariance, floor_m) for covariance in covariances]
     )
     if len(points) == 1:
-        return points[0].copy(), regularized[0], 0.0
+        diagnostics: dict[str, float | int | bool | str] = {
+            "alpha": 0.0,
+            "success": True,
+            "used_fallback": False,
+            "function_evaluations": 0,
+            "objective_trace_m2": float(np.trace(regularized[0])),
+            "minimum_feasibility_eigenvalue_m2": 0.0,
+            "search_lower": 0.0,
+            "search_upper": 1.0,
+            "absolute_alpha_tolerance": 1e-8,
+            "maximum_iterations": 200,
+            "objective": "trace",
+            "solver": "scipy.optimize.minimize_scalar(method=bounded)",
+        }
+        return points[0].copy(), regularized[0], diagnostics
 
     direction = points[1] - points[0]
 
@@ -91,7 +124,28 @@ def pair_covariance_union(
     )
     alpha = float(result.x) if result.success else 0.5
     center, union = candidate(alpha)
-    return center, union, alpha
+    minimum_feasibility = float(
+        np.min(
+            union_feasibility_eigenvalues(
+                center, union, points, regularized
+            )
+        )
+    )
+    diagnostics = {
+        "alpha": alpha,
+        "success": bool(result.success),
+        "used_fallback": bool(not result.success),
+        "function_evaluations": int(getattr(result, "nfev", 0)),
+        "objective_trace_m2": float(np.trace(union)),
+        "minimum_feasibility_eigenvalue_m2": minimum_feasibility,
+        "search_lower": 0.0,
+        "search_upper": 1.0,
+        "absolute_alpha_tolerance": 1e-8,
+        "maximum_iterations": 200,
+        "objective": "trace",
+        "solver": "scipy.optimize.minimize_scalar(method=bounded)",
+    }
+    return center, union, diagnostics
 
 
 def union_feasibility_eigenvalues(
