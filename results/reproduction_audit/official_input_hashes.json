@@ -1,0 +1,45 @@
+{
+  "audit_date": "2026-08-25/26",
+  "hash_algorithm": "SHA-256 unless explicitly marked MD5",
+  "inputs": [
+    {
+      "dataset": "UrbanNav-HK-Medium-Urban-1",
+      "artifact": "ROS bag",
+      "bytes": 35244535470,
+      "sha256": "612f6239e6d5a2cc59aa7d01be86d1c0a35f401f22eede4a9fe75eeb67425ffa",
+      "lidar_messages": 7848
+    },
+    {
+      "dataset": "UrbanNav-HK-Deep-Urban-1",
+      "artifact": "ROS bag",
+      "bytes": 68653442944,
+      "sha256": "0832afee801912ac8ce92c9f41d9b9fcc72c5d1a4f39467cad46699345c4ca67",
+      "lidar_messages": 15356
+    },
+    {
+      "dataset": "UrbanNav-HK-Harsh-Urban-1 verified partial route",
+      "artifact": "ROS bag",
+      "bytes": 105169093041,
+      "sha256": "5c535ca0228270a07509e836a43466461abbf14ccfbd916c349b23156b611017",
+      "lidar_messages": 23120
+    },
+    {
+      "dataset": "LOCSP CR1",
+      "artifact": "official archive and extracted ROS bag",
+      "official_archive_bytes": 4896020091,
+      "official_archive_md5": "2ad8b4493a78ddb30f8579884a57303d",
+      "extracted_bag_bytes": 20840635906,
+      "extracted_bag_sha256": "b0b09a7cad21ec1dd86fdf83b1e79b0b3da0f0528b56806bbdc2ba79fb5e33b7",
+      "lidar_messages": 3501
+    },
+    {
+      "dataset": "LOCSP CR2",
+      "artifact": "official archive and extracted ROS bag",
+      "official_archive_bytes": 4357473671,
+      "official_archive_md5": "1833186df1005ee0f0bf5faeebe39dd1",
+      "extracted_bag_bytes": 18224361390,
+      "extracted_bag_sha256": "f416559b4bb17b8e5aaf7aa2b2b9664350a926abc4d344713cad96f24cddc2a2",
+      "lidar_messages": 3075
+    }
+  ]
+}

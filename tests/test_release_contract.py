@@ -40,3 +40,14 @@ def test_dependent_solution_streams_map_to_one_physical_source() -> None:
     keys = ("ublox_m8t_gc", "ublox_m8t_gej", "ublox_m8t_gr")
     assert {registry[key] for key in keys} == {"ublox_m8t"}
     assert registry["locsp_m8t"] == registry["locsp_m8t_navpvt"]
+
+
+def test_rtklib_installer_builds_required_iers_library_first() -> None:
+    installer = (ROOT / "scripts" / "install_rtklib.sh").read_text(
+        encoding="utf-8"
+    )
+    iers_build = installer.index('make -C "${DESTINATION}/lib/iers/gcc"')
+    rnx_build = installer.index(
+        'make -C "${DESTINATION}/app/consapp/rnx2rtkp/gcc"'
+    )
+    assert iers_build < rnx_build

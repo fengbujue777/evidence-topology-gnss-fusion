@@ -28,6 +28,16 @@ Required inputs per route are:
    Hong Kong raw truth file passed with `--truth-csv` for Harsh;
 4. the matching extrinsic JSON in `configs/extrinsics/`.
 
+The UrbanNav receiver archives contain the observation RINEX files but may
+not contain the daily mixed broadcast-navigation file required by RTKLIB.
+Obtain the matching `BRDM00DLR` RINEX 3 navigation file from the official BKG
+IGS archive, then decompress it into the same RINEX directory. The paper
+routes use 2021 day-of-year 137 (Medium), 141 (Deep), and 138 (Harsh):
+
+- <https://igs.bkg.bund.de/root_ftp/IGS/BRDC/2021/137/BRDM00DLR_S_20211370000_01D_MN.rnx.gz>
+- <https://igs.bkg.bund.de/root_ftp/IGS/BRDC/2021/141/BRDM00DLR_S_20211410000_01D_MN.rnx.gz>
+- <https://igs.bkg.bund.de/root_ftp/IGS/BRDC/2021/138/BRDM00DLR_S_20211380000_01D_MN.rnx.gz>
+
 The exact physical-source mapping is in `PROVENANCE_REGISTRY.json`. In
 particular, the M8T constellation partitions are dependent streams from one
 receiver, not three independent receivers.

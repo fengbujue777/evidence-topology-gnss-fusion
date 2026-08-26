@@ -121,6 +121,11 @@ configuration, extrinsics, panel definitions and orchestration needed to
 regenerate cases, plus small frozen JSON/CSV summaries. Reference trajectories
 are loaded only after candidate trajectories have been produced.
 
+An independent clean-room rerun from freshly downloaded official files passed
+all 11 registered cases and all 19 tests. See the
+[clean-room audit](docs/CLEANROOM_REPRODUCTION_AUDIT.md) and its machine-readable
+records under `results/reproduction_audit/`.
+
 ## Reproducibility scope
 
 The released estimator is the offline route-level realization evaluated in

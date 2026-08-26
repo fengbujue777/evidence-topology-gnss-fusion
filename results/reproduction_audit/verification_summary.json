@@ -1,0 +1,21 @@
+{
+  "audit_date": "2026-08-25/26",
+  "verdict": "PASS",
+  "repository_base_revision": "1cc87ca6f47d77c48a8d146c1fe12d627891fbac",
+  "rtklib_revision": "180043ee24b6d2b168f98b64be15f69d50046b1a",
+  "registered_cases": 11,
+  "cases_passed": 11,
+  "all_evaluation_epoch_counts_exact": true,
+  "proposed_rmse_tolerance_m": 0.03,
+  "maximum_proposed_rmse_difference_m": 0.023123,
+  "iterative_baseline_rmse_tolerance_m": 0.15,
+  "maximum_iterative_baseline_rmse_difference_m": 0.103865,
+  "tests": {
+    "command": "python -m pytest -q",
+    "passed": 19,
+    "failed": 0
+  },
+  "dependency_check": "PASS",
+  "git_diff_check": "PASS",
+  "scope": "Processing and numerical reproducibility; not universal generalization."
+}
