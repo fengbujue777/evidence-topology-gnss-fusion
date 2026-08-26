@@ -138,3 +138,17 @@ automatically.
 
 Committed small summaries live in `results/`; raw and generated NPZ files do
 not need to be versioned because every stage above regenerates them.
+
+After the natural and synchronized-fault stages have finished, regenerate the
+three representative trajectory panels directly from their NPZ/JSON pairs:
+
+```powershell
+python plot_qualitative_trajectories.py `
+  --natural-root <REPRODUCTION_OUTPUT>/natural `
+  --fault-root <REPRODUCTION_OUTPUT>/fault `
+  --output-stem <FIGURE_DIRECTORY>/figure2_qualitative_trajectories
+```
+
+The script reads `evaluation_start_index` from each result JSON and recomputes
+every displayed RMSE from the plotted trajectory arrays.  No RMSE annotation is
+stored as a hand-entered constant.
