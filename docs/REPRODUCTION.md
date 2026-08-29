@@ -94,7 +94,9 @@ The launcher performs, in dependency order:
 7. leave-one-route-out parameter selection;
 8. five fusion-layer runtime repeats;
 9. factor-level coverage, CU and direct topology-decision diagnostics;
-10. numerical comparison with committed frozen summaries.
+10. separation-first versus motion-first priority ablation;
+11. block-length sensitivity at 15, 30, 45 and 60 epochs;
+12. numerical comparison with committed frozen summaries.
 
 Run only selected stages with, for example,
 `--stages natural,fault-cases,faults,cu,diagnostics,verify`. Existing complete outputs are
@@ -127,8 +129,13 @@ automatically.
 - `ci/`: covariance-intersection comparison;
 - `cu_same_subset/`: CU using exactly the proposed selected subsets;
 - `component_ablation/`, `factor_ablation/`: ablation table;
+- `component_ablation/motion_first/` and
+  `statistics/priority_ablation/`: separation-first versus motion-first
+  paired rerun and bootstrap comparison;
 - `sensitivity/`, `statistics/leave_one_panel_out.*`: parameter analysis;
 - `statistics/`: paired confidence intervals and corrected tests;
+- `statistics/block_sensitivity/B15/`, `B30/`, `B45/`, and `B60/`:
+  pre-defined block-length sensitivity runs;
 - `revision_diagnostics/`: pair/singleton-stratified factor coverage,
   pre/post-fault topology decisions, same-subset envelope--CU paired
   intervals, pair-factor runtime/feasibility, and route-balanced descriptive

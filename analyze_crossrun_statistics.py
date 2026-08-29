@@ -87,6 +87,11 @@ def main() -> None:
             args.component_root / "separation_pair" / "fault",
         ),
         (
+            "motion_first",
+            args.component_root / "motion_first" / "natural",
+            args.component_root / "motion_first" / "fault",
+        ),
+        (
             "selected_pair_independent_factors",
             args.factor_root / "natural",
             args.factor_root / "fault",

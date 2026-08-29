@@ -71,6 +71,24 @@ def _candidate_subset(
             "ablation_closest_separation_pair",
             diagnostics,
         )
+    if subset_policy == "motion_first":
+        if motion_ratio >= motion_margin:
+            return (
+                [best],
+                "ablation_motion_first_clear_single",
+                diagnostics,
+            )
+        if pair_ratio >= separation_margin:
+            return (
+                sorted(coherent_pair),
+                "ablation_motion_first_coherent_pair",
+                diagnostics,
+            )
+        return (
+            sorted((best, runner_up)),
+            "ablation_motion_first_ambiguous_pair",
+            diagnostics,
+        )
     if subset_policy != "full":
         raise ValueError(f"unsupported subset policy: {subset_policy}")
 
@@ -99,7 +117,7 @@ def main() -> None:
     custom.add_argument("--separation-margin", type=float, default=2.0)
     custom.add_argument(
         "--subset-policy",
-        choices=("full", "motion_single", "separation_pair"),
+        choices=("full", "motion_single", "separation_pair", "motion_first"),
         default="full",
         help="Frozen full method or one-component ablation.",
     )

@@ -281,6 +281,37 @@ def _statistics(output: Path, trials: int, overwrite: bool) -> None:
             output / "statistics" / f"{label}.log",
             overwrite,
         )
+    priority_root = output / "statistics" / "priority_ablation"
+    _run_logged(
+        [
+            sys.executable,
+            str(REPOSITORY / "analyze_priority_ablation.py"),
+            "--full-root", str(output),
+            "--motion-first-root",
+            str(output / "component_ablation" / "motion_first"),
+            "--output-root", str(priority_root),
+            "--trials", str(trials),
+        ],
+        [priority_root / "report.json", priority_root / "report.csv"],
+        output / "statistics" / "priority_ablation.log",
+        overwrite,
+    )
+    for block in (15, 30, 45, 60):
+        destination = output / "statistics" / "block_sensitivity" / f"B{block}"
+        _run_logged(
+            [
+                sys.executable,
+                str(REPOSITORY / "analyze_paired_statistics.py"),
+                "--natural-root", str(output / "natural"),
+                "--fault-root", str(output / "fault"),
+                "--output-root", str(destination),
+                "--trials", str(trials),
+                "--block", str(block),
+            ],
+            [destination / "report.json", destination / "report.csv"],
+            output / "statistics" / f"block_B{block}.log",
+            overwrite,
+        )
     lopo = output / "statistics" / "leave_one_panel_out.json"
     _run_logged(
         [
@@ -343,7 +374,7 @@ def main() -> None:
             args.overwrite,
         )
     if "ablations" in requested:
-        for policy in ("motion_single", "separation_pair"):
+        for policy in ("motion_single", "separation_pair", "motion_first"):
             for name, root in natural_cases.items():
                 _run_estimator(
                     root,

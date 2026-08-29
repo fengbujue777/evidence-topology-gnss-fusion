@@ -61,6 +61,31 @@ def test_separation_triangle_can_override_motion_ranking() -> None:
     assert reason == "separation_triangle_coherent_pair"
 
 
+def test_motion_first_ablation_reverses_priority_when_both_margins_are_clear() -> None:
+    window = _window(
+        {"a": 1.0, "b": 2.0, "c": 2.1},
+        {"a__b": 20.0, "a__c": 18.0, "b__c": 2.0},
+    )
+    full_subset, full_reason, _ = _candidate_subset(
+        window,
+        ["a", "b", "c"],
+        1.5,
+        1.5,
+        "full",
+    )
+    motion_first_subset, motion_first_reason, _ = _candidate_subset(
+        window,
+        ["a", "b", "c"],
+        1.5,
+        1.5,
+        "motion_first",
+    )
+    assert full_subset == ["b", "c"]
+    assert full_reason == "separation_triangle_coherent_pair"
+    assert motion_first_subset == ["a"]
+    assert motion_first_reason == "ablation_motion_first_clear_single"
+
+
 def test_subset_topology_inserts_one_factor_per_epoch(monkeypatch) -> None:
     class Graph:
         def __init__(self) -> None:
