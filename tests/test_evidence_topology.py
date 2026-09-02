@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import numpy as np
 
-import topology_factor_graph as topology
-from run_evidence_topology import _candidate_subset
+from evidence_topology import topology_factor_graph as topology
+from evidence_topology.method import _candidate_subset
 
 
 def _window(

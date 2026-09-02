@@ -13,7 +13,7 @@ if str(REPOSITORY) not in sys.path:
 
 from paper_pipeline.loewner_envelope import provenance_loewner_envelope
 from paper_pipeline.provenance import ProvenanceRegistry
-from run_evidence_topology import _candidate_subset
+from evidence_topology.method import _candidate_subset
 
 
 def main() -> None:

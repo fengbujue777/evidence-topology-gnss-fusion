@@ -14,9 +14,9 @@ import time
 
 import numpy as np
 
-import topology_factor_graph as base
-from receiver_diversity_baselines import _metrics
-from receiver_consensus import (
+from evidence_topology import topology_factor_graph as base
+from evidence_topology.receiver_diversity_baselines import _metrics
+from evidence_topology.receiver_consensus import (
     _hardware_group,
     _nearest_indices,
 )

@@ -16,7 +16,7 @@ from paper_pipeline.covariance_union import (
     pair_covariance_union_diagnostics,
 )
 from paper_pipeline.loewner_envelope import provenance_loewner_envelope
-from run_ci_baseline import _covariance_intersection
+from scripts.experiments.run_ci_baseline import _covariance_intersection
 
 
 NATURAL_CASES = ("hk", "deep", "harsh", "phone")

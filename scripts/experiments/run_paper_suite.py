@@ -9,7 +9,7 @@ import subprocess
 import sys
 
 
-REPOSITORY = Path(__file__).resolve().parent
+REPOSITORY = Path(__file__).resolve().parents[2]
 
 
 def _resolve(path: str, base: Path) -> Path:
@@ -45,7 +45,8 @@ def main() -> None:
             continue
         command = [
             sys.executable,
-            str(REPOSITORY / "run_evidence_topology.py"),
+            "-m",
+            "evidence_topology.method",
             "--motion-margin", "2.0",
             "--separation-margin", "2.0",
             "--window-epochs", "30",

@@ -23,8 +23,8 @@ import sys
 
 import numpy as np
 
-import loewner_topology as loewner
-import topology_factor_graph as base
+from evidence_topology import loewner_topology as loewner
+from evidence_topology import topology_factor_graph as base
 from paper_pipeline.provenance import ProvenanceRegistry
 
 
@@ -142,7 +142,7 @@ def main() -> None:
     custom.add_argument(
         "--provenance-registry",
         type=Path,
-        default=Path(__file__).with_name("PROVENANCE_REGISTRY.json"),
+        default=Path(__file__).resolve().parents[1] / "PROVENANCE_REGISTRY.json",
     )
     custom_args, remaining = custom.parse_known_args()
     if custom_args.motion_margin <= 1.0:

@@ -40,7 +40,7 @@ Download the files listed in `docs/DATASETS.md`. Medium can then be prepared
 with one command:
 
 ```powershell
-python prepare_urbannav_panel.py `
+python -m scripts.data.prepare_urbannav_panel `
   --panel configs/receiver_panels/urbannav_hk_medium.json `
   --bag <MEDIUM_ROS_BAG> `
   --rinex-root <MEDIUM_RINEX_DIRECTORY> `
@@ -57,7 +57,7 @@ For Deep, change the panel/extrinsic/output paths and provide every bag after
 The three-phone panel reuses the Harsh KISS/truth cache:
 
 ```powershell
-python prepare_urbannav_panel.py `
+python -m scripts.data.prepare_urbannav_panel `
   --panel configs/receiver_panels/urbannav_three_phones.json `
   --rinex-root <PHONE_RINEX_DIRECTORY> `
   --cache-root data/processed/hk_harsh/cache `
@@ -111,7 +111,7 @@ observed deviations were 2.32 cm and 10.39 cm, respectively.
 ## 5. Reproduce the LOCSP external test
 
 ```powershell
-python reproduce_locsp.py `
+python -m scripts.reproduction.reproduce_locsp `
   --dataset-id locsp_cr2 `
   --bag <LOCSP_CR2_ROS_BAG> `
   --output-root outputs/locsp_cr2
@@ -150,7 +150,7 @@ After the natural and synchronized-fault stages have finished, regenerate the
 three representative trajectory panels directly from their NPZ/JSON pairs:
 
 ```powershell
-python plot_qualitative_trajectories.py `
+python -m scripts.figures.plot_qualitative_trajectories `
   --natural-root <REPRODUCTION_OUTPUT>/natural `
   --fault-root <REPRODUCTION_OUTPUT>/fault `
   --output-stem <FIGURE_DIRECTORY>/figure2_qualitative_trajectories

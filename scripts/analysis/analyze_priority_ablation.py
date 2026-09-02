@@ -12,8 +12,8 @@ import csv
 import json
 from pathlib import Path
 
-from analyze_crossrun_statistics import FAULT, NATURAL, _row
-from analyze_paired_statistics import _apply_holm
+from scripts.analysis.analyze_crossrun_statistics import FAULT, NATURAL, _row
+from scripts.analysis.analyze_paired_statistics import _apply_holm
 
 
 def main() -> None:

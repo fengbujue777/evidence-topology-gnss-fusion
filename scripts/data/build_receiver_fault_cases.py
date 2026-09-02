@@ -13,7 +13,7 @@ import shutil
 
 import numpy as np
 
-from receiver_consensus import _hardware_group, _nearest_indices
+from evidence_topology.receiver_consensus import _hardware_group, _nearest_indices
 
 
 def _inject(

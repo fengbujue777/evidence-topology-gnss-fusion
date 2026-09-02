@@ -15,7 +15,7 @@ from pathlib import Path
 from paper_pipeline.rtklib import RTKLIB_COMMIT, run_spp
 
 
-REPOSITORY = Path(__file__).resolve().parent
+REPOSITORY = Path(__file__).resolve().parents[2]
 
 
 def _sha256(path: Path) -> str:

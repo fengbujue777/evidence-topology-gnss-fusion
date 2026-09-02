@@ -15,8 +15,8 @@ import time
 
 import numpy as np
 
-from fusion_graph_backend import _build_graph, _key, _optimize
-from receiver_consensus import (
+from evidence_topology.fusion_graph_backend import _build_graph, _key, _optimize
+from evidence_topology.receiver_consensus import (
     _consensus_epoch,
     _geometric_median,
     _hardware_group,

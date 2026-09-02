@@ -13,7 +13,7 @@ from pathlib import Path
 
 import numpy as np
 
-from fusion_graph_backend import _build_graph, _optimize, _key
+from evidence_topology.fusion_graph_backend import _build_graph, _optimize, _key
 from paper_pipeline.alignment import (
     estimate_truth_free_alignment,
     interpolate_poses,

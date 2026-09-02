@@ -17,7 +17,7 @@ The change is deliberately narrow:
 
 from __future__ import annotations
 
-import topology_factor_graph as base
+from evidence_topology import topology_factor_graph as base
 
 
 def _quorum_median_initial_adjudication(

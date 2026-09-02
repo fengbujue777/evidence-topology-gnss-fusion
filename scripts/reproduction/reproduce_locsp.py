@@ -10,7 +10,7 @@ import subprocess
 import sys
 
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[2]
 
 
 def _run(arguments: list[str]) -> None:
@@ -21,7 +21,8 @@ def _run(arguments: list[str]) -> None:
 def _graph(case_root: Path, output_root: Path, ablation: str, partial: bool) -> None:
     arguments = [
         sys.executable,
-        "topology_factor_graph.py",
+        "-m",
+        "evidence_topology.topology_factor_graph",
         "--case-root",
         str(case_root),
         "--output",
@@ -83,7 +84,8 @@ def main() -> None:
     _run(
         [
             sys.executable,
-            "extract_locsp_cache.py",
+            "-m",
+            "scripts.data.extract_locsp_cache",
             "--dataset-id",
             dataset,
             "--bag",
@@ -102,7 +104,8 @@ def main() -> None:
     _run(
         [
             sys.executable,
-            "audit_locsp_m8t_solution_streams.py",
+            "-m",
+            "scripts.data.audit_locsp_m8t_solution_streams",
             str(args.bag),
             "--output",
             str(audit),
@@ -117,7 +120,8 @@ def main() -> None:
     _run(
         [
             sys.executable,
-            "build_locsp_m8t_navpvt_estimator_input.py",
+            "-m",
+            "scripts.data.build_locsp_m8t_navpvt_estimator_input",
             str(args.bag),
             str(m8t),
             str(navpvt),
@@ -132,7 +136,8 @@ def main() -> None:
     _run(
         [
             sys.executable,
-            "finalize_locsp_source_quotient.py",
+            "-m",
+            "scripts.analysis.finalize_locsp_source_quotient",
             "--two-source-report",
             str(results / "two_source.json"),
             "--two-source-trajectory",

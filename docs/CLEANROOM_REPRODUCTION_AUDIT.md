@@ -31,4 +31,4 @@ The LOCSP experiment was rerun from official CR1 and CR2 ROS bags. Replacing a d
 
 The release intentionally retains cases where the proposed method is not the lowest-error estimator, including UrbanNav Deep, the phone panel, and the distributed double fault. The supported claim is targeted robustness to evidence multiplicity and receiver disagreement, not universal RMSE dominance.
 
-See `results/reproduction_audit/official_input_hashes.json` and `results/reproduction_audit/verification_summary.json` for machine-readable audit records. The complete pipeline remains `python reproduce_paper.py --config <local-config.json> --stage all`; provider files are not redistributed.
+See `results/reproduction_audit/official_input_hashes.json` and `results/reproduction_audit/verification_summary.json` for machine-readable audit records. The complete pipeline remains `python reproduce_paper.py --config <local-config.json> --stages all`; provider files are not redistributed.

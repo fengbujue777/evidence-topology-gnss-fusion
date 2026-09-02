@@ -29,15 +29,16 @@ The nominal parameters are `W=30`, `tau_m=tau_d=2.0`, covariance floor
 ## Repository layout
 
 ```text
-run_evidence_topology.py       main proposed estimator
-topology_factor_graph.py       graph construction and evaluation boundary
+evidence_topology/             proposed method and factor-graph core
 paper_pipeline/                alignment, cases, provenance and covariance code
-run_ci_baseline.py             covariance-intersection baseline
-paper_pipeline/covariance_union.py  same-subset covariance-union baseline
-run_contrast_factor.py         independent-factor topology ablation
-analyze_*.py                   statistics and leave-one-panel-out analysis
-build_*.py                     controlled-fault and stress-case builders
-tests/                         algorithmic regression tests
+scripts/data/                  raw-data extraction and case construction
+scripts/experiments/           baselines, ablations and experiment launchers
+scripts/analysis/              statistics, diagnostics and runtime summaries
+scripts/figures/               manuscript figure generation
+scripts/reproduction/          end-to-end external reproduction and verification
+reproduce_paper.py             stable top-level full-reproduction entry point
+configs/                       frozen parameters, panels and extrinsics
+tests/                         algorithmic and release-contract tests
 results/                       frozen JSON/CSV results used by the paper
 docs/                          dataset and reproduction instructions
 ```
@@ -86,15 +87,16 @@ ROS bags + RINEX
   -> statistics, runtime and numerical verification
 ```
 
-Prepare one panel with `prepare_urbannav_panel.py`; run the complete paper
-matrix with `reproduce_paper.py`; reproduce the independent LOCSP source-
-quotient experiment with `reproduce_locsp.py`. Exact commands are in
+Prepare one panel with `python -m scripts.data.prepare_urbannav_panel`; run the
+complete paper matrix with `reproduce_paper.py`; reproduce the independent
+LOCSP source-quotient experiment with
+`python -m scripts.reproduction.reproduce_locsp`. Exact commands are in
 [`docs/REPRODUCTION.md`](docs/REPRODUCTION.md).
 
 To run one already-prepared panel directly:
 
 ```powershell
-python run_evidence_topology.py `
+python -m evidence_topology.method `
   --case-root data/processed/hk_medium/cases `
   --motion-margin 2.0 `
   --separation-margin 2.0 `
@@ -128,7 +130,7 @@ are loaded only after candidate trajectories have been produced.
 An independent clean-room rerun from freshly downloaded official files passed
 the registered natural/legacy matrix within documented solver tolerances.
 The synchronized common-epoch fault builder, CU feasibility constraints, and
-revision diagnostics pass the current 23-test suite. See the
+revision diagnostics pass the current 24-test suite. See the
 [clean-room audit](docs/CLEANROOM_REPRODUCTION_AUDIT.md) and its machine-readable
 records under `results/reproduction_audit/`.  The seven controlled faults are
 perturbations of one Medium route, not seven independent route validations.

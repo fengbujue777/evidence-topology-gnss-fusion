@@ -9,7 +9,7 @@ from pathlib import Path
 
 import numpy as np
 
-from analyze_paired_statistics import _apply_holm, _paired_ci, _rmse
+from scripts.analysis.analyze_paired_statistics import _apply_holm, _paired_ci, _rmse
 
 
 NATURAL = ("hk", "deep", "harsh", "phone")

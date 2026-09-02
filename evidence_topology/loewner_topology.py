@@ -10,8 +10,8 @@ import sys
 
 import numpy as np
 
-import quorum_median_topology as quorum
-import topology_factor_graph as base
+from evidence_topology import quorum_median_topology as quorum
+from evidence_topology import topology_factor_graph as base
 
 from paper_pipeline.loewner_envelope import provenance_loewner_envelope
 from paper_pipeline.provenance import ProvenanceRegistry
@@ -60,7 +60,7 @@ if __name__ == "__main__":
     custom.add_argument(
         "--provenance-registry",
         type=Path,
-        default=Path(__file__).with_name("PROVENANCE_REGISTRY.json"),
+        default=Path(__file__).resolve().parents[1] / "PROVENANCE_REGISTRY.json",
     )
     custom_args, remaining = custom.parse_known_args()
     _center_mode = custom_args.loewner_center

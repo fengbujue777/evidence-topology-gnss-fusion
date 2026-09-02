@@ -19,12 +19,12 @@ from pathlib import Path
 import numpy as np
 from scipy.optimize import minimize
 
-import topology_factor_graph as base
-from receiver_diversity_baselines import (
+from evidence_topology import topology_factor_graph as base
+from evidence_topology.receiver_diversity_baselines import (
     _metrics,
     _regularize,
 )
-from receiver_consensus import (
+from evidence_topology.receiver_consensus import (
     _hardware_group,
     _nearest_indices,
 )

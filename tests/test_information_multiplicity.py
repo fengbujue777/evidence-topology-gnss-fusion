@@ -2,12 +2,12 @@ from __future__ import annotations
 
 import numpy as np
 
-from validate_information_multiplicity import (
+from scripts.experiments.validate_information_multiplicity import (
     ChainNoise,
     _ldlt_solve_and_marginal,
     _method_factors,
 )
-from run_ci_baseline import _covariance_intersection
+from scripts.experiments.run_ci_baseline import _covariance_intersection
 
 
 def test_ldlt_solution_and_marginal_match_dense_inverse() -> None:

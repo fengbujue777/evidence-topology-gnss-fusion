@@ -15,7 +15,7 @@ import subprocess
 import sys
 
 
-REPOSITORY = Path(__file__).resolve().parent
+REPOSITORY = Path(__file__).resolve().parents[2]
 
 
 def _run(command: list[str]) -> None:
@@ -49,7 +49,8 @@ def main() -> None:
         if args.overwrite or not (sensor_cache.exists() and truth_cache.exists()):
             command = [
                 sys.executable,
-                str(REPOSITORY / "extract_urbannav_cache.py"),
+                "-m",
+                "scripts.data.extract_urbannav_cache",
                 "--dataset-id", dataset_id,
                 "--bag", *[str(path) for path in args.bag],
                 "--output-root", str(args.cache_root),
@@ -75,7 +76,8 @@ def main() -> None:
     if args.overwrite or not spp_manifest.exists():
         command = [
             sys.executable,
-            str(REPOSITORY / "run_receiver_spp.py"),
+            "-m",
+            "scripts.data.run_receiver_spp",
             "--panel", str(panel_path),
             "--rinex-root", str(args.rinex_root),
             "--output-root", str(raw_solutions),
@@ -91,7 +93,8 @@ def main() -> None:
         if args.overwrite or not normalization.exists():
             command = [
                 sys.executable,
-                str(REPOSITORY / "normalize_phone_solution_timestamps.py"),
+                "-m",
+                "scripts.data.normalize_phone_solution_timestamps",
                 "--source-root", str(raw_solutions),
                 "--output-root", str(case_solutions),
             ]
@@ -103,7 +106,8 @@ def main() -> None:
     _run(
         [
             sys.executable,
-            str(REPOSITORY / "build_receiver_panel_cases.py"),
+            "-m",
+            "scripts.data.build_receiver_panel_cases",
             "--panel", str(panel_path),
             "--sensor-cache", str(sensor_cache),
             "--truth-cache", str(truth_cache),
